@@ -1,0 +1,796 @@
+{
+  "metadata": {
+    "width": 430,
+    "height": 625,
+    "resolution": [
+      430,
+      625
+    ],
+    "format": "PNG",
+    "mode": "RGBA",
+    "file_size_bytes": null,
+    "frames": 1,
+    "is_animated": false
+  },
+  "contrast": {
+    "histogram": [
+      1869.0,
+      0.0,
+      3.0,
+      4.0,
+      5.0,
+      6.0,
+      18.0,
+      31.0,
+      53.0,
+      291.0,
+      63.0,
+      61.0,
+      84.0,
+      92.0,
+      76.0,
+      408.0,
+      78.0,
+      40.0,
+      50.0,
+      32.0,
+      20.0,
+      53.0,
+      16.0,
+      69.0,
+      235.0,
+      4.0,
+      9.0,
+      5.0,
+      3.0,
+      2.0,
+      3.0,
+      25.0,
+      10.0,
+      36.0,
+      10.0,
+      11.0,
+      37.0,
+      16.0,
+      16.0,
+      89.0,
+      277.0,
+      23.0,
+      26.0,
+      23.0,
+      37.0,
+      33.0,
+      31.0,
+      38.0,
+      51.0,
+      57.0,
+      74.0,
+      60.0,
+      74.0,
+      90.0,
+      98.0,
+      102.0,
+      115.0,
+      113.0,
+      161.0,
+      815.0,
+      4078.0,
+      9537.0,
+      266.0,
+      302.0,
+      341.0,
+      568.0,
+      254.0,
+      243.0,
+      301.0,
+      291.0,
+      305.0,
+      282.0,
+      345.0,
+      274.0,
+      297.0,
+      395.0,
+      365.0,
+      313.0,
+      299.0,
+      317.0,
+      275.0,
+      290.0,
+      344.0,
+      323.0,
+      324.0,
+      303.0,
+      340.0,
+      347.0,
+      398.0,
+      342.0,
+      353.0,
+      342.0,
+      377.0,
+      331.0,
+      329.0,
+      325.0,
+      646.0,
+      364.0,
+      339.0,
+      417.0,
+      354.0,
+      537.0,
+      707.0,
+      333.0,
+      367.0,
+      447.0,
+      359.0,
+      369.0,
+      352.0,
+      357.0,
+      368.0,
+      394.0,
+      413.0,
+      396.0,
+      387.0,
+      443.0,
+      423.0,
+      518.0,
+      448.0,
+      393.0,
+      405.0,
+      453.0,
+      457.0,
+      464.0,
+      415.0,
+      430.0,
+      513.0,
+      473.0,
+      461.0,
+      450.0,
+      459.0,
+      478.0,
+      479.0,
+      497.0,
+      500.0,
+      472.0,
+      456.0,
+      505.0,
+      494.0,
+      793.0,
+      510.0,
+      759.0,
+      582.0,
+      571.0,
+      576.0,
+      539.0,
+      682.0,
+      684.0,
+      1627.0,
+      3537.0,
+      732.0,
+      733.0,
+      705.0,
+      653.0,
+      787.0,
+      753.0,
+      749.0,
+      764.0,
+      835.0,
+      754.0,
+      733.0,
+      753.0,
+      782.0,
+      815.0,
+      807.0,
+      807.0,
+      840.0,
+      892.0,
+      755.0,
+      882.0,
+      871.0,
+      832.0,
+      764.0,
+      755.0,
+      725.0,
+      743.0,
+      946.0,
+      714.0,
+      691.0,
+      881.0,
+      896.0,
+      814.0,
+      808.0,
+      889.0,
+      658.0,
+      688.0,
+      1011.0,
+      719.0,
+      657.0,
+      837.0,
+      982.0,
+      4996.0,
+      81779.0,
+      454.0,
+      411.0,
+      363.0,
+      353.0,
+      341.0,
+      360.0,
+      365.0,
+      343.0,
+      355.0,
+      294.0,
+      287.0,
+      265.0,
+      232.0,
+      235.0,
+      254.0,
+      563.0,
+      253.0,
+      181.0,
+      209.0,
+      253.0,
+      210.0,
+      243.0,
+      489.0,
+      242.0,
+      341.0,
+      294.0,
+      277.0,
+      276.0,
+      246.0,
+      282.0,
+      434.0,
+      529.0,
+      381.0,
+      300.0,
+      265.0,
+      221.0,
+      184.0,
+      2671.0,
+      468.0,
+      192.0,
+      114.0,
+      94.0,
+      93.0,
+      73.0,
+      67.0,
+      345.0,
+      76.0,
+      41.0,
+      83.0,
+      142.0,
+      78.0,
+      66.0,
+      48.0,
+      53.0,
+      27.0,
+      19315.0,
+      284.0,
+      48.0,
+      48.0,
+      343.0,
+      218.0,
+      456.0,
+      51736.0
+    ],
+    "std_dev": 60.2921948214533,
+    "contrast_ratio": 255.0,
+    "rms_contrast": 60.2921948214533,
+    "michelson_contrast": 0.9999999999996079,
+    "mean_brightness": 185.0181693023256,
+    "is_high_contrast": true
+  },
+  "ocr": {
+    "full_text": "Einstein Bros. Bagels x:\n:\n\nNafe\u201d Sponsored\n\nHere for a fun time not a long time! Try the NEW Pretzel\nBagel Double Dipper with Beer Cheese Shmear &\n\nmustard ROQ\nPRETZEL BAGEL\n\nDOUBLE\n\nPretzel Bagel Double Dipper Order now",
+    "text_elements": [
+      {
+        "text": "DOUBLE",
+        "confidence": 96.0,
+        "bbox": {
+          "x": 71,
+          "y": 179,
+          "width": 288,
+          "height": 87
+        },
+        "area": 25056,
+        "relative_size": 0.09323162790697674,
+        "prominence_score": 89.50236279069767
+      },
+      {
+        "text": "PRETZEL",
+        "confidence": 95.0,
+        "bbox": {
+          "x": 70,
+          "y": 148,
+          "width": 159,
+          "height": 26
+        },
+        "area": 4134,
+        "relative_size": 0.015382325581395349,
+        "prominence_score": 14.613209302325581
+      },
+      {
+        "text": "BAGEL",
+        "confidence": 95.0,
+        "bbox": {
+          "x": 241,
+          "y": 148,
+          "width": 119,
+          "height": 27
+        },
+        "area": 3213,
+        "relative_size": 0.011955348837209303,
+        "prominence_score": 11.357581395348838
+      },
+      {
+        "text": "Dipper",
+        "confidence": 93.0,
+        "bbox": {
+          "x": 110,
+          "y": 87,
+          "width": 43,
+          "height": 32
+        },
+        "area": 1376,
+        "relative_size": 0.00512,
+        "prominence_score": 4.7616000000000005
+      },
+      {
+        "text": "x:",
+        "confidence": 65.0,
+        "bbox": {
+          "x": 347,
+          "y": 19,
+          "width": 58,
+          "height": 26
+        },
+        "area": 1508,
+        "relative_size": 0.005611162790697674,
+        "prominence_score": 3.6472558139534885
+      },
+      {
+        "text": "Sponsored",
+        "confidence": 92.0,
+        "bbox": {
+          "x": 64,
+          "y": 44,
+          "width": 70,
+          "height": 13
+        },
+        "area": 910,
+        "relative_size": 0.003386046511627907,
+        "prominence_score": 3.1151627906976747
+      },
+      {
+        "text": "ROQ",
+        "confidence": 74.0,
+        "bbox": {
+          "x": 72,
+          "y": 115,
+          "width": 60,
+          "height": 18
+        },
+        "area": 1080,
+        "relative_size": 0.004018604651162791,
+        "prominence_score": 2.9737674418604647
+      },
+      {
+        "text": "Einstein",
+        "confidence": 95.0,
+        "bbox": {
+          "x": 63,
+          "y": 22,
+          "width": 61,
+          "height": 12
+        },
+        "area": 732,
+        "relative_size": 0.0027237209302325583,
+        "prominence_score": 2.58753488372093
+      },
+      {
+        "text": "mustard",
+        "confidence": 93.0,
+        "bbox": {
+          "x": 9,
+          "y": 118,
+          "width": 56,
+          "height": 12
+        },
+        "area": 672,
+        "relative_size": 0.0025004651162790696,
+        "prominence_score": 2.3254325581395348
+      },
+      {
+        "text": "Bagels",
+        "confidence": 80.0,
+        "bbox": {
+          "x": 175,
+          "y": 22,
+          "width": 51,
+          "height": 15
+        },
+        "area": 765,
+        "relative_size": 0.0028465116279069768,
+        "prominence_score": 2.2772093023255815
+      },
+      {
+        "text": "Shmear",
+        "confidence": 92.0,
+        "bbox": {
+          "x": 292,
+          "y": 97,
+          "width": 55,
+          "height": 12
+        },
+        "area": 660,
+        "relative_size": 0.0024558139534883723,
+        "prominence_score": 2.2593488372093025
+      },
+      {
+        "text": "Cheese",
+        "confidence": 93.0,
+        "bbox": {
+          "x": 233,
+          "y": 97,
+          "width": 53,
+          "height": 12
+        },
+        "area": 636,
+        "relative_size": 0.002366511627906977,
+        "prominence_score": 2.2008558139534884
+      },
+      {
+        "text": "Double",
+        "confidence": 95.0,
+        "bbox": {
+          "x": 55,
+          "y": 97,
+          "width": 49,
+          "height": 12
+        },
+        "area": 588,
+        "relative_size": 0.002187906976744186,
+        "prominence_score": 2.0785116279069764
+      },
+      {
+        "text": "Bagel",
+        "confidence": 96.0,
+        "bbox": {
+          "x": 10,
+          "y": 97,
+          "width": 38,
+          "height": 15
+        },
+        "area": 570,
+        "relative_size": 0.0021209302325581394,
+        "prominence_score": 2.036093023255814
+      },
+      {
+        "text": "Pretzel",
+        "confidence": 96.0,
+        "bbox": {
+          "x": 356,
+          "y": 76,
+          "width": 47,
+          "height": 12
+        },
+        "area": 564,
+        "relative_size": 0.002098604651162791,
+        "prominence_score": 2.014660465116279
+      },
+      {
+        "text": "Dipper",
+        "confidence": 96.0,
+        "bbox": {
+          "x": 161,
+          "y": 599,
+          "width": 42,
+          "height": 13
+        },
+        "area": 546,
+        "relative_size": 0.0020316279069767444,
+        "prominence_score": 1.9503627906976744
+      },
+      {
+        "text": "Bagel",
+        "confidence": 96.0,
+        "bbox": {
+          "x": 67,
+          "y": 599,
+          "width": 36,
+          "height": 13
+        },
+        "area": 468,
+        "relative_size": 0.0017413953488372093,
+        "prominence_score": 1.671739534883721
+      },
+      {
+        "text": "Double",
+        "confidence": 96.0,
+        "bbox": {
+          "x": 109,
+          "y": 599,
+          "width": 46,
+          "height": 10
+        },
+        "area": 460,
+        "relative_size": 0.0017116279069767442,
+        "prominence_score": 1.6431627906976742
+      },
+      {
+        "text": "Pretzel",
+        "confidence": 96.0,
+        "bbox": {
+          "x": 17,
+          "y": 599,
+          "width": 44,
+          "height": 10
+        },
+        "area": 440,
+        "relative_size": 0.0016372093023255814,
+        "prominence_score": 1.571720930232558
+      },
+      {
+        "text": "Bros.",
+        "confidence": 89.0,
+        "bbox": {
+          "x": 130,
+          "y": 22,
+          "width": 39,
+          "height": 12
+        },
+        "area": 468,
+        "relative_size": 0.0017413953488372093,
+        "prominence_score": 1.5498418604651163
+      },
+      {
+        "text": "NEW",
+        "confidence": 96.0,
+        "bbox": {
+          "x": 314,
+          "y": 76,
+          "width": 36,
+          "height": 12
+        },
+        "area": 432,
+        "relative_size": 0.0016074418604651163,
+        "prominence_score": 1.5431441860465116
+      },
+      {
+        "text": "Here",
+        "confidence": 96.0,
+        "bbox": {
+          "x": 10,
+          "y": 76,
+          "width": 32,
+          "height": 12
+        },
+        "area": 384,
+        "relative_size": 0.0014288372093023255,
+        "prominence_score": 1.3716837209302326
+      },
+      {
+        "text": "Order",
+        "confidence": 95.0,
+        "bbox": {
+          "x": 333,
+          "y": 592,
+          "width": 38,
+          "height": 10
+        },
+        "area": 380,
+        "relative_size": 0.0014139534883720931,
+        "prominence_score": 1.3432558139534883
+      },
+      {
+        "text": "long",
+        "confidence": 81.0,
+        "bbox": {
+          "x": 186,
+          "y": 76,
+          "width": 29,
+          "height": 15
+        },
+        "area": 435,
+        "relative_size": 0.0016186046511627906,
+        "prominence_score": 1.3110697674418605
+      },
+      {
+        "text": "Beer",
+        "confidence": 88.0,
+        "bbox": {
+          "x": 195,
+          "y": 97,
+          "width": 32,
+          "height": 12
+        },
+        "area": 384,
+        "relative_size": 0.0014288372093023255,
+        "prominence_score": 1.2573767441860466
+      },
+      {
+        "text": "time",
+        "confidence": 96.0,
+        "bbox": {
+          "x": 111,
+          "y": 76,
+          "width": 29,
+          "height": 12
+        },
+        "area": 348,
+        "relative_size": 0.0012948837209302325,
+        "prominence_score": 1.2430883720930233
+      },
+      {
+        "text": "with",
+        "confidence": 96.0,
+        "bbox": {
+          "x": 160,
+          "y": 97,
+          "width": 28,
+          "height": 12
+        },
+        "area": 336,
+        "relative_size": 0.0012502325581395348,
+        "prominence_score": 1.2002232558139534
+      },
+      {
+        "text": "Try",
+        "confidence": 96.0,
+        "bbox": {
+          "x": 259,
+          "y": 76,
+          "width": 22,
+          "height": 15
+        },
+        "area": 330,
+        "relative_size": 0.0012279069767441861,
+        "prominence_score": 1.1787906976744187
+      },
+      {
+        "text": "not",
+        "confidence": 96.0,
+        "bbox": {
+          "x": 146,
+          "y": 76,
+          "width": 22,
+          "height": 12
+        },
+        "area": 264,
+        "relative_size": 0.0009823255813953488,
+        "prominence_score": 0.9430325581395348
+      },
+      {
+        "text": "the",
+        "confidence": 96.0,
+        "bbox": {
+          "x": 286,
+          "y": 76,
+          "width": 21,
+          "height": 12
+        },
+        "area": 252,
+        "relative_size": 0.0009376744186046512,
+        "prominence_score": 0.900167441860465
+      },
+      {
+        "text": "fun",
+        "confidence": 92.0,
+        "bbox": {
+          "x": 84,
+          "y": 76,
+          "width": 21,
+          "height": 12
+        },
+        "area": 252,
+        "relative_size": 0.0009376744186046512,
+        "prominence_score": 0.8626604651162791
+      },
+      {
+        "text": "for",
+        "confidence": 96.0,
+        "bbox": {
+          "x": 48,
+          "y": 76,
+          "width": 18,
+          "height": 12
+        },
+        "area": 216,
+        "relative_size": 0.0008037209302325581,
+        "prominence_score": 0.7715720930232558
+      },
+      {
+        "text": "now",
+        "confidence": 95.0,
+        "bbox": {
+          "x": 375,
+          "y": 594,
+          "width": 27,
+          "height": 8
+        },
+        "area": 216,
+        "relative_size": 0.0008037209302325581,
+        "prominence_score": 0.7635348837209303
+      },
+      {
+        "text": "time!",
+        "confidence": 49.0,
+        "bbox": {
+          "x": 220,
+          "y": 76,
+          "width": 34,
+          "height": 12
+        },
+        "area": 408,
+        "relative_size": 0.001518139534883721,
+        "prominence_score": 0.7438883720930233
+      },
+      {
+        "text": "&",
+        "confidence": 88.0,
+        "bbox": {
+          "x": 352,
+          "y": 97,
+          "width": 10,
+          "height": 12
+        },
+        "area": 120,
+        "relative_size": 0.00044651162790697676,
+        "prominence_score": 0.3929302325581395
+      },
+      {
+        "text": "a",
+        "confidence": 92.0,
+        "bbox": {
+          "x": 71,
+          "y": 79,
+          "width": 8,
+          "height": 9
+        },
+        "area": 72,
+        "relative_size": 0.00026790697674418607,
+        "prominence_score": 0.2464744186046512
+      },
+      {
+        "text": "a",
+        "confidence": 81.0,
+        "bbox": {
+          "x": 173,
+          "y": 79,
+          "width": 7,
+          "height": 9
+        },
+        "area": 63,
+        "relative_size": 0.0002344186046511628,
+        "prominence_score": 0.18987906976744187
+      },
+      {
+        "text": ":",
+        "confidence": 74.0,
+        "bbox": {
+          "x": 398,
+          "y": 41,
+          "width": 7,
+          "height": 7
+        },
+        "area": 49,
+        "relative_size": 0.00018232558139534883,
+        "prominence_score": 0.13492093023255813
+      },
+      {
+        "text": "Nafe\u201d",
+        "confidence": 0.0,
+        "bbox": {
+          "x": 12,
+          "y": 48,
+          "width": 40,
+          "height": 11
+        },
+        "area": 440,
+        "relative_size": 0.0016372093023255814,
+        "prominence_score": 0.0
+      }
+    ],
+    "num_elements": 39,
+    "most_prominent_text": "DOUBLE",
+    "most_prominent_score": 89.50236279069767
+  }
+}
