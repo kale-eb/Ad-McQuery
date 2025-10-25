@@ -5,13 +5,13 @@ import pytesseract
 from typing import Dict, List, Any
 
 
-def extract_image_features(image_path: str) -> Dict[str, Any]:
+def extract_image_features(image: Image.Image) -> Dict[str, Any]:
     """
     Extract comprehensive features from an image including metadata,
     histogram analysis, and OCR with prominence scoring.
 
     Args:
-        image_path: Path to the image file
+        image: PIL Image object
 
     Returns:
         Dictionary containing:
@@ -19,11 +19,11 @@ def extract_image_features(image_path: str) -> Dict[str, Any]:
         - contrast: histogram data and contrast metrics
         - ocr: text detection with prominence scores
     """
-    # Load image
-    img = Image.open(image_path)
+
+    img = image
     img_array = np.array(img)
 
-    # ===== METADATA EXTRACTION =====
+
     metadata = {
         'width': img.width,
         'height': img.height,
@@ -33,33 +33,30 @@ def extract_image_features(image_path: str) -> Dict[str, Any]:
         'file_size_bytes': img.fp.tell() if hasattr(img, 'fp') and img.fp else None,
     }
 
-    # Check for frames (GIF/animated images)
+    # Checks for frames (GIF/animated images)
     try:
         n_frames = getattr(img, 'n_frames', 1)
         metadata['frames'] = n_frames
-        metadata['is_animated'] = n_frames > 1
+        metadata['is_animated'] = bool(n_frames > 1)
     except:
         metadata['frames'] = 1
         metadata['is_animated'] = False
 
-    # ===== HISTOGRAM & CONTRAST ANALYSIS =====
+
     # Convert to grayscale for histogram
     if len(img_array.shape) == 3:
         gray = cv2.cvtColor(img_array, cv2.COLOR_RGB2GRAY)
     else:
         gray = img_array
 
-    # Compute histogram
     histogram = cv2.calcHist([gray], [0], None, [256], [0, 256]).flatten()
 
     # Contrast metrics
     std_dev = np.std(gray)
     contrast_ratio = gray.max() - gray.min()
 
-    # RMS contrast (root mean square)
     rms_contrast = np.sqrt(np.mean((gray - gray.mean()) ** 2))
 
-    # Michelson contrast
     michelson_contrast = (gray.max() - gray.min()) / (gray.max() + gray.min() + 1e-10)
 
     contrast_data = {
@@ -69,10 +66,9 @@ def extract_image_features(image_path: str) -> Dict[str, Any]:
         'rms_contrast': float(rms_contrast),
         'michelson_contrast': float(michelson_contrast),
         'mean_brightness': float(gray.mean()),
-        'is_high_contrast': std_dev > 50  # threshold for good readability
+        'is_high_contrast': bool(std_dev > 50)  # threshold for good readability
     }
 
-    # ===== OCR WITH PROMINENCE SCORING =====
     # Get detailed OCR data with bounding boxes
     ocr_data = pytesseract.image_to_data(img, output_type=pytesseract.Output.DICT)
 
