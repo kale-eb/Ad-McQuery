@@ -1,0 +1,277 @@
+.app {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2a2a2a;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  color: #fff;
+}
+
+.subtitle {
+  color: #aaa;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.dropzone {
+  border: 2px dashed #555;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #333;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dropzone:hover {
+  border-color: #777;
+  background-color: #3a3a3a;
+}
+
+.dropzone.dragging {
+  border-color: #646cff;
+  background-color: #3a3a4a;
+  transform: scale(1.02);
+}
+
+.dropzone.has-file {
+  border-color: #4caf50;
+  background-color: #3a4a3a;
+}
+
+.dropzone-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.upload-icon {
+  width: 64px;
+  height: 64px;
+  color: #888;
+}
+
+.dropzone-text {
+  font-size: 1.2rem;
+  color: #ddd;
+  margin: 0;
+}
+
+.dropzone-subtext {
+  font-size: 0.9rem;
+  color: #888;
+  margin: 0;
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.file-icon {
+  width: 48px;
+  height: 48px;
+  color: #4caf50;
+}
+
+.file-name {
+  font-size: 1.1rem;
+  color: #ddd;
+  margin: 0 0 0.25rem 0;
+}
+
+.file-size {
+  font-size: 0.9rem;
+  color: #888;
+  margin: 0;
+}
+
+.upload-button {
+  background-color: #646cff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+}
+
+.upload-button:hover:not(:disabled) {
+  background-color: #535bf2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(100, 108, 255, 0.4);
+}
+
+.upload-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.loading-container {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loading-gif {
+  width: 200px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.loading-text {
+  color: #aaa;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.error-message {
+  background-color: #ff4444;
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.result {
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: #333;
+  border-radius: 12px;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.result h2 {
+  color: #4caf50;
+  margin-top: 0;
+  text-align: center;
+}
+
+.result p {
+  color: #aaa;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.result-json {
+  background-color: #1a1a1a;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  color: #ddd;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app {
+    padding: 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  .dropzone {
+    padding: 2rem 1rem;
+  }
+
+  .loading-gif {
+    width: 150px;
+  }
+
+  .loading-text {
+    font-size: 1rem;
+  }
+}
