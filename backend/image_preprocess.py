@@ -51,22 +51,12 @@ def extract_image_features(image: Image.Image) -> Dict[str, Any]:
 
     histogram = cv2.calcHist([gray], [0], None, [256], [0, 256]).flatten()
 
-    # Contrast metrics
-    std_dev = np.std(gray)
-    contrast_ratio = gray.max() - gray.min()
-
-    rms_contrast = np.sqrt(np.mean((gray - gray.mean()) ** 2))
-
-    michelson_contrast = (gray.max() - gray.min()) / (gray.max() + gray.min() + 1e-10)
-
+    # Basic brightness metrics (removed complex contrast calculations)
     contrast_data = {
         'histogram': histogram.tolist(),
-        'std_dev': float(std_dev),
-        'contrast_ratio': float(contrast_ratio),
-        'rms_contrast': float(rms_contrast),
-        'michelson_contrast': float(michelson_contrast),
         'mean_brightness': float(gray.mean()),
-        'is_high_contrast': bool(std_dev > 50)  # threshold for good readability
+        'min_brightness': float(gray.min()),
+        'max_brightness': float(gray.max())
     }
 
     # Get detailed OCR data with bounding boxes
