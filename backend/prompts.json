@@ -1,0 +1,43 @@
+{
+  "video_analysis": {
+    "format": {
+      "targeting_type": "first_impression or retargeting",
+      "comprehension_rating": "1-5 (how easy to understand)",
+      "target_age_range": "specific age range like 18-25, 25-35, 35-50, 50+",
+      "target_income_level": "specific income level",
+      "target_geographic_area": "specific geographic type that the ad targets (such as 'X county, East Coast US')",
+      "target_interests": ["list", "of", "customer", "interests", "(up to 3)"],
+      "hook_rating": "1-5 (how engaging are first few seconds either visually or verbally)",
+      "conversion_focused": "true/false (direct CTA vs general brand awareness)",
+      "message_types": ["list", "of", "message", "types", "from: humor, storytelling, demonstration, emotional_appeal, problem_solution"]
+    },
+    "criteria": {
+      "targeting_type": "\"first_impression\" if introducing brand/product, \"retargeting\" if assumes familiarity",
+      "comprehension_rating": "1=requires the viewer to really think to understand the message, 5=crystal clear message, even a toddler could understand",
+      "target_age_range": "infer from language, references, visual style",
+      "target_income_level": "infer from product type, pricing cues, lifestyle depicted",
+      "target_geographic_area": "infer from product, explicit mentions, setting, cultural references",
+      "target_interests": "what hobbies/interests would this customer have",
+      "hook_rating": "1=non-engaging start, 5=EXTREMELY gripping/interesting (stunt occurs, something unexpected happens, etc.). Remember the AVERAGE video is a 2.5",
+      "conversion_focused": "true if has clear IMMEDIATE call-to-action (download, buy now, etc.), false if just building awareness (x product is good)",
+      "message_types": "list all applicable message types (can be multiple): humor=uses comedy/jokes to be memorable, storytelling=creates narrative/mini-story for emotional connection, demonstration=shows product in action/how it works, emotional_appeal=tugs at heartstrings using feelings like nostalgia/fear/joy, problem_solution=identifies pain point then presents product as solution"
+    },
+    "instruction": "Analyze this video advertisement objectively for targeting and marketing effectiveness. Be objective and analytical. Base conclusions on concrete evidence from the transcript and metadata."
+  },
+  "image_analysis": {
+    "format": {
+      "targeting_type": "first_impression or retargeting",
+      "comprehension_rating": "1-5 (how easy to understand)",
+      "target_age_range": "specific age range like 18-25, 25-35, 35-50, 50+",
+      "target_income_level": "specific income level",
+      "target_geographic_area": "specific geographic type that the ad targets",
+      "target_interests": ["list", "of", "customer", "interests", "(up to 3)"],
+      "visual_appeal_rating": "1-5 (how visually appealing)",
+      "conversion_focused": "true/false (direct CTA vs general brand awareness)"
+    },
+    "criteria": {
+      "visual_appeal_rating": "1=unappealing, 5=extremely eye-catching",
+      "_note": "Other criteria same as video analysis"
+    }
+  }
+}
