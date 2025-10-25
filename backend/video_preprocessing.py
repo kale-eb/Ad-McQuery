@@ -2,11 +2,15 @@ import json
 import os
 from typing import Dict, List, Any
 import cv2
-import whisper
+from openai import OpenAI
 from pathlib import Path
 import tempfile
 import subprocess
 import math
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 
 def extract_video_metadata(video_path: str) -> Dict[str, Any]:
@@ -69,55 +73,57 @@ def extract_audio_from_video(video_path: str, output_audio_path: str) -> bool:
         return False
 
 
-def transcribe_with_whisper(audio_path: str, model_name: str = "base") -> Dict[str, Any]:
+def transcribe_with_whisper(audio_path: str) -> Dict[str, Any]:
     """
-    Transcribe audio using OpenAI Whisper with word-level timestamps.
+    Transcribe audio using OpenAI Whisper API - much faster than local model.
+    Requires OPENAI_API_KEY environment variable.
     """
-    # Load Whisper model
-    model = whisper.load_model(model_name)
+    client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
     
-    # Transcribe with word timestamps
-    result = model.transcribe(
-        audio_path,
-        word_timestamps=True,
-        verbose=False
-    )
+    with open(audio_path, "rb") as audio_file:
+        # Get transcription with timestamps
+        response = client.audio.transcriptions.create(
+            model="whisper-1",
+            file=audio_file,
+            response_format="verbose_json",
+            timestamp_granularities=["word", "segment"]
+        )
     
     # Format transcript with word-level timestamps
     whisper_transcript = {
-        "full_text": result["text"].strip(),
+        "full_text": response.text.strip(),
         "segments": [],
         "words": []
     }
     
-    # Process segments and extract words with timestamps
-    for segment in result.get("segments", []):
+    # Process segments
+    for segment in response.segments:
         segment_data = {
-            "start": round(segment["start"], 2),
-            "end": round(segment["end"], 2),
-            "text": segment["text"].strip()
+            "start": round(segment.start, 2),
+            "end": round(segment.end, 2),
+            "text": segment.text.strip()
         }
         whisper_transcript["segments"].append(segment_data)
-        
-        # Extract word-level timestamps
-        for word in segment.get("words", []):
+    
+    # Process words if available
+    if hasattr(response, 'words') and response.words:
+        for word in response.words:
             word_data = {
-                "word": word["word"].strip(),
-                "start": round(word["start"], 2),
-                "end": round(word["end"], 2)
+                "word": word.word.strip(),
+                "start": round(word.start, 2),
+                "end": round(word.end, 2)
             }
             whisper_transcript["words"].append(word_data)
     
     return whisper_transcript
 
 
-def preprocess_video(video_path: str, model_name: str = "base") -> Dict[str, Any]:
+def preprocess_video(video_path: str) -> Dict[str, Any]:
     """
     Main preprocessing function that takes a video file and returns JSON with metadata and transcript.
     
     Args:
         video_path: Path to the video file
-        model_name: Whisper model to use (tiny, base, small, medium, large)
     
     Returns:
         Dictionary containing resolution, aspect_ratio, length, and whisper_transcript
@@ -142,9 +148,9 @@ def preprocess_video(video_path: str, model_name: str = "base") -> Dict[str, Any
         if not extract_audio_from_video(video_path, temp_audio_path):
             raise Exception("Failed to extract audio from video")
         
-        # Transcribe audio with Whisper
-        print(f"Transcribing audio with Whisper ({model_name} model)...")
-        whisper_transcript = transcribe_with_whisper(temp_audio_path, model_name)
+        # Transcribe audio with Whisper API
+        print("Transcribing audio with Whisper API...")
+        whisper_transcript = transcribe_with_whisper(temp_audio_path)
         
         # Combine all data
         result = {
@@ -175,27 +181,36 @@ if __name__ == "__main__":
     import sys
     
     if len(sys.argv) < 2:
-        print("Usage: python video_preprocessing.py <video_path> [output_json_path] [whisper_model]")
-        print("Whisper models: tiny, base, small, medium, large")
+        print("Usage: python video_preprocessing.py <video_path> [output_json_path]")
+        print("Requires: OPENAI_API_KEY environment variable")
+        print("\nExample usage in Python:")
+        print("  from video_preprocessing import preprocess_video")
+        print("  result = preprocess_video('/path/to/video.mp4')")
         sys.exit(1)
     
     video_path = sys.argv[1]
-    output_path = sys.argv[2] if len(sys.argv) > 2 else "preprocessing_output.json"
-    model_name = sys.argv[3] if len(sys.argv) > 3 else "base"
+    output_path = sys.argv[2] if len(sys.argv) > 2 else None
+    
+    # Check for API key
+    if not os.environ.get("OPENAI_API_KEY"):
+        print("Error: OPENAI_API_KEY environment variable not set")
+        sys.exit(1)
     
     try:
         # Process video
-        results = preprocess_video(video_path, model_name)
+        results = preprocess_video(video_path)
         
-        # Save to JSON
-        save_results_to_json(results, output_path)
+        # Optionally save to JSON if output path provided
+        if output_path:
+            save_results_to_json(results, output_path)
         
-        # Print summary
+        # Print summary and return data
         print("\n=== Preprocessing Complete ===")
         print(f"Resolution: {results['resolution']}")
         print(f"Aspect Ratio: {results['aspect_ratio']}")
         print(f"Length: {results['length']} seconds")
         print(f"Transcript words: {len(results['whisper_transcript']['words'])}")
+        print("\nReturned dictionary with keys: resolution, aspect_ratio, length, whisper_transcript")
         
     except Exception as e:
         print(f"Error: {e}")

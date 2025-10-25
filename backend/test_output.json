@@ -1,0 +1,52 @@
+{
+  "resolution": "1920x1080",
+  "aspect_ratio": "16:9",
+  "length": 15.01,
+  "whisper_transcript": {
+    "full_text": "Sweats hard. All-spice-lider fight sweat.",
+    "segments": [
+      {
+        "start": 1.54,
+        "end": 4.26,
+        "text": "Sweats hard. All-spice-lider fight sweat."
+      }
+    ],
+    "words": [
+      {
+        "word": "Sweats",
+        "start": 1.54,
+        "end": 2.14
+      },
+      {
+        "word": "hard.",
+        "start": 2.14,
+        "end": 2.34
+      },
+      {
+        "word": "All",
+        "start": 2.58,
+        "end": 2.7
+      },
+      {
+        "word": "-spice",
+        "start": 2.7,
+        "end": 3.22
+      },
+      {
+        "word": "-lider",
+        "start": 3.22,
+        "end": 3.58
+      },
+      {
+        "word": "fight",
+        "start": 3.58,
+        "end": 3.88
+      },
+      {
+        "word": "sweat.",
+        "start": 3.88,
+        "end": 4.26
+      }
+    ]
+  }
+}

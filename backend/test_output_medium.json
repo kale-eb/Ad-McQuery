@@ -1,0 +1,227 @@
+{
+  "resolution": "1920x1080",
+  "aspect_ratio": "16:9",
+  "length": 15.01,
+  "whisper_transcript": {
+    "full_text": "A man who works hard, sweats hard. Old Spice Ryder fights sweat, so coach thought I was slacking. So I trained with my Old Spice, and I became the best player ever. Sometimes, a man must overcome pen sweat.",
+    "segments": [
+      {
+        "start": 0.0,
+        "end": 2.48,
+        "text": "A man who works hard, sweats hard."
+      },
+      {
+        "start": 2.8,
+        "end": 6.1,
+        "text": "Old Spice Ryder fights sweat, so coach thought I was slacking."
+      },
+      {
+        "start": 6.54,
+        "end": 11.58,
+        "text": "So I trained with my Old Spice, and I became the best player ever."
+      },
+      {
+        "start": 12.14,
+        "end": 14.76,
+        "text": "Sometimes, a man must overcome pen sweat."
+      }
+    ],
+    "words": [
+      {
+        "word": "A",
+        "start": 0.0,
+        "end": 0.18
+      },
+      {
+        "word": "man",
+        "start": 0.18,
+        "end": 0.54
+      },
+      {
+        "word": "who",
+        "start": 0.54,
+        "end": 0.82
+      },
+      {
+        "word": "works",
+        "start": 0.82,
+        "end": 1.1
+      },
+      {
+        "word": "hard,",
+        "start": 1.1,
+        "end": 1.68
+      },
+      {
+        "word": "sweats",
+        "start": 1.92,
+        "end": 2.12
+      },
+      {
+        "word": "hard.",
+        "start": 2.12,
+        "end": 2.48
+      },
+      {
+        "word": "Old",
+        "start": 2.8,
+        "end": 2.94
+      },
+      {
+        "word": "Spice",
+        "start": 2.94,
+        "end": 3.4
+      },
+      {
+        "word": "Ryder",
+        "start": 3.4,
+        "end": 3.76
+      },
+      {
+        "word": "fights",
+        "start": 3.76,
+        "end": 4.06
+      },
+      {
+        "word": "sweat,",
+        "start": 4.06,
+        "end": 4.34
+      },
+      {
+        "word": "so",
+        "start": 4.56,
+        "end": 4.68
+      },
+      {
+        "word": "coach",
+        "start": 4.68,
+        "end": 4.96
+      },
+      {
+        "word": "thought",
+        "start": 4.96,
+        "end": 5.24
+      },
+      {
+        "word": "I",
+        "start": 5.24,
+        "end": 5.46
+      },
+      {
+        "word": "was",
+        "start": 5.46,
+        "end": 5.72
+      },
+      {
+        "word": "slacking.",
+        "start": 5.72,
+        "end": 6.1
+      },
+      {
+        "word": "So",
+        "start": 6.54,
+        "end": 6.78
+      },
+      {
+        "word": "I",
+        "start": 6.78,
+        "end": 7.04
+      },
+      {
+        "word": "trained",
+        "start": 7.04,
+        "end": 7.28
+      },
+      {
+        "word": "with",
+        "start": 7.28,
+        "end": 7.6
+      },
+      {
+        "word": "my",
+        "start": 7.6,
+        "end": 7.86
+      },
+      {
+        "word": "Old",
+        "start": 7.86,
+        "end": 8.18
+      },
+      {
+        "word": "Spice,",
+        "start": 8.18,
+        "end": 8.74
+      },
+      {
+        "word": "and",
+        "start": 8.96,
+        "end": 9.28
+      },
+      {
+        "word": "I",
+        "start": 9.28,
+        "end": 9.56
+      },
+      {
+        "word": "became",
+        "start": 9.56,
+        "end": 9.88
+      },
+      {
+        "word": "the",
+        "start": 9.88,
+        "end": 10.24
+      },
+      {
+        "word": "best",
+        "start": 10.24,
+        "end": 10.62
+      },
+      {
+        "word": "player",
+        "start": 10.62,
+        "end": 11.04
+      },
+      {
+        "word": "ever.",
+        "start": 11.04,
+        "end": 11.58
+      },
+      {
+        "word": "Sometimes,",
+        "start": 12.14,
+        "end": 12.7
+      },
+      {
+        "word": "a",
+        "start": 13.02,
+        "end": 13.22
+      },
+      {
+        "word": "man",
+        "start": 13.22,
+        "end": 13.44
+      },
+      {
+        "word": "must",
+        "start": 13.44,
+        "end": 13.78
+      },
+      {
+        "word": "overcome",
+        "start": 13.78,
+        "end": 14.26
+      },
+      {
+        "word": "pen",
+        "start": 14.26,
+        "end": 14.52
+      },
+      {
+        "word": "sweat.",
+        "start": 14.52,
+        "end": 14.76
+      }
+    ]
+  }
+}

@@ -1,0 +1,222 @@
+{
+  "resolution": "1920x1080",
+  "aspect_ratio": "16:9",
+  "length": 15.01,
+  "whisper_transcript": {
+    "full_text": "A man who works hard, sweats hard. Old Spice rider fights sweat, so coach thought I was slacking. So I trained with my old Spice, and I became the best player ever. Sometimes, a man must overcompensate.",
+    "segments": [
+      {
+        "start": 0.0,
+        "end": 2.48,
+        "text": "A man who works hard, sweats hard."
+      },
+      {
+        "start": 2.76,
+        "end": 6.1,
+        "text": "Old Spice rider fights sweat, so coach thought I was slacking."
+      },
+      {
+        "start": 6.58,
+        "end": 9.46,
+        "text": "So I trained with my old Spice, and I"
+      },
+      {
+        "start": 9.46,
+        "end": 11.54,
+        "text": "became the best player ever."
+      },
+      {
+        "start": 12.04,
+        "end": 14.64,
+        "text": "Sometimes, a man must overcompensate."
+      }
+    ],
+    "words": [
+      {
+        "word": "A",
+        "start": 0.0,
+        "end": 0.2
+      },
+      {
+        "word": "man",
+        "start": 0.2,
+        "end": 0.52
+      },
+      {
+        "word": "who",
+        "start": 0.52,
+        "end": 0.8
+      },
+      {
+        "word": "works",
+        "start": 0.8,
+        "end": 1.08
+      },
+      {
+        "word": "hard",
+        "start": 1.08,
+        "end": 1.68
+      },
+      {
+        "word": "sweats",
+        "start": 1.8,
+        "end": 2.08
+      },
+      {
+        "word": "hard",
+        "start": 2.08,
+        "end": 2.48
+      },
+      {
+        "word": "Old",
+        "start": 2.76,
+        "end": 2.98
+      },
+      {
+        "word": "Spice",
+        "start": 2.98,
+        "end": 3.26
+      },
+      {
+        "word": "rider",
+        "start": 3.26,
+        "end": 3.64
+      },
+      {
+        "word": "fights",
+        "start": 3.64,
+        "end": 4.02
+      },
+      {
+        "word": "sweat",
+        "start": 4.02,
+        "end": 4.38
+      },
+      {
+        "word": "so",
+        "start": 4.48,
+        "end": 4.7
+      },
+      {
+        "word": "coach",
+        "start": 4.7,
+        "end": 4.94
+      },
+      {
+        "word": "thought",
+        "start": 4.94,
+        "end": 5.26
+      },
+      {
+        "word": "I",
+        "start": 5.26,
+        "end": 5.42
+      },
+      {
+        "word": "was",
+        "start": 5.42,
+        "end": 5.68
+      },
+      {
+        "word": "slacking",
+        "start": 5.68,
+        "end": 6.1
+      },
+      {
+        "word": "So",
+        "start": 6.58,
+        "end": 6.74
+      },
+      {
+        "word": "I",
+        "start": 6.74,
+        "end": 7.18
+      },
+      {
+        "word": "trained",
+        "start": 7.18,
+        "end": 7.24
+      },
+      {
+        "word": "with",
+        "start": 7.24,
+        "end": 7.5
+      },
+      {
+        "word": "my",
+        "start": 7.5,
+        "end": 7.76
+      },
+      {
+        "word": "old",
+        "start": 7.76,
+        "end": 8.14
+      },
+      {
+        "word": "Spice",
+        "start": 8.14,
+        "end": 8.64
+      },
+      {
+        "word": "and",
+        "start": 8.98,
+        "end": 9.12
+      },
+      {
+        "word": "I",
+        "start": 9.12,
+        "end": 9.46
+      },
+      {
+        "word": "became",
+        "start": 9.46,
+        "end": 9.84
+      },
+      {
+        "word": "the",
+        "start": 9.84,
+        "end": 10.18
+      },
+      {
+        "word": "best",
+        "start": 10.18,
+        "end": 10.62
+      },
+      {
+        "word": "player",
+        "start": 10.62,
+        "end": 10.96
+      },
+      {
+        "word": "ever",
+        "start": 10.96,
+        "end": 11.54
+      },
+      {
+        "word": "Sometimes",
+        "start": 12.04,
+        "end": 12.68
+      },
+      {
+        "word": "a",
+        "start": 12.84,
+        "end": 13.16
+      },
+      {
+        "word": "man",
+        "start": 13.16,
+        "end": 13.4
+      },
+      {
+        "word": "must",
+        "start": 13.4,
+        "end": 13.76
+      },
+      {
+        "word": "overcompensate",
+        "start": 13.76,
+        "end": 14.64
+      }
+    ]
+  }
+}
