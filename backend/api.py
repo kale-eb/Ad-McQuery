@@ -26,7 +26,7 @@ app = FastAPI(title="Ad Media Processor API")
 # Enable CORS for frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000"],  # Vite default port
+    allow_origins=["http://localhost:5173", "http://localhost:5174", "http://localhost:3000"],  # Vite default ports
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -49,6 +49,31 @@ def health_check():
     return {"status": "healthy"}
 
 
+@app.get("/datasets")
+def list_datasets():
+    """
+    List all available datasets
+    """
+    try:
+        datasets_dir = Path(__file__).parent / "datasets"
+        if not datasets_dir.exists():
+            return JSONResponse(content=[])
+        
+        datasets = []
+        for dataset_dir in datasets_dir.iterdir():
+            if dataset_dir.is_dir():
+                analysis_file = dataset_dir / f"{dataset_dir.name}-analysis.json"
+                datasets.append({
+                    "name": dataset_dir.name,
+                    "has_analysis": analysis_file.exists(),
+                    "files": [f.name for f in dataset_dir.iterdir() if f.is_file() and not f.name.endswith('-analysis.json')]
+                })
+        
+        return JSONResponse(content=datasets)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to list datasets: {str(e)}")
+
+
 @app.get("/batch-test")
 def get_batch_test():
     """
@@ -63,19 +88,29 @@ def get_batch_test():
         raise HTTPException(status_code=500, detail=f"Failed to load batch_test.json: {str(e)}")
 
 
-@app.get("/media/{filename}")
-def get_media_file(filename: str):
+@app.get("/media/{dataset_name}/{folder}/{filename}")
+def get_media_file(dataset_name: str, folder: str, filename: str):
     """
-    Serve media files (images/videos) from the tests directory
+    Serve media files (images/videos) from the datasets directory
     """
     try:
-        # Try to find the file in tests directory
+        # Try to find the file in datasets directory with folder structure
+        file_path = Path(__file__).parent / "datasets" / dataset_name / folder / filename
+        if file_path.exists():
+            return FileResponse(file_path)
+
+        # Also try direct path without folder for backward compatibility
+        file_path = Path(__file__).parent / "datasets" / dataset_name / filename
+        if file_path.exists():
+            return FileResponse(file_path)
+
+        # Also try tests directory for backward compatibility
         file_path = Path(__file__).parent / "tests" / filename
         if file_path.exists():
             return FileResponse(file_path)
 
         # If not found, return 404
-        raise HTTPException(status_code=404, detail=f"Media file {filename} not found")
+        raise HTTPException(status_code=404, detail=f"Media file {filename} not found in dataset {dataset_name}/{folder}")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to serve media file: {str(e)}")
 
@@ -110,6 +145,7 @@ async def process_media(file: UploadFile = File(...)):
         import zipfile as zf
         print(f"Is valid zip: {zf.is_zipfile(tmp_path)}")
 
+<<<<<<< HEAD
         if TESTING_MODE:
             # TESTING MODE: Load data from batch_test.json
             print("=== TESTING MODE: Loading batch_test.json ===")
@@ -162,6 +198,12 @@ async def process_media(file: UploadFile = File(...)):
                 results[filename] = analysis
 
             print(f"\nCompleted Gemini analysis for {len(video_results)} videos and {len(image_results)} images")
+=======
+        # Process the zip file using main.py (now includes full pipeline)
+        # Extract dataset name from original filename
+        dataset_name = Path(file.filename).stem
+        results = process_zip_file(tmp_path, dataset_name)
+>>>>>>> db4131f (proper function for preprocessing and analysis for fastapi)
 
         return JSONResponse(content=results)
 
