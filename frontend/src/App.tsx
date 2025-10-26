@@ -218,7 +218,7 @@ function App() {
                           <div
                             className="video-wrapper"
                             onClick={() => setSelectedMedia({filename, data})}
-                            style={{ cursor: 'pointer' }}
+
                           >
                             {filename.toLowerCase().endsWith('.mp4') ? (
                               <video

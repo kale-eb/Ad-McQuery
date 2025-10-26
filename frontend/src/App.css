@@ -321,36 +321,39 @@ h1 {
 
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
 .video-container {
-  background-color: #333;
-  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  background-color: #4a4a4a;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .video-container:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .video-header {
-  padding: 1rem 1.5rem;
-  background-color: #2a2a2a;
-  border-bottom: 2px solid #444;
+  flex-shrink: 0;
+  padding: 0.5rem 0.75rem;
+  background-color: #4a4a4a;
+  border-bottom: 1px solid #555;
 }
 
 .video-filename {
   color: #fff;
-  margin: 0 0 0.5rem 0;
-  font-size: 1.1rem;
+  margin: 0 0 0.25rem 0;
+  font-size: 0.85rem;
   font-weight: 600;
   word-break: break-word;
 }
@@ -358,15 +361,15 @@ h1 {
 .file-meta {
   color: #aaa;
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   font-weight: 400;
 }
 
 .video-wrapper {
   position: relative;
   width: 100%;
+  flex-shrink: 0;
   background-color: #1a1a1a;
-  aspect-ratio: 16 / 9;
 }
 
 .video-player,
@@ -378,15 +381,17 @@ h1 {
 }
 
 .video-info {
-  padding: 1rem 1.5rem;
-  background-color: #2a2a2a;
-  border-top: 1px solid #444;
-  max-height: 200px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  background-color: #4a4a4a;
+  border-top: 1px solid #555;
   overflow-y: auto;
 }
 
 .info-section {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .info-section:last-child {
@@ -395,8 +400,8 @@ h1 {
 
 .info-section h4 {
   color: #4caf50;
-  margin: 0 0 0.5rem 0;
-  font-size: 0.95rem;
+  margin: 0 0 0.25rem 0;
+  font-size: 0.75rem;
   font-weight: 600;
 }
 
@@ -407,8 +412,8 @@ h1 {
 .analysis-text {
   color: #ddd;
   margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: 0.7rem;
+  line-height: 1.4;
   white-space: pre-wrap;
   word-break: break-word;
 }
