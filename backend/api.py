@@ -145,7 +145,6 @@ async def process_media(file: UploadFile = File(...)):
         import zipfile as zf
         print(f"Is valid zip: {zf.is_zipfile(tmp_path)}")
 
-<<<<<<< HEAD
         if TESTING_MODE:
             # TESTING MODE: Load data from batch_test.json
             print("=== TESTING MODE: Loading batch_test.json ===")
@@ -198,12 +197,10 @@ async def process_media(file: UploadFile = File(...)):
                 results[filename] = analysis
 
             print(f"\nCompleted Gemini analysis for {len(video_results)} videos and {len(image_results)} images")
-=======
         # Process the zip file using main.py (now includes full pipeline)
         # Extract dataset name from original filename
         dataset_name = Path(file.filename).stem
         results = process_zip_file(tmp_path, dataset_name)
->>>>>>> db4131f (proper function for preprocessing and analysis for fastapi)
 
         return JSONResponse(content=results)
 
