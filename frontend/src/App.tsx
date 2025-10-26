@@ -444,47 +444,67 @@ function App() {
                     </div>
 
                     <div className="analysis-section">
-                      <h4>Emotional Indices</h4>
+                      <h4>Emotional Indices (0 to 1.0)</h4>
                       <div className="analysis-grid">
                         <div className="analysis-item">
                           <span className="analysis-label">Fear:</span>
-                          <span className="analysis-value">{selectedMedia.data.fear_index?.toFixed(1) || '0.0'}</span>
+                          <span className={`analysis-value ${(selectedMedia.data.fear_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
+                            {selectedMedia.data.fear_index?.toFixed(1) || '0.0'}
+                          </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Comfort:</span>
-                          <span className="analysis-value">{selectedMedia.data.comfort_index?.toFixed(1) || '0.0'}</span>
+                          <span className={`analysis-value ${(selectedMedia.data.comfort_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
+                            {selectedMedia.data.comfort_index?.toFixed(1) || '0.0'}
+                          </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Humor:</span>
-                          <span className="analysis-value">{selectedMedia.data.humor_index?.toFixed(1) || '0.0'}</span>
+                          <span className={`analysis-value ${(selectedMedia.data.humor_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
+                            {selectedMedia.data.humor_index?.toFixed(1) || '0.0'}
+                          </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Success:</span>
-                          <span className="analysis-value">{selectedMedia.data.success_index?.toFixed(1) || '0.0'}</span>
+                          <span className={`analysis-value ${(selectedMedia.data.success_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
+                            {selectedMedia.data.success_index?.toFixed(1) || '0.0'}
+                          </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Love:</span>
-                          <span className="analysis-value">{selectedMedia.data.love_index?.toFixed(1) || '0.0'}</span>
+                          <span className={`analysis-value ${(selectedMedia.data.love_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
+                            {selectedMedia.data.love_index?.toFixed(1) || '0.0'}
+                          </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Family:</span>
-                          <span className="analysis-value">{selectedMedia.data.family_index?.toFixed(1) || '0.0'}</span>
+                          <span className={`analysis-value ${(selectedMedia.data.family_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
+                            {selectedMedia.data.family_index?.toFixed(1) || '0.0'}
+                          </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Adventure:</span>
-                          <span className="analysis-value">{selectedMedia.data.adventure_index?.toFixed(1) || '0.0'}</span>
+                          <span className={`analysis-value ${(selectedMedia.data.adventure_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
+                            {selectedMedia.data.adventure_index?.toFixed(1) || '0.0'}
+                          </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Nostalgia:</span>
-                          <span className="analysis-value">{selectedMedia.data.nostalgia_index?.toFixed(1) || '0.0'}</span>
+                          <span className={`analysis-value ${(selectedMedia.data.nostalgia_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
+                            {selectedMedia.data.nostalgia_index?.toFixed(1) || '0.0'}
+                          </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Health:</span>
-                          <span className="analysis-value">{selectedMedia.data.health_index?.toFixed(1) || '0.0'}</span>
+                          <span className={`analysis-value ${(selectedMedia.data.health_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
+                            {selectedMedia.data.health_index?.toFixed(1) || '0.0'}
+                          </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Luxury:</span>
-                          <span className="analysis-value">{selectedMedia.data.luxury_index?.toFixed(1) || '0.0'}</span>
+                          <span className={`analysis-value ${(selectedMedia.data.luxury_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
+                            {selectedMedia.data.luxury_index?.toFixed(1) || '0.0'}
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -584,47 +604,67 @@ function App() {
                     </div>
 
                     <div className="analysis-section">
-                      <h4>Emotional Indices</h4>
+                      <h4>Emotional Indices (0 to 1.0)</h4>
                       <div className="analysis-grid">
                         <div className="analysis-item">
                           <span className="analysis-label">Fear:</span>
-                          <span className="analysis-value">{selectedMedia.data.fear_index?.toFixed(1) || '0.0'}</span>
+                          <span className={`analysis-value ${(selectedMedia.data.fear_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
+                            {selectedMedia.data.fear_index?.toFixed(1) || '0.0'}
+                          </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Comfort:</span>
-                          <span className="analysis-value">{selectedMedia.data.comfort_index?.toFixed(1) || '0.0'}</span>
+                          <span className={`analysis-value ${(selectedMedia.data.comfort_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
+                            {selectedMedia.data.comfort_index?.toFixed(1) || '0.0'}
+                          </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Humor:</span>
-                          <span className="analysis-value">{selectedMedia.data.humor_index?.toFixed(1) || '0.0'}</span>
+                          <span className={`analysis-value ${(selectedMedia.data.humor_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
+                            {selectedMedia.data.humor_index?.toFixed(1) || '0.0'}
+                          </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Success:</span>
-                          <span className="analysis-value">{selectedMedia.data.success_index?.toFixed(1) || '0.0'}</span>
+                          <span className={`analysis-value ${(selectedMedia.data.success_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
+                            {selectedMedia.data.success_index?.toFixed(1) || '0.0'}
+                          </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Love:</span>
-                          <span className="analysis-value">{selectedMedia.data.love_index?.toFixed(1) || '0.0'}</span>
+                          <span className={`analysis-value ${(selectedMedia.data.love_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
+                            {selectedMedia.data.love_index?.toFixed(1) || '0.0'}
+                          </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Family:</span>
-                          <span className="analysis-value">{selectedMedia.data.family_index?.toFixed(1) || '0.0'}</span>
+                          <span className={`analysis-value ${(selectedMedia.data.family_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
+                            {selectedMedia.data.family_index?.toFixed(1) || '0.0'}
+                          </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Adventure:</span>
-                          <span className="analysis-value">{selectedMedia.data.adventure_index?.toFixed(1) || '0.0'}</span>
+                          <span className={`analysis-value ${(selectedMedia.data.adventure_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
+                            {selectedMedia.data.adventure_index?.toFixed(1) || '0.0'}
+                          </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Nostalgia:</span>
-                          <span className="analysis-value">{selectedMedia.data.nostalgia_index?.toFixed(1) || '0.0'}</span>
+                          <span className={`analysis-value ${(selectedMedia.data.nostalgia_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
+                            {selectedMedia.data.nostalgia_index?.toFixed(1) || '0.0'}
+                          </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Health:</span>
-                          <span className="analysis-value">{selectedMedia.data.health_index?.toFixed(1) || '0.0'}</span>
+                          <span className={`analysis-value ${(selectedMedia.data.health_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
+                            {selectedMedia.data.health_index?.toFixed(1) || '0.0'}
+                          </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Luxury:</span>
-                          <span className="analysis-value">{selectedMedia.data.luxury_index?.toFixed(1) || '0.0'}</span>
+                          <span className={`analysis-value ${(selectedMedia.data.luxury_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
+                            {selectedMedia.data.luxury_index?.toFixed(1) || '0.0'}
+                          </span>
                         </div>
                       </div>
                     </div>

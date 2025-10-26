@@ -555,6 +555,11 @@ h1 {
   color: #fff;
 }
 
+.analysis-value.high-emotion {
+  color: #4caf50;
+  font-weight: 600;
+}
+
 .color-palette {
   display: flex;
   flex-wrap: wrap;
