@@ -7,7 +7,8 @@
       "Bash(npm install:*)",
       "Bash(npm run dev:*)",
       "Bash(pip3 install:*)",
-      "Bash(brew install:*)"
+      "Bash(brew install:*)",
+      "WebSearch"
     ],
     "deny": [],
     "ask": []

@@ -229,20 +229,48 @@ if __name__ == "__main__":
         preprocess_time = time.time() - preprocess_start
         print(f"Total preprocessing time: {preprocess_time:.2f}s")
 
-        # Step 2: Batch analyze videos and images with Gemini (concurrent processing)
-        print("\n=== Step 2: Gemini Batch Analysis (Videos + Images) ===")
+        # Step 2: Batch analyze images first, then videos
+        print("\n=== Step 2: Gemini Batch Analysis (Images First, Then Videos) ===")
         gemini_start = time.time()
         
-        # Run video and image analysis concurrently
-        from concurrent.futures import ThreadPoolExecutor, as_completed
+        # First process images in 3 batches, all at once
+        print("Processing images in 3 concurrent batches...")
+        image_start = time.time()
         
-        with ThreadPoolExecutor(max_workers=2) as executor:
-            video_future = executor.submit(batch_analyze_videos, results, 1)  # Single video per batch
-            image_future = executor.submit(batch_analyze_images, results, 2)  # 2 images per batch max
+        # Calculate batch size to split images into 3 batches
+        image_files = {k: v for k, v in results.items() if k.lower().endswith('.png') and 'error' not in v}
+        total_images = len(image_files)
+        if total_images > 0:
+            batch_size = max(1, (total_images + 2) // 3)  # Split into 3 batches
+            print(f"Splitting {total_images} images into batches of {batch_size}")
             
-            # Get results as they complete
-            video_results = video_future.result()
-            image_results = image_future.result()
+            # Disable image analysis for testing
+            print("Image analysis DISABLED for testing - skipping...")
+            image_results = {}
+        else:
+            image_results = {}
+        
+        image_time = time.time() - image_start
+        print(f"Image processing time: {image_time:.2f}s")
+        
+        # Then process videos (5 per batch, ALL batches sent at once)
+        print("\nProcessing videos...")
+        video_start = time.time()
+        
+        # Count total videos
+        video_files = {k: v for k, v in results.items() if k.lower().endswith('.mp4') and 'error' not in v}
+        total_videos = len(video_files)
+        
+        if total_videos > 0:
+            batch_size = 5
+            num_batches = (total_videos + batch_size - 1) // batch_size
+            print(f"Sending {total_videos} videos in {num_batches} batches of {batch_size} - ALL sent simultaneously!")
+            video_results = batch_analyze_videos(results, batch_size)  # 5 per batch, unlimited concurrent
+        else:
+            video_results = {}
+            
+        video_time = time.time() - video_start
+        print(f"Video processing time: {video_time:.2f}s")
         
         gemini_time = time.time() - gemini_start
         

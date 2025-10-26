@@ -128,10 +128,8 @@ def batch_analyze_videos(preprocessed_videos: Dict[str, Dict[str, Any]], batch_s
                 }
             return batch_results
     
-    # Process batches with limited concurrency to avoid overwhelming the API
-    # Reduce workers to avoid timeout issues
-    max_concurrent = min(3, len(batches))  # Max 3 concurrent requests
-    with ThreadPoolExecutor(max_workers=max_concurrent) as executor:
+    # Process ALL batches concurrently - let Gemini handle it
+    with ThreadPoolExecutor(max_workers=len(batches)) as executor:
         future_to_batch = {executor.submit(process_batch, batch): batch for batch in batches}
         
         for future in as_completed(future_to_batch):
