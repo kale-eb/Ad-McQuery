@@ -227,12 +227,12 @@ function App() {
                                   e.currentTarget.style.display = 'none'
                                 }}
                               >
-                                <source src={`http://localhost:8000/media/${filename}`} type="video/mp4" />
+                                <source src={`http://localhost:8000/datasets/ads/videos/${filename}`} type="video/mp4" />
                                 Your browser does not support the video tag.
                               </video>
                             ) : (
                               <img
-                                src={`http://localhost:8000/media/${filename}`}
+                                src={`http://localhost:8000/datasets/ads/images/${filename}`}
                                 alt={filename}
                                 className="image-preview"
                                 onError={(e) => {
@@ -242,20 +242,42 @@ function App() {
                             )}
                           </div>
                           <div className="video-info">
-                            {data.ocr && data.ocr.text && (
-                              <div className="info-section">
-                                <h4>Text Content:</h4>
-                                <p className="analysis-text">{data.ocr.text}</p>
-                              </div>
-                            )}
-                            {data.contrast && (
-                              <div className="info-section">
-                                <h4>Contrast Analysis:</h4>
-                                <p className="analysis-text">
-                                  Mean: {data.contrast.mean?.toFixed(2)}<br />
-                                  Std Dev: {data.contrast.std_dev?.toFixed(2)}
-                                </p>
-                              </div>
+                            {filename.toLowerCase().endsWith('.mp4') ? (
+                              <>
+                                {data.main_product && (
+                                  <div className="info-section">
+                                    <h4>Product:</h4>
+                                    <p className="analysis-text">{data.main_product}</p>
+                                  </div>
+                                )}
+                                {data.target_age_range && (
+                                  <div className="info-section">
+                                    <h4>Target Age:</h4>
+                                    <p className="analysis-text">{data.target_age_range}</p>
+                                  </div>
+                                )}
+                                {data.length && (
+                                  <div className="info-section">
+                                    <h4>Length:</h4>
+                                    <p className="analysis-text">{data.length}s • {data.aspect_ratio}</p>
+                                  </div>
+                                )}
+                              </>
+                            ) : (
+                              <>
+                                {data.age_demographic && (
+                                  <div className="info-section">
+                                    <h4>Demographics:</h4>
+                                    <p className="analysis-text">{data.age_demographic} • {data.gender_demographic}</p>
+                                  </div>
+                                )}
+                                {data.scene_setting && (
+                                  <div className="info-section">
+                                    <h4>Scene:</h4>
+                                    <p className="analysis-text">{data.scene_setting}</p>
+                                  </div>
+                                )}
+                              </>
                             )}
                             {data.analysis_error && (
                               <div className="info-section error">
@@ -293,12 +315,12 @@ function App() {
                       e.currentTarget.style.display = 'none'
                     }}
                   >
-                    <source src={`http://localhost:8000/media/${selectedMedia.filename}`} type="video/mp4" />
+                    <source src={`http://localhost:8000/datasets/ads/videos/${selectedMedia.filename}`} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 ) : (
                   <img
-                    src={`http://localhost:8000/media/${selectedMedia.filename}`}
+                    src={`http://localhost:8000/datasets/ads/images/${selectedMedia.filename}`}
                     alt={selectedMedia.filename}
                     className="modal-image"
                     onError={(e) => {
@@ -311,23 +333,112 @@ function App() {
               <div className="modal-info">
                 <h3>{selectedMedia.filename}</h3>
 
-                {!selectedMedia.data.main_product ? (
-                  <div className="analysis-section error">
-                    <h4>No Analysis Available</h4>
-                    <p>This file doesn't have analysis data. In testing mode, only videos have analysis.</p>
-                  </div>
-                ) : (
+                {selectedMedia.filename.toLowerCase().endsWith('.mp4') ? (
+                  /* Video Analysis */
                   <>
+                    {selectedMedia.data.main_product && (
+                      <div className="analysis-section">
+                        <h4>Product & Targeting</h4>
+                        <div className="analysis-grid">
+                          <div className="analysis-item full-width">
+                            <span className="analysis-label">Main Product:</span>
+                            <span className="analysis-value">{selectedMedia.data.main_product}</span>
+                          </div>
+                          <div className="analysis-item">
+                            <span className="analysis-label">Target Age:</span>
+                            <span className="analysis-value">{selectedMedia.data.target_age_range}</span>
+                          </div>
+                          <div className="analysis-item">
+                            <span className="analysis-label">Target Income:</span>
+                            <span className="analysis-value">{selectedMedia.data.target_income_level}</span>
+                          </div>
+                          {selectedMedia.data.target_geographic_area && selectedMedia.data.target_geographic_area !== 'N/A' && (
+                            <div className="analysis-item">
+                              <span className="analysis-label">Geographic Area:</span>
+                              <span className="analysis-value">{selectedMedia.data.target_geographic_area}</span>
+                            </div>
+                          )}
+                          {selectedMedia.data.target_interests && selectedMedia.data.target_interests.length > 0 && (
+                            <div className="analysis-item full-width">
+                              <span className="analysis-label">Target Interests:</span>
+                              <span className="analysis-value">{selectedMedia.data.target_interests.join(', ')}</span>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
+
                     <div className="analysis-section">
-                      <h4>Product & Targeting</h4>
+                      <h4>Video Details</h4>
                       <div className="analysis-grid">
                         <div className="analysis-item">
-                          <span className="analysis-label">Main Product:</span>
-                          <span className="analysis-value">{selectedMedia.data.main_product}</span>
+                          <span className="analysis-label">Resolution:</span>
+                          <span className="analysis-value">{selectedMedia.data.resolution}</span>
                         </div>
                         <div className="analysis-item">
-                          <span className="analysis-label">Target Age:</span>
-                          <span className="analysis-value">{selectedMedia.data.target_age_range}</span>
+                          <span className="analysis-label">Aspect Ratio:</span>
+                          <span className="analysis-value">{selectedMedia.data.aspect_ratio}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Length:</span>
+                          <span className="analysis-value">{selectedMedia.data.length}s</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Targeting Type:</span>
+                          <span className="analysis-value">{selectedMedia.data.targeting_type}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Verbosity:</span>
+                          <span className="analysis-value">{selectedMedia.data.verbosity}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Hook Rating:</span>
+                          <span className="analysis-value">{selectedMedia.data.hook_rating}/5</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Purchase Urgency:</span>
+                          <span className="analysis-value">{selectedMedia.data.purchase_urgency}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Product Visibility:</span>
+                          <span className="analysis-value">{selectedMedia.data.product_visibility_score}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Visual Density:</span>
+                          <span className="analysis-value">{selectedMedia.data.visual_density}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {selectedMedia.data.message_types && selectedMedia.data.message_types.length > 0 && (
+                      <div className="analysis-section">
+                        <h4>Message Types</h4>
+                        <div className="message-types">
+                          {selectedMedia.data.message_types.map((type: string, idx: number) => (
+                            <span key={idx} className="message-type-badge">{type}</span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="analysis-section">
+                      <h4>Demographics & Style</h4>
+                      <div className="analysis-grid">
+                        <div className="analysis-item">
+                          <span className="analysis-label">Age Demographic:</span>
+                          <span className="analysis-value">{selectedMedia.data.age_demographic}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Gender Demographic:</span>
+                          <span className="analysis-value">{selectedMedia.data.gender_demographic}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Activity Level:</span>
+                          <span className="analysis-value">{selectedMedia.data.activity_level}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Music Intensity:</span>
+                          <span className="analysis-value">{selectedMedia.data.music_intensity}</span>
                         </div>
                       </div>
                     </div>
@@ -335,30 +446,46 @@ function App() {
                     <div className="analysis-section">
                       <h4>Emotional Indices</h4>
                       <div className="analysis-grid">
-                        {selectedMedia.data.fear_index !== undefined && (
-                          <div className="analysis-item">
-                            <span className="analysis-label">Fear:</span>
-                            <span className="analysis-value">{selectedMedia.data.fear_index.toFixed(1)}</span>
-                          </div>
-                        )}
-                        {selectedMedia.data.comfort_index !== undefined && (
-                          <div className="analysis-item">
-                            <span className="analysis-label">Comfort:</span>
-                            <span className="analysis-value">{selectedMedia.data.comfort_index.toFixed(1)}</span>
-                          </div>
-                        )}
-                        {selectedMedia.data.family_index !== undefined && (
-                          <div className="analysis-item">
-                            <span className="analysis-label">Family:</span>
-                            <span className="analysis-value">{selectedMedia.data.family_index.toFixed(1)}</span>
-                          </div>
-                        )}
-                        {selectedMedia.data.love_index !== undefined && (
-                          <div className="analysis-item">
-                            <span className="analysis-label">Love:</span>
-                            <span className="analysis-value">{selectedMedia.data.love_index.toFixed(1)}</span>
-                          </div>
-                        )}
+                        <div className="analysis-item">
+                          <span className="analysis-label">Fear:</span>
+                          <span className="analysis-value">{selectedMedia.data.fear_index?.toFixed(1) || '0.0'}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Comfort:</span>
+                          <span className="analysis-value">{selectedMedia.data.comfort_index?.toFixed(1) || '0.0'}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Humor:</span>
+                          <span className="analysis-value">{selectedMedia.data.humor_index?.toFixed(1) || '0.0'}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Success:</span>
+                          <span className="analysis-value">{selectedMedia.data.success_index?.toFixed(1) || '0.0'}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Love:</span>
+                          <span className="analysis-value">{selectedMedia.data.love_index?.toFixed(1) || '0.0'}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Family:</span>
+                          <span className="analysis-value">{selectedMedia.data.family_index?.toFixed(1) || '0.0'}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Adventure:</span>
+                          <span className="analysis-value">{selectedMedia.data.adventure_index?.toFixed(1) || '0.0'}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Nostalgia:</span>
+                          <span className="analysis-value">{selectedMedia.data.nostalgia_index?.toFixed(1) || '0.0'}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Health:</span>
+                          <span className="analysis-value">{selectedMedia.data.health_index?.toFixed(1) || '0.0'}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Luxury:</span>
+                          <span className="analysis-value">{selectedMedia.data.luxury_index?.toFixed(1) || '0.0'}</span>
+                        </div>
                       </div>
                     </div>
 
@@ -372,6 +499,157 @@ function App() {
                               <span className="color-hex">{color}</span>
                             </div>
                           ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {selectedMedia.data.visual_motifs && selectedMedia.data.visual_motifs.length > 0 && (
+                      <div className="analysis-section">
+                        <h4>Visual Motifs</h4>
+                        <div className="analysis-grid">
+                          <div className="analysis-item full-width">
+                            <span className="analysis-value">{selectedMedia.data.visual_motifs.join(', ')}</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {selectedMedia.data.scene_settings && selectedMedia.data.scene_settings.length > 0 && (
+                      <div className="analysis-section">
+                        <h4>Scene Settings</h4>
+                        <div className="analysis-grid">
+                          {selectedMedia.data.scene_settings.map((setting: string, idx: number) => (
+                            <div key={idx} className="analysis-item full-width">
+                              <span className="analysis-value">{setting}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {selectedMedia.data.scene_cuts && selectedMedia.data.scene_cuts.length > 0 && (
+                      <div className="analysis-section">
+                        <h4>Scene Cuts</h4>
+                        <div className="analysis-grid">
+                          <div className="analysis-item full-width">
+                            <span className="analysis-value">{selectedMedia.data.scene_cuts.length} cuts at: {selectedMedia.data.scene_cuts.map((t: number) => t.toFixed(2) + 's').join(', ')}</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  /* Image Analysis */
+                  <>
+                    <div className="analysis-section">
+                      <h4>Demographics & Characteristics</h4>
+                      <div className="analysis-grid">
+                        <div className="analysis-item">
+                          <span className="analysis-label">Age Demographic:</span>
+                          <span className="analysis-value">{selectedMedia.data.age_demographic}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Gender Demographic:</span>
+                          <span className="analysis-value">{selectedMedia.data.gender_demographic}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Verbosity:</span>
+                          <span className="analysis-value">{selectedMedia.data.verbosity}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Activity:</span>
+                          <span className="analysis-value">{selectedMedia.data.activity}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Call to Action:</span>
+                          <span className="analysis-value">{selectedMedia.data.call_to_action_level}/5</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Formality:</span>
+                          <span className="analysis-value">{selectedMedia.data.formality_level}/5</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Benefit Framing:</span>
+                          <span className="analysis-value">{selectedMedia.data.benefit_framing}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Temporal Urgency:</span>
+                          <span className="analysis-value">{selectedMedia.data.temporal_urgency_intensity}/5</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Scene Setting:</span>
+                          <span className="analysis-value">{selectedMedia.data.scene_setting}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="analysis-section">
+                      <h4>Emotional Indices</h4>
+                      <div className="analysis-grid">
+                        <div className="analysis-item">
+                          <span className="analysis-label">Fear:</span>
+                          <span className="analysis-value">{selectedMedia.data.fear_index?.toFixed(1) || '0.0'}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Comfort:</span>
+                          <span className="analysis-value">{selectedMedia.data.comfort_index?.toFixed(1) || '0.0'}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Humor:</span>
+                          <span className="analysis-value">{selectedMedia.data.humor_index?.toFixed(1) || '0.0'}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Success:</span>
+                          <span className="analysis-value">{selectedMedia.data.success_index?.toFixed(1) || '0.0'}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Love:</span>
+                          <span className="analysis-value">{selectedMedia.data.love_index?.toFixed(1) || '0.0'}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Family:</span>
+                          <span className="analysis-value">{selectedMedia.data.family_index?.toFixed(1) || '0.0'}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Adventure:</span>
+                          <span className="analysis-value">{selectedMedia.data.adventure_index?.toFixed(1) || '0.0'}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Nostalgia:</span>
+                          <span className="analysis-value">{selectedMedia.data.nostalgia_index?.toFixed(1) || '0.0'}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Health:</span>
+                          <span className="analysis-value">{selectedMedia.data.health_index?.toFixed(1) || '0.0'}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Luxury:</span>
+                          <span className="analysis-value">{selectedMedia.data.luxury_index?.toFixed(1) || '0.0'}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {selectedMedia.data.color_palette && selectedMedia.data.color_palette.length > 0 && (
+                      <div className="analysis-section">
+                        <h4>Color Palette</h4>
+                        <div className="color-palette">
+                          {selectedMedia.data.color_palette.map((color: string, idx: number) => (
+                            <div key={idx} className="color-swatch">
+                              <div className="color-box" style={{ backgroundColor: color }}></div>
+                              <span className="color-hex">{color}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {selectedMedia.data.text && (
+                      <div className="analysis-section">
+                        <h4>Extracted Text</h4>
+                        <div className="analysis-grid">
+                          <div className="analysis-item full-width">
+                            <span className="analysis-value" style={{ whiteSpace: 'pre-wrap' }}>{selectedMedia.data.text}</span>
+                          </div>
                         </div>
                       </div>
                     )}
