@@ -7,8 +7,7 @@ from typing import Dict, List, Any
 
 def extract_image_features(image: Image.Image) -> Dict[str, Any]:
     """
-    Extract comprehensive features from an image including metadata,
-    histogram analysis, and OCR with prominence scoring.
+    Extract basic image features including metadata and OCR with prominence scoring.
 
     Args:
         image: PIL Image object
@@ -16,18 +15,15 @@ def extract_image_features(image: Image.Image) -> Dict[str, Any]:
     Returns:
         Dictionary containing:
         - metadata: frames, resolution, format, mode, size
-        - contrast: histogram data and contrast metrics
         - ocr: text detection with prominence scores
     """
 
     img = image
-    img_array = np.array(img)
-
 
     metadata = {
         'width': img.width,
         'height': img.height,
-        'resolution': (img.width, img.height),
+        'resolution': f"{img.width}x{img.height}",
         'format': img.format,
         'mode': img.mode,
         'file_size_bytes': img.fp.tell() if hasattr(img, 'fp') and img.fp else None,
@@ -41,23 +37,6 @@ def extract_image_features(image: Image.Image) -> Dict[str, Any]:
     except:
         metadata['frames'] = 1
         metadata['is_animated'] = False
-
-
-    # Convert to grayscale for histogram
-    if len(img_array.shape) == 3:
-        gray = cv2.cvtColor(img_array, cv2.COLOR_RGB2GRAY)
-    else:
-        gray = img_array
-
-    histogram = cv2.calcHist([gray], [0], None, [256], [0, 256]).flatten()
-
-    # Basic brightness metrics (removed complex contrast calculations)
-    contrast_data = {
-        'histogram': histogram.tolist(),
-        'mean_brightness': float(gray.mean()),
-        'min_brightness': float(gray.min()),
-        'max_brightness': float(gray.max())
-    }
 
     # Get detailed OCR data with bounding boxes
     ocr_data = pytesseract.image_to_data(img, output_type=pytesseract.Output.DICT)
@@ -109,6 +88,7 @@ def extract_image_features(image: Image.Image) -> Dict[str, Any]:
 
     return {
         'metadata': metadata,
-        'contrast': contrast_data,
-        'ocr': ocr_result
+        'text': full_text,
+        'resolution': metadata['resolution'],
+        'ocr_details': ocr_result
     }
