@@ -2,6 +2,8 @@ import os
 import zipfile
 import tempfile
 import time
+import subprocess
+import json
 from pathlib import Path
 from typing import Dict, Any
 from PIL import Image
@@ -11,7 +13,60 @@ from video_preprocessing import preprocess_video
 from batch_analysis import batch_analyze_videos, batch_analyze_images
 
 
-def process_zip_file(zip_path: str) -> Dict[str, Dict[str, Any]]:
+def compress_video_for_gemini(input_path: str, max_size_mb: int = 2) -> str:
+    """
+    Compress video for Gemini API (max 2MB, 720p).
+    Returns path to compressed video or original if compression not needed.
+    """
+    try:
+        current_size_mb = os.path.getsize(input_path) / (1024 * 1024)
+        
+        # If already small enough, check resolution
+        if current_size_mb <= max_size_mb:
+            probe_cmd = ['ffprobe', '-v', 'quiet', '-print_format', 'json', '-show_streams', input_path]
+            result = subprocess.run(probe_cmd, capture_output=True, text=True)
+            if result.returncode == 0:
+                probe_data = json.loads(result.stdout)
+                video_stream = next((s for s in probe_data['streams'] if s['codec_type'] == 'video'), None)
+                if video_stream and int(video_stream.get('height', 0)) <= 720:
+                    return input_path
+        
+        # Create compressed version
+        output_path = input_path.replace('.mp4', '_compressed.mp4')
+        
+        # Get duration for bitrate calculation
+        duration_cmd = ['ffprobe', '-v', 'quiet', '-show_entries', 'format=duration', '-of', 'csv=p=0', input_path]
+        duration_result = subprocess.run(duration_cmd, capture_output=True, text=True)
+        duration = float(duration_result.stdout.strip()) if duration_result.returncode == 0 else 30
+        
+        target_bitrate_kbps = max(int((max_size_mb * 8 * 1024) / duration * 0.9), 100)
+        
+        cmd = [
+            'ffmpeg', '-i', input_path, '-vf', 'scale=-2:min(720\\,ih)',
+            '-c:v', 'libx264', '-b:v', f'{target_bitrate_kbps}k',
+            '-c:a', 'aac', '-b:a', '64k', '-movflags', '+faststart',
+            '-y', output_path
+        ]
+        
+        result = subprocess.run(cmd, capture_output=True, text=True)
+        
+        if result.returncode == 0:
+            compressed_size_mb = os.path.getsize(output_path) / (1024 * 1024)
+            if compressed_size_mb < current_size_mb:
+                print(f"   Compressed: {current_size_mb:.2f}MB → {compressed_size_mb:.2f}MB")
+                return output_path
+        
+        # Compression failed or didn't help
+        if os.path.exists(output_path):
+            os.remove(output_path)
+        return input_path
+        
+    except Exception as e:
+        print(f"   Warning: Compression failed: {e}")
+        return input_path
+
+
+def process_zip_file(zip_path: str) -> tuple[Dict[str, Dict[str, Any]], str]:
     """
     Unzip a file and process all media files (PNG images and MP4 videos).
 
@@ -19,9 +74,9 @@ def process_zip_file(zip_path: str) -> Dict[str, Dict[str, Any]]:
         zip_path: Path to the zip file
 
     Returns:
-        Dictionary where:
-        - key: filename (without directory path)
-        - value: preprocessing result dictionary from image_preprocess or video_preprocessing
+        Tuple of (results_dict, temp_dir_path) where:
+        - results_dict: Dictionary mapping filename to preprocessing results
+        - temp_dir_path: Path to temporary directory (caller must clean up)
     """
     if not os.path.exists(zip_path):
         raise FileNotFoundError(f"Zip file not found: {zip_path}")
@@ -31,57 +86,62 @@ def process_zip_file(zip_path: str) -> Dict[str, Dict[str, Any]]:
 
     results = {}
 
-    # Create temporary directory for extraction
-    with tempfile.TemporaryDirectory() as temp_dir:
-        print(f"Extracting zip file to temporary directory: {temp_dir}")
+    # Create temporary directory for extraction (don't auto-cleanup)
+    temp_dir = tempfile.mkdtemp()
+    print(f"Extracting zip file to temporary directory: {temp_dir}")
 
-        # Extract zip file
-        with zipfile.ZipFile(zip_path, 'r') as zip_ref:
-            zip_ref.extractall(temp_dir)
+    # Extract zip file
+    with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+        zip_ref.extractall(temp_dir)
 
-        # Walk through all extracted files
-        for root, dirs, files in os.walk(temp_dir):
-            for filename in files:
-                file_path = os.path.join(root, filename)
-                file_lower = filename.lower()
+    # Walk through all extracted files
+    for root, dirs, files in os.walk(temp_dir):
+        for filename in files:
+            file_path = os.path.join(root, filename)
+            file_lower = filename.lower()
 
-                # Skip hidden files and __MACOSX
-                if filename.startswith('.') or '__MACOSX' in file_path:
-                    continue
+            # Skip hidden files and __MACOSX
+            if filename.startswith('.') or '__MACOSX' in file_path:
+                continue
 
-                try:
-                    # Process PNG images
-                    if file_lower.endswith('.png'):
-                        print(f"Processing image: {filename}")
-                        img_start = time.time()
-                        with Image.open(file_path) as img:
-                            results[filename] = extract_image_features(img)
-                        img_time = time.time() - img_start
-                        print(f"   Completed image preprocessing ({img_time:.2f}s)")
+            try:
+                # Process PNG images
+                if file_lower.endswith('.png'):
+                    print(f"Processing image: {filename}")
+                    img_start = time.time()
+                    with Image.open(file_path) as img:
+                        results[filename] = extract_image_features(img)
+                    img_time = time.time() - img_start
+                    print(f"   Completed image preprocessing ({img_time:.2f}s)")
 
-                    # Process MP4 videos
-                    elif file_lower.endswith('.mp4'):
-                        print(f"Processing video: {filename}")
-                        video_start = time.time()
-                        results[filename] = preprocess_video(file_path)
-                        video_time = time.time() - video_start
-                        print(f"   Completed video preprocessing ({video_time:.2f}s)")
+                # Process MP4 videos
+                elif file_lower.endswith('.mp4'):
+                    print(f"Processing video: {filename}")
+                    video_start = time.time()
+                    results[filename] = preprocess_video(file_path)
+                    
+                    # Compress video for batch analysis
+                    compressed_path = compress_video_for_gemini(file_path)
+                    results[filename]['_temp_file_path'] = compressed_path
+                    
+                    video_time = time.time() - video_start
+                    print(f"   Completed video preprocessing ({video_time:.2f}s)")
 
-                    else:
-                        print(f"Skipping unsupported file: {filename}")
+                else:
+                    print(f"Skipping unsupported file: {filename}")
 
-                except Exception as e:
-                    print(f"Error processing {filename}: {e}")
-                    results[filename] = {
-                        "error": str(e),
-                        "status": "failed"
-                    }
+            except Exception as e:
+                print(f"Error processing {filename}: {e}")
+                results[filename] = {
+                    "error": str(e),
+                    "status": "failed"
+                }
 
     print(f"\n=== Preprocessing Complete ===")
     print(f"Successfully processed {len([r for r in results.values() if 'error' not in r])} files")
     print(f"Failed: {len([r for r in results.values() if 'error' in r])} files")
 
-    return results
+    return results, temp_dir
 
 
 def save_results(results: Dict[str, Dict[str, Any]], output_path: str):
@@ -112,11 +172,12 @@ if __name__ == "__main__":
     zip_path = sys.argv[1]
     output_path = sys.argv[2] if len(sys.argv) > 2 else None
 
+    temp_dir = None
     try:
         # Step 1: Process all files in zip (preprocessing)
         print("=== Step 1: Preprocessing ===")
         preprocess_start = time.time()
-        results = process_zip_file(zip_path)
+        results, temp_dir = process_zip_file(zip_path)
         preprocess_time = time.time() - preprocess_start
         print(f"Total preprocessing time: {preprocess_time:.2f}s")
 
@@ -186,3 +247,9 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"Error: {e}")
         sys.exit(1)
+    finally:
+        # Clean up temporary directory
+        if temp_dir and os.path.exists(temp_dir):
+            import shutil
+            shutil.rmtree(temp_dir)
+            print(f"Cleaned up temporary directory: {temp_dir}")

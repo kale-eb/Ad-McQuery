@@ -1,6 +1,8 @@
 import json
 import os
 import time
+import subprocess
+import tempfile
 from typing import Dict, Any, List
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dotenv import load_dotenv
@@ -8,6 +10,7 @@ import google.generativeai as genai
 
 # Load environment variables
 load_dotenv()
+
 
 
 def batch_analyze_videos(preprocessed_videos: Dict[str, Dict[str, Any]], batch_size: int = 5) -> Dict[str, Dict[str, Any]]:
@@ -24,9 +27,9 @@ def batch_analyze_videos(preprocessed_videos: Dict[str, Dict[str, Any]], batch_s
     # Configure Gemini API
     genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
     
-    # Filter out only video files (mp4)
+    # Filter out only video files (mp4) and ensure they have file paths
     video_files = {k: v for k, v in preprocessed_videos.items() 
-                   if k.lower().endswith('.mp4') and 'error' not in v}
+                   if k.lower().endswith('.mp4') and 'error' not in v and '_temp_file_path' in v}
     
     if not video_files:
         print("No valid video files to analyze")
@@ -53,9 +56,32 @@ def batch_analyze_videos(preprocessed_videos: Dict[str, Dict[str, Any]], batch_s
             # Create batch prompt
             batch_prompt = create_batch_prompt(batch_data)
             
-            # Get Gemini analysis for batch
+            # Prepare video files for Gemini
+            content_parts = [batch_prompt]
+            
+            # Add each video file to the content
+            import base64
+            for i, filename in enumerate(batch_filenames):
+                try:
+                    file_path = batch_data[filename]['_temp_file_path']
+                    
+                    with open(file_path, 'rb') as f:
+                        video_bytes = f.read()
+                    
+                    video_part = {
+                        "mime_type": "video/mp4",
+                        "data": base64.b64encode(video_bytes).decode('utf-8')
+                    }
+                    content_parts.append(video_part)
+                        
+                except Exception as e:
+                    print(f"   Warning: Could not process video file {filename}: {e}")
+                    # Continue without this video
+                    continue
+            
+            # Get Gemini analysis for batch with video content
             response = model.generate_content(
-                batch_prompt,
+                content_parts,
                 generation_config=genai.GenerationConfig(
                     response_mime_type="application/json"
                 )
@@ -68,13 +94,17 @@ def batch_analyze_videos(preprocessed_videos: Dict[str, Dict[str, Any]], batch_s
             batch_results = {}
             for filename in batch_filenames:
                 if filename in batch_analysis:
+                    # Clean preprocessing data (remove temp file path)
+                    clean_preprocessing_data = {k: v for k, v in batch_data[filename].items() if k != '_temp_file_path'}
                     batch_results[filename] = {
-                        **batch_data[filename],  # Original preprocessing data
+                        **clean_preprocessing_data,  # Original preprocessing data
                         **batch_analysis[filename]  # Gemini analysis
                     }
                 else:
+                    # Clean preprocessing data (remove temp file path)
+                    clean_preprocessing_data = {k: v for k, v in batch_data[filename].items() if k != '_temp_file_path'}
                     batch_results[filename] = {
-                        **batch_data[filename],
+                        **clean_preprocessing_data,
                         "analysis_error": "Failed to get Gemini analysis"
                     }
             
@@ -88,8 +118,10 @@ def batch_analyze_videos(preprocessed_videos: Dict[str, Dict[str, Any]], batch_s
             # Add error for all videos in batch
             batch_results = {}
             for filename in batch_filenames:
+                # Clean preprocessing data (remove temp file path)
+                clean_preprocessing_data = {k: v for k, v in batch_data[filename].items() if k != '_temp_file_path'}
                 batch_results[filename] = {
-                    **batch_data[filename],
+                    **clean_preprocessing_data,
                     "analysis_error": str(e)
                 }
             return batch_results
