@@ -32,6 +32,7 @@ def analyze_video_with_gemini(video_data: Dict[str, Any], video_path: str) -> Di
         Complete analysis including preprocessing data + Gemini analysis
     """
     import google.generativeai as genai
+    import base64
     
     # Configure Gemini API
     genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
@@ -41,13 +42,40 @@ def analyze_video_with_gemini(video_data: Dict[str, Any], video_path: str) -> Di
     full_text = video_data['whisper_transcript']['full_text']
     video_length = video_data['length']
     
-    # Create analysis prompt
-    prompt = f"""
-Analyze this video advertisement objectively for targeting and marketing effectiveness. 
-Please analyze and provide the following metrics in JSON format:
+    # Load prompts from JSON
+    with open(os.path.join(os.path.dirname(__file__), 'prompts.json'), 'r') as f:
+        prompts = json.load(f)
+    
+    video_prompt = prompts['video_analysis']
+    
+    # Create format string from the format dict
+    format_str = json.dumps(video_prompt['format'], indent=4)
+    criteria_str = '\n'.join([f"- {k}: {v}" for k, v in video_prompt['criteria'].items()])
+    
+    prompt = f"""Analyze this advertisement video for marketing and targeting characteristics.
 
-{{
-    "targeting_type": "first_impression" or "retargeting",
+VIDEO METADATA:
+- Resolution: {video_data.get('resolution', 'Unknown')}
+- Length: {video_length} seconds
+- Transcript: {full_text}
+
+Please analyze and return the following fields in JSON format:
+{format_str}
+
+ANALYSIS CRITERIA:
+{criteria_str}
+
+{video_prompt['instruction']}"""
+
+    try:
+        # Read video file and encode as base64
+        with open(video_path, 'rb') as video_file:
+            video_bytes = video_file.read()
+        
+        video_part = {{
+            "mime_type": "video/mp4",
+            "data": base64.b64encode(video_bytes).decode('utf-8')
+        }}
     "comprehension_rating": 1-5 (how easy to understand),
     "target_age_range": "specific age range like 18-25, 25-35, 35-50, 50+",
     "target_income_level": "specific income level",

@@ -63,6 +63,7 @@ export interface MediaFile {
     scene_settings?: string[]
     scene_cuts?: number[]
     analysis_error?: string
+    summary?: string
   }
 }
 

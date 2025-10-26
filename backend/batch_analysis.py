@@ -47,7 +47,7 @@ def batch_analyze_videos(preprocessed_videos: Dict[str, Dict[str, Any]], batch_s
     
     def process_batch(batch_info):
         batch_num, batch_filenames, batch_data = batch_info
-        model = genai.GenerativeModel('gemini-2.5-flash')
+        model = genai.GenerativeModel('gemini-2.5-pro')
         
         print(f"\nProcessing video batch {batch_num} ({len(batch_filenames)} videos)...")
         batch_start = time.time()
@@ -249,7 +249,7 @@ def batch_analyze_images(preprocessed_images: Dict[str, Dict[str, Any]], batch_s
     
     def process_image_batch(batch_info):
         batch_num, batch_filenames, batch_data = batch_info
-        model = genai.GenerativeModel('gemini-2.5-flash')
+        model = genai.GenerativeModel('gemini-2.5-pro')
         
         print(f"\nProcessing image batch {batch_num} ({len(batch_filenames)} images)...")
         batch_start = time.time()

@@ -2,12 +2,111 @@ import { useState, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDatasetAnalysis } from '../hooks/useDatasets'
 import type { MediaFile } from '../types/index'
+import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
 
 export const ViewPage = () => {
   const { datasetName } = useParams<{ datasetName: string }>()
   const { analysis, loading, error } = useDatasetAnalysis(datasetName)
   const [selectedMedia, setSelectedMedia] = useState<{filename: string, data: any} | null>(null)
   const [searchQuery, setSearchQuery] = useState<string>('')
+
+  // Helper function to prepare emotional indices data for radar chart
+  const prepareEmotionalData = (data: any) => {
+    return [
+      { emotion: 'Fear', value: (data.fear_index || 0) },
+      { emotion: 'Comfort', value: (data.comfort_index || 0) },
+      { emotion: 'Humor', value: (data.humor_index || 0) },
+      { emotion: 'Success', value: (data.success_index || 0) },
+      { emotion: 'Love', value: (data.love_index || 0) },
+      { emotion: 'Family', value: (data.family_index || 0) },
+      { emotion: 'Adventure', value: (data.adventure_index || 0) },
+      { emotion: 'Nostalgia', value: (data.nostalgia_index || 0) },
+      { emotion: 'Health', value: (data.health_index || 0) },
+      { emotion: 'Luxury', value: (data.luxury_index || 0) }
+    ]
+  }
+
+  // Helper function to detect if timestamps need conversion (have hundredths place decimals)
+  const needsTimestampConversion = (sceneCuts: number[]) => {
+    return sceneCuts.some(timestamp => {
+      const decimalPart = timestamp - Math.floor(timestamp)
+      if (decimalPart === 0) return false
+      
+      // Check if decimal represents hundredths of seconds (e.g., 1.45 = 1 minute 45 seconds)
+      // This happens when decimal part has exactly 2 digits or represents values > 0.59
+      const decimalStr = decimalPart.toFixed(10) // Get enough precision
+      const afterDecimal = decimalStr.split('.')[1]
+      
+      // Look for patterns like .45, .23, etc. (hundredths that should be seconds)
+      return afterDecimal && (afterDecimal.length >= 2) && (decimalPart <= 0.99)
+    })
+  }
+
+  // Helper function to convert timestamp format from minutes.seconds to total seconds
+  const convertTimestampToSeconds = (timestamp: number) => {
+    const minutes = Math.floor(timestamp)
+    const seconds = (timestamp - minutes) * 100
+    return minutes * 60 + seconds
+  }
+
+  // Helper function to safely format emotional index values
+  const formatEmotionalIndex = (value: any) => {
+    return Number(value || 0).toFixed(1)
+  }
+
+  // Helper function to collect quality warnings for a media file
+  const getMediaWarnings = (data: any, filename: string) => {
+    const warnings: string[] = []
+    
+    if (filename.toLowerCase().endsWith('.mp4')) {
+      if (data.video_bitrate_kbps && data.video_bitrate_kbps < 1000) {
+        warnings.push(`Low video bitrate: ${data.video_bitrate_kbps} kbps (recommended: 1000+ kbps)`)
+      }
+      if (data.audio_bitrate_kbps && data.audio_bitrate_kbps < 100) {
+        warnings.push(`Low audio bitrate: ${data.audio_bitrate_kbps} kbps (recommended: 100+ kbps)`)
+      }
+    }
+    
+    return warnings
+  }
+
+  // Helper function to calculate cut frequency over time using sliding window
+  const calculateCutFrequency = (sceneCuts: number[], videoLength: number) => {
+    if (!sceneCuts || sceneCuts.length === 0) return []
+    
+    // Check if conversion is needed, then convert and filter
+    const processedCuts = needsTimestampConversion(sceneCuts)
+      ? sceneCuts.map(convertTimestampToSeconds).filter(cutTime => cutTime > 0)
+      : sceneCuts.filter(cutTime => cutTime > 0)
+    
+    const windowSize = Math.max(3, videoLength / 20) // Sliding window size (adaptive)
+    const stepSize = Math.max(0.5, videoLength / 50) // Step size for sampling points
+    const frequencyData = []
+    
+    // Calculate frequency at regular intervals
+    for (let time = 0; time <= videoLength; time += stepSize) {
+      // Count cuts within the sliding window centered at current time
+      const windowStart = Math.max(0, time - windowSize / 2)
+      const windowEnd = Math.min(videoLength, time + windowSize / 2)
+      
+      // Count cuts in this window (using processed timestamps)
+      const cutsInWindow = processedCuts.filter(cutTime => 
+        cutTime >= windowStart && cutTime <= windowEnd
+      ).length
+      
+      // Calculate frequency as cuts per second in this window
+      const windowDuration = windowEnd - windowStart
+      const frequency = windowDuration > 0 ? cutsInWindow / windowDuration : 0
+      
+      frequencyData.push({
+        time: parseFloat(time.toFixed(1)),
+        frequency: parseFloat((frequency * 60).toFixed(2)), // Convert to cuts per minute for better readability
+        cutsInWindow
+      })
+    }
+    
+    return frequencyData
+  }
 
   const filteredEntries = useMemo(() => {
     if (!analysis) return []
@@ -329,6 +428,29 @@ export const ViewPage = () => {
               <div className="modal-info">
                 <h3>{selectedMedia.filename}</h3>
 
+                {/* Warnings Section */}
+                {(() => {
+                  const warnings = getMediaWarnings(selectedMedia.data, selectedMedia.filename)
+                  return warnings.length > 0 && (
+                    <div className="warnings-section">
+                      <h4>⚠️ Quality Warnings</h4>
+                      <ul className="warnings-list">
+                        {warnings.map((warning, index) => (
+                          <li key={index} className="warning-item">{warning}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )
+                })()}
+
+                {/* Summary Section - DISABLED */}
+                {/* {selectedMedia.data.summary && (
+                  <div className="summary-section">
+                    <h4>📊 Analysis Summary</h4>
+                    <p className="summary-text">{selectedMedia.data.summary}</p>
+                  </div>
+                )} */}
+
                 {selectedMedia.filename.toLowerCase().endsWith('.mp4') ? (
                   /* Video Analysis */
                   <>
@@ -381,13 +503,31 @@ export const ViewPage = () => {
                         </div>
                         {selectedMedia.data.video_bitrate_kbps && (
                           <div className="analysis-item">
-                            <span className="analysis-label">Video Bitrate:</span>
+                            <span className="analysis-label">
+                              {selectedMedia.data.video_bitrate_kbps < 1000 ? (
+                                <span 
+                                  className="warning-icon" 
+                                  title="Low video bitrate - may affect quality"
+                                >
+                                  ⚠️ 
+                                </span>
+                              ) : ''}Video Bitrate:
+                            </span>
                             <span className="analysis-value">{selectedMedia.data.video_bitrate_kbps} kbps</span>
                           </div>
                         )}
                         {selectedMedia.data.audio_bitrate_kbps && (
                           <div className="analysis-item">
-                            <span className="analysis-label">Audio Bitrate:</span>
+                            <span className="analysis-label">
+                              {selectedMedia.data.audio_bitrate_kbps < 100 ? (
+                                <span 
+                                  className="warning-icon" 
+                                  title="Low audio bitrate - may affect sound quality"
+                                >
+                                  ⚠️ 
+                                </span>
+                              ) : ''}Audio Bitrate:
+                            </span>
                             <span className="analysis-value">{selectedMedia.data.audio_bitrate_kbps} kbps</span>
                           </div>
                         )}
@@ -453,65 +593,102 @@ export const ViewPage = () => {
 
                     <div className="analysis-section">
                       <h4>Emotional Indices (0 to 1.0)</h4>
+                      
+                      {/* Radar Chart */}
+                      <div style={{ width: '100%', height: '300px', margin: '20px 0' }}>
+                        <ResponsiveContainer width="100%" height="100%">
+                          <RadarChart data={prepareEmotionalData(selectedMedia.data)}>
+                            <PolarGrid stroke="var(--capybara-brown)" />
+                            <PolarAngleAxis 
+                              dataKey="emotion" 
+                              tick={{ 
+                                fontSize: 13, 
+                                fill: 'var(--dark-roast)', 
+                                fontWeight: 600,
+                                fontFamily: 'var(--font-primary, system-ui)'
+                              }} 
+                            />
+                            <PolarRadiusAxis 
+                              angle={0} 
+                              domain={[0, 1]} 
+                              tick={{ 
+                                fontSize: 11, 
+                                fill: 'var(--text-secondary)',
+                                fontWeight: 500
+                              }}
+                              tickCount={6}
+                            />
+                            <Radar
+                              name="Emotional Intensity"
+                              dataKey="value"
+                              stroke="var(--rosy-cheek)"
+                              fill="var(--rosy-cheek)"
+                              fillOpacity={0.25}
+                              strokeWidth={3}
+                            />
+                          </RadarChart>
+                        </ResponsiveContainer>
+                      </div>
+
                       <div className="analysis-grid">
                         <div className="analysis-item">
                           <span className="analysis-label">Fear:</span>
                           <span className={`analysis-value ${(selectedMedia.data.fear_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
-                            {selectedMedia.data.fear_index?.toFixed(1) || '0.0'}
+                            {formatEmotionalIndex(selectedMedia.data.fear_index)}
                           </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Comfort:</span>
                           <span className={`analysis-value ${(selectedMedia.data.comfort_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
-                            {selectedMedia.data.comfort_index?.toFixed(1) || '0.0'}
+                            {formatEmotionalIndex(selectedMedia.data.comfort_index)}
                           </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Humor:</span>
                           <span className={`analysis-value ${(selectedMedia.data.humor_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
-                            {selectedMedia.data.humor_index?.toFixed(1) || '0.0'}
+                            {formatEmotionalIndex(selectedMedia.data.humor_index)}
                           </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Success:</span>
                           <span className={`analysis-value ${(selectedMedia.data.success_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
-                            {selectedMedia.data.success_index?.toFixed(1) || '0.0'}
+                            {formatEmotionalIndex(selectedMedia.data.success_index)}
                           </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Love:</span>
                           <span className={`analysis-value ${(selectedMedia.data.love_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
-                            {selectedMedia.data.love_index?.toFixed(1) || '0.0'}
+                            {formatEmotionalIndex(selectedMedia.data.love_index)}
                           </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Family:</span>
                           <span className={`analysis-value ${(selectedMedia.data.family_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
-                            {selectedMedia.data.family_index?.toFixed(1) || '0.0'}
+                            {formatEmotionalIndex(selectedMedia.data.family_index)}
                           </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Adventure:</span>
                           <span className={`analysis-value ${(selectedMedia.data.adventure_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
-                            {selectedMedia.data.adventure_index?.toFixed(1) || '0.0'}
+                            {formatEmotionalIndex(selectedMedia.data.adventure_index)}
                           </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Nostalgia:</span>
                           <span className={`analysis-value ${(selectedMedia.data.nostalgia_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
-                            {selectedMedia.data.nostalgia_index?.toFixed(1) || '0.0'}
+                            {formatEmotionalIndex(selectedMedia.data.nostalgia_index)}
                           </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Health:</span>
                           <span className={`analysis-value ${(selectedMedia.data.health_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
-                            {selectedMedia.data.health_index?.toFixed(1) || '0.0'}
+                            {formatEmotionalIndex(selectedMedia.data.health_index)}
                           </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Luxury:</span>
                           <span className={`analysis-value ${(selectedMedia.data.luxury_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
-                            {selectedMedia.data.luxury_index?.toFixed(1) || '0.0'}
+                            {formatEmotionalIndex(selectedMedia.data.luxury_index)}
                           </span>
                         </div>
                       </div>
@@ -558,9 +735,90 @@ export const ViewPage = () => {
                     {selectedMedia.data.scene_cuts && selectedMedia.data.scene_cuts.length > 0 && (
                       <div className="analysis-section">
                         <h4>Scene Cuts</h4>
+                        
+                        {/* Scene Cuts Frequency Over Time Chart */}
+                        <div style={{ width: '100%', height: '280px', margin: '20px 0' }}>
+                          <ResponsiveContainer width="100%" height="100%">
+                            <LineChart 
+                              data={calculateCutFrequency(selectedMedia.data.scene_cuts, selectedMedia.data.length || 30)}
+                              margin={{ top: 20, right: 30, left: 60, bottom: 40 }}
+                            >
+                              <CartesianGrid strokeDasharray="3 3" stroke="var(--capybara-brown)" opacity={0.3} />
+                              <XAxis 
+                                dataKey="time" 
+                                type="number"
+                                scale="linear"
+                                domain={['dataMin', 'dataMax']}
+                                tick={{ 
+                                  fontSize: 11, 
+                                  fill: 'var(--text-secondary)',
+                                  fontWeight: 500
+                                }}
+                                label={{ 
+                                  value: 'Time (seconds)', 
+                                  position: 'insideBottom', 
+                                  offset: -10,
+                                  style: { textAnchor: 'middle', fill: 'var(--dark-roast)', fontWeight: 600 }
+                                }}
+                              />
+                              <YAxis 
+                                tick={{ 
+                                  fontSize: 11, 
+                                  fill: 'var(--text-secondary)',
+                                  fontWeight: 500
+                                }}
+                                label={{ 
+                                  value: 'Cut Frequency (cuts/min)', 
+                                  angle: -90, 
+                                  position: 'insideLeft',
+                                  style: { textAnchor: 'middle', fill: 'var(--dark-roast)', fontWeight: 600 }
+                                }}
+                              />
+                              <Tooltip 
+                                contentStyle={{
+                                  backgroundColor: 'var(--bg-secondary)',
+                                  border: '1px solid var(--border-subtle)',
+                                  borderRadius: '8px',
+                                  fontSize: '12px',
+                                  color: 'var(--text-primary)'
+                                }}
+                                labelStyle={{ color: 'var(--dark-roast)', fontWeight: 600 }}
+                                formatter={(value: number, name: string) => [
+                                  `${value} cuts/min`, 'Frequency'
+                                ]}
+                                labelFormatter={(time: number) => `Time: ${time}s`}
+                              />
+                              <Line 
+                                type="basis"
+                                dataKey="frequency" 
+                                stroke="var(--data-purple)"
+                                strokeWidth={4}
+                                dot={false}
+                                activeDot={{ 
+                                  r: 6, 
+                                  fill: 'var(--rosy-cheek)',
+                                  stroke: 'var(--data-purple)',
+                                  strokeWidth: 3
+                                }}
+                                connectNulls={false}
+                                strokeDasharray="0"
+                              />
+                            </LineChart>
+                          </ResponsiveContainer>
+                        </div>
+
                         <div className="analysis-grid">
                           <div className="analysis-item full-width">
-                            <span className="analysis-value">{selectedMedia.data.scene_cuts.length} cuts at: {selectedMedia.data.scene_cuts.map((t: number) => t.toFixed(2) + 's').join(', ')}</span>
+                            <span className="analysis-value">
+                              {(() => {
+                                const validCuts = needsTimestampConversion(selectedMedia.data.scene_cuts)
+                                  ? selectedMedia.data.scene_cuts.map(convertTimestampToSeconds).filter(cutTime => cutTime > 0)
+                                  : selectedMedia.data.scene_cuts.filter(cutTime => cutTime > 0)
+                                return `${validCuts.length} total cuts at: ${
+                                  validCuts.map(cutTime => Math.round(cutTime) + 's').join(', ')
+                                }`
+                              })()}
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -623,65 +881,102 @@ export const ViewPage = () => {
 
                     <div className="analysis-section">
                       <h4>Emotional Indices (0 to 1.0)</h4>
+                      
+                      {/* Radar Chart */}
+                      <div style={{ width: '100%', height: '300px', margin: '20px 0' }}>
+                        <ResponsiveContainer width="100%" height="100%">
+                          <RadarChart data={prepareEmotionalData(selectedMedia.data)}>
+                            <PolarGrid stroke="var(--capybara-brown)" />
+                            <PolarAngleAxis 
+                              dataKey="emotion" 
+                              tick={{ 
+                                fontSize: 13, 
+                                fill: 'var(--dark-roast)', 
+                                fontWeight: 600,
+                                fontFamily: 'var(--font-primary, system-ui)'
+                              }} 
+                            />
+                            <PolarRadiusAxis 
+                              angle={0} 
+                              domain={[0, 1]} 
+                              tick={{ 
+                                fontSize: 11, 
+                                fill: 'var(--text-secondary)',
+                                fontWeight: 500
+                              }}
+                              tickCount={6}
+                            />
+                            <Radar
+                              name="Emotional Intensity"
+                              dataKey="value"
+                              stroke="var(--rosy-cheek)"
+                              fill="var(--rosy-cheek)"
+                              fillOpacity={0.25}
+                              strokeWidth={3}
+                            />
+                          </RadarChart>
+                        </ResponsiveContainer>
+                      </div>
+
                       <div className="analysis-grid">
                         <div className="analysis-item">
                           <span className="analysis-label">Fear:</span>
                           <span className={`analysis-value ${(selectedMedia.data.fear_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
-                            {selectedMedia.data.fear_index?.toFixed(1) || '0.0'}
+                            {formatEmotionalIndex(selectedMedia.data.fear_index)}
                           </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Comfort:</span>
                           <span className={`analysis-value ${(selectedMedia.data.comfort_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
-                            {selectedMedia.data.comfort_index?.toFixed(1) || '0.0'}
+                            {formatEmotionalIndex(selectedMedia.data.comfort_index)}
                           </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Humor:</span>
                           <span className={`analysis-value ${(selectedMedia.data.humor_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
-                            {selectedMedia.data.humor_index?.toFixed(1) || '0.0'}
+                            {formatEmotionalIndex(selectedMedia.data.humor_index)}
                           </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Success:</span>
                           <span className={`analysis-value ${(selectedMedia.data.success_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
-                            {selectedMedia.data.success_index?.toFixed(1) || '0.0'}
+                            {formatEmotionalIndex(selectedMedia.data.success_index)}
                           </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Love:</span>
                           <span className={`analysis-value ${(selectedMedia.data.love_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
-                            {selectedMedia.data.love_index?.toFixed(1) || '0.0'}
+                            {formatEmotionalIndex(selectedMedia.data.love_index)}
                           </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Family:</span>
                           <span className={`analysis-value ${(selectedMedia.data.family_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
-                            {selectedMedia.data.family_index?.toFixed(1) || '0.0'}
+                            {formatEmotionalIndex(selectedMedia.data.family_index)}
                           </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Adventure:</span>
                           <span className={`analysis-value ${(selectedMedia.data.adventure_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
-                            {selectedMedia.data.adventure_index?.toFixed(1) || '0.0'}
+                            {formatEmotionalIndex(selectedMedia.data.adventure_index)}
                           </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Nostalgia:</span>
                           <span className={`analysis-value ${(selectedMedia.data.nostalgia_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
-                            {selectedMedia.data.nostalgia_index?.toFixed(1) || '0.0'}
+                            {formatEmotionalIndex(selectedMedia.data.nostalgia_index)}
                           </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Health:</span>
                           <span className={`analysis-value ${(selectedMedia.data.health_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
-                            {selectedMedia.data.health_index?.toFixed(1) || '0.0'}
+                            {formatEmotionalIndex(selectedMedia.data.health_index)}
                           </span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Luxury:</span>
                           <span className={`analysis-value ${(selectedMedia.data.luxury_index || 0) > 0.5 ? 'high-emotion' : ''}`}>
-                            {selectedMedia.data.luxury_index?.toFixed(1) || '0.0'}
+                            {formatEmotionalIndex(selectedMedia.data.luxury_index)}
                           </span>
                         </div>
                       </div>

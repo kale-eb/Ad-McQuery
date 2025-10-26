@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
-import loadingGif from '../assets/gifs/DocMcQueryCapybaraSortingFiles.gif'
+import loadingVideo from '../assets/videos/DocMcQueryCapybaraSortingFiles.webm'
 
 export const ProcessingPage = () => {
   const navigate = useNavigate()
@@ -134,7 +134,19 @@ export const ProcessingPage = () => {
 
             {uploading && (
               <div className="loading-container">
-                <img src={loadingGif} alt="Processing files..." className="loading-gif" />
+                <video 
+                  src={loadingVideo} 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                  className="loading-gif"
+                  onError={(e) => {
+                    console.error('Error loading video:', e)
+                  }}
+                >
+                  Your browser does not support the video tag.
+                </video>
                 <p className="loading-text">Processing your files...</p>
               </div>
             )}

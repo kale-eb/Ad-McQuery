@@ -130,7 +130,8 @@ ANALYSIS CRITERIA:
             "adventure_index": analysis.get("adventure_index"),
             "nostalgia_index": analysis.get("nostalgia_index"),
             "health_index": analysis.get("health_index"),
-            "luxury_index": analysis.get("luxury_index")
+            "luxury_index": analysis.get("luxury_index"),
+            "summary": analysis.get("summary")
         }
 
     except Exception as e:
