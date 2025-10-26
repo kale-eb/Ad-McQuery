@@ -13,7 +13,7 @@ from video_preprocessing import preprocess_video
 from batch_analysis import batch_analyze_videos, batch_analyze_images
 
 
-def compress_image_for_gemini(image_path: str, max_size_kb: int = 500) -> str:
+def compress_image_for_gemini(image_path: str, max_size_kb: int = 300) -> str:
     """
     Compress image for Gemini API (max 500KB).
     Returns path to compressed image or original if compression not needed.
@@ -237,8 +237,8 @@ if __name__ == "__main__":
         from concurrent.futures import ThreadPoolExecutor, as_completed
         
         with ThreadPoolExecutor(max_workers=2) as executor:
-            video_future = executor.submit(batch_analyze_videos, results, 2)  # Reduced from 3
-            image_future = executor.submit(batch_analyze_images, results, 3)  # Reduced from 5
+            video_future = executor.submit(batch_analyze_videos, results, 1)  # Single video per batch
+            image_future = executor.submit(batch_analyze_images, results, 2)  # 2 images per batch max
             
             # Get results as they complete
             video_results = video_future.result()
