@@ -562,7 +562,37 @@ function App() {
                   /* Image Analysis */
                   <>
                     <div className="analysis-section">
-                      <h4>Demographics & Characteristics</h4>
+                      <h4>Visual & Content Analysis</h4>
+                      <div className="analysis-grid">
+                        <div className="analysis-item">
+                          <span className="analysis-label">Product Visibility:</span>
+                          <span className="analysis-value">{selectedMedia.data.product_visibility_score}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Visual Density:</span>
+                          <span className="analysis-value">{selectedMedia.data.visual_density}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Visual Complexity:</span>
+                          <span className="analysis-value">{selectedMedia.data.visual_complexity}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Purchase Urgency:</span>
+                          <span className="analysis-value">{selectedMedia.data.purchase_urgency}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Verbosity:</span>
+                          <span className="analysis-value">{selectedMedia.data.verbosity}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Formality:</span>
+                          <span className="analysis-value">{selectedMedia.data.formality_level}/4</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="analysis-section">
+                      <h4>Demographics & Content</h4>
                       <div className="analysis-grid">
                         <div className="analysis-item">
                           <span className="analysis-label">Age Demographic:</span>
@@ -573,28 +603,8 @@ function App() {
                           <span className="analysis-value">{selectedMedia.data.gender_demographic}</span>
                         </div>
                         <div className="analysis-item">
-                          <span className="analysis-label">Verbosity:</span>
-                          <span className="analysis-value">{selectedMedia.data.verbosity}</span>
-                        </div>
-                        <div className="analysis-item">
-                          <span className="analysis-label">Activity:</span>
-                          <span className="analysis-value">{selectedMedia.data.activity}</span>
-                        </div>
-                        <div className="analysis-item">
-                          <span className="analysis-label">Call to Action:</span>
-                          <span className="analysis-value">{selectedMedia.data.call_to_action_level}/5</span>
-                        </div>
-                        <div className="analysis-item">
-                          <span className="analysis-label">Formality:</span>
-                          <span className="analysis-value">{selectedMedia.data.formality_level}/5</span>
-                        </div>
-                        <div className="analysis-item">
                           <span className="analysis-label">Benefit Framing:</span>
                           <span className="analysis-value">{selectedMedia.data.benefit_framing}</span>
-                        </div>
-                        <div className="analysis-item">
-                          <span className="analysis-label">Temporal Urgency:</span>
-                          <span className="analysis-value">{selectedMedia.data.temporal_urgency_intensity}/5</span>
                         </div>
                         <div className="analysis-item">
                           <span className="analysis-label">Scene Setting:</span>
