@@ -26,29 +26,6 @@ export const ViewPage = () => {
     ]
   }
 
-  // Helper function to detect if timestamps need conversion (have hundredths place decimals)
-  const needsTimestampConversion = (sceneCuts: number[]) => {
-    return sceneCuts.some(timestamp => {
-      const decimalPart = timestamp - Math.floor(timestamp)
-      if (decimalPart === 0) return false
-      
-      // Check if decimal represents hundredths of seconds (e.g., 1.45 = 1 minute 45 seconds)
-      // This happens when decimal part has exactly 2 digits or represents values > 0.59
-      const decimalStr = decimalPart.toFixed(10) // Get enough precision
-      const afterDecimal = decimalStr.split('.')[1]
-      
-      // Look for patterns like .45, .23, etc. (hundredths that should be seconds)
-      return afterDecimal && (afterDecimal.length >= 2) && (decimalPart <= 0.99)
-    })
-  }
-
-  // Helper function to convert timestamp format from minutes.seconds to total seconds
-  const convertTimestampToSeconds = (timestamp: number) => {
-    const minutes = Math.floor(timestamp)
-    const seconds = (timestamp - minutes) * 100
-    return minutes * 60 + seconds
-  }
-
   // Helper function to safely format emotional index values
   const formatEmotionalIndex = (value: any) => {
     return Number(value || 0).toFixed(1)
@@ -70,43 +47,6 @@ export const ViewPage = () => {
     return warnings
   }
 
-  // Helper function to calculate cut frequency over time using sliding window
-  const calculateCutFrequency = (sceneCuts: number[], videoLength: number) => {
-    if (!sceneCuts || sceneCuts.length === 0) return []
-    
-    // Check if conversion is needed, then convert and filter
-    const processedCuts = needsTimestampConversion(sceneCuts)
-      ? sceneCuts.map(convertTimestampToSeconds).filter(cutTime => cutTime > 0)
-      : sceneCuts.filter(cutTime => cutTime > 0)
-    
-    const windowSize = Math.max(3, videoLength / 20) // Sliding window size (adaptive)
-    const stepSize = Math.max(0.5, videoLength / 50) // Step size for sampling points
-    const frequencyData = []
-    
-    // Calculate frequency at regular intervals
-    for (let time = 0; time <= videoLength; time += stepSize) {
-      // Count cuts within the sliding window centered at current time
-      const windowStart = Math.max(0, time - windowSize / 2)
-      const windowEnd = Math.min(videoLength, time + windowSize / 2)
-      
-      // Count cuts in this window (using processed timestamps)
-      const cutsInWindow = processedCuts.filter(cutTime => 
-        cutTime >= windowStart && cutTime <= windowEnd
-      ).length
-      
-      // Calculate frequency as cuts per second in this window
-      const windowDuration = windowEnd - windowStart
-      const frequency = windowDuration > 0 ? cutsInWindow / windowDuration : 0
-      
-      frequencyData.push({
-        time: parseFloat(time.toFixed(1)),
-        frequency: parseFloat((frequency * 60).toFixed(2)), // Convert to cuts per minute for better readability
-        cutsInWindow
-      })
-    }
-    
-    return frequencyData
-  }
 
   const filteredEntries = useMemo(() => {
     if (!analysis) return []
@@ -735,90 +675,9 @@ export const ViewPage = () => {
                     {selectedMedia.data.scene_cuts && selectedMedia.data.scene_cuts.length > 0 && (
                       <div className="analysis-section">
                         <h4>Scene Cuts</h4>
-                        
-                        {/* Scene Cuts Frequency Over Time Chart */}
-                        <div style={{ width: '100%', height: '280px', margin: '20px 0' }}>
-                          <ResponsiveContainer width="100%" height="100%">
-                            <LineChart 
-                              data={calculateCutFrequency(selectedMedia.data.scene_cuts, selectedMedia.data.length || 30)}
-                              margin={{ top: 20, right: 30, left: 60, bottom: 40 }}
-                            >
-                              <CartesianGrid strokeDasharray="3 3" stroke="var(--capybara-brown)" opacity={0.3} />
-                              <XAxis 
-                                dataKey="time" 
-                                type="number"
-                                scale="linear"
-                                domain={['dataMin', 'dataMax']}
-                                tick={{ 
-                                  fontSize: 11, 
-                                  fill: 'var(--text-secondary)',
-                                  fontWeight: 500
-                                }}
-                                label={{ 
-                                  value: 'Time (seconds)', 
-                                  position: 'insideBottom', 
-                                  offset: -10,
-                                  style: { textAnchor: 'middle', fill: 'var(--dark-roast)', fontWeight: 600 }
-                                }}
-                              />
-                              <YAxis 
-                                tick={{ 
-                                  fontSize: 11, 
-                                  fill: 'var(--text-secondary)',
-                                  fontWeight: 500
-                                }}
-                                label={{ 
-                                  value: 'Cut Frequency (cuts/min)', 
-                                  angle: -90, 
-                                  position: 'insideLeft',
-                                  style: { textAnchor: 'middle', fill: 'var(--dark-roast)', fontWeight: 600 }
-                                }}
-                              />
-                              <Tooltip 
-                                contentStyle={{
-                                  backgroundColor: 'var(--bg-secondary)',
-                                  border: '1px solid var(--border-subtle)',
-                                  borderRadius: '8px',
-                                  fontSize: '12px',
-                                  color: 'var(--text-primary)'
-                                }}
-                                labelStyle={{ color: 'var(--dark-roast)', fontWeight: 600 }}
-                                formatter={(value: number, name: string) => [
-                                  `${value} cuts/min`, 'Frequency'
-                                ]}
-                                labelFormatter={(time: number) => `Time: ${time}s`}
-                              />
-                              <Line 
-                                type="basis"
-                                dataKey="frequency" 
-                                stroke="var(--data-purple)"
-                                strokeWidth={4}
-                                dot={false}
-                                activeDot={{ 
-                                  r: 6, 
-                                  fill: 'var(--rosy-cheek)',
-                                  stroke: 'var(--data-purple)',
-                                  strokeWidth: 3
-                                }}
-                                connectNulls={false}
-                                strokeDasharray="0"
-                              />
-                            </LineChart>
-                          </ResponsiveContainer>
-                        </div>
-
                         <div className="analysis-grid">
                           <div className="analysis-item full-width">
-                            <span className="analysis-value">
-                              {(() => {
-                                const validCuts = needsTimestampConversion(selectedMedia.data.scene_cuts)
-                                  ? selectedMedia.data.scene_cuts.map(convertTimestampToSeconds).filter(cutTime => cutTime > 0)
-                                  : selectedMedia.data.scene_cuts.filter(cutTime => cutTime > 0)
-                                return `${validCuts.length} total cuts at: ${
-                                  validCuts.map(cutTime => Math.round(cutTime) + 's').join(', ')
-                                }`
-                              })()}
-                            </span>
+                            <span className="analysis-value">{selectedMedia.data.scene_cuts.length} cuts at: {selectedMedia.data.scene_cuts.map((t: any) => (typeof t === 'number' ? t.toFixed(2) : String(t)) + 's').join(', ')}</span>
                           </div>
                         </div>
                       </div>
