@@ -1,8 +1,10 @@
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
+from fastapi.staticfiles import StaticFiles
 import tempfile
 import os
+import json
 import traceback
 from pathlib import Path
 from main import process_zip_file
@@ -33,6 +35,37 @@ def read_root():
 @app.get("/health")
 def health_check():
     return {"status": "healthy"}
+
+
+@app.get("/batch-test")
+def get_batch_test():
+    """
+    Return the batch_test.json data for display
+    """
+    try:
+        batch_test_path = Path(__file__).parent / "batch_test.json"
+        with open(batch_test_path, 'r') as f:
+            data = json.load(f)
+        return JSONResponse(content=data)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to load batch_test.json: {str(e)}")
+
+
+@app.get("/media/{filename}")
+def get_media_file(filename: str):
+    """
+    Serve media files (images/videos) from the tests directory
+    """
+    try:
+        # Try to find the file in tests directory
+        file_path = Path(__file__).parent / "tests" / filename
+        if file_path.exists():
+            return FileResponse(file_path)
+
+        # If not found, return 404
+        raise HTTPException(status_code=404, detail=f"Media file {filename} not found")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to serve media file: {str(e)}")
 
 
 @app.post("/process")
