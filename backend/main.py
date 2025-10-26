@@ -242,11 +242,10 @@ if __name__ == "__main__":
         total_images = len(image_files)
         if total_images > 0:
             batch_size = max(1, (total_images + 2) // 3)  # Split into 3 batches
-            print(f"Splitting {total_images} images into batches of {batch_size}")
+            num_batches = (total_images + batch_size - 1) // batch_size
+            print(f"Sending {total_images} images in {num_batches} batches of {batch_size} - ALL sent simultaneously!")
             
-            # Disable image analysis for testing
-            print("Image analysis DISABLED for testing - skipping...")
-            image_results = {}
+            image_results = batch_analyze_images(results, batch_size)  # Process images in batches
         else:
             image_results = {}
         

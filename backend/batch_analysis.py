@@ -330,9 +330,8 @@ def batch_analyze_images(preprocessed_images: Dict[str, Dict[str, Any]], batch_s
                 }
             return batch_results
     
-    # Process image batches with limited concurrency
-    max_concurrent = min(3, len(batches))  # Max 3 concurrent requests
-    with ThreadPoolExecutor(max_workers=max_concurrent) as executor:
+    # Process ALL image batches concurrently - let Gemini handle it
+    with ThreadPoolExecutor(max_workers=len(batches)) as executor:
         future_to_batch = {executor.submit(process_image_batch, batch): batch for batch in batches}
         
         for future in as_completed(future_to_batch):
