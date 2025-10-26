@@ -309,7 +309,9 @@ For EACH image, provide analysis in the following JSON format:
         "color_palette": ["#RRGGBB", "#RRGGBB", "#RRGGBB", "#RRGGBB", "#RRGGBB"],
         "age_demographic": "child", "teenage", "adult", or "senior",
         "fear_index": 0.0-1.0,
-        "comfort_index": 0.0-1.0
+        "comfort_index": 0.0-1.0,
+        "category": "category name",
+        "scene": "scene/location description"
     }},
     ... (repeat for all images)
 }}
@@ -322,6 +324,8 @@ CRITERIA:
 - age_demographic: Determine based on the appeared age of the MAJORITY of people visible in the image. "child" for ages 0-12, "teenage" for ages 13-19, "adult" for ages 20-64, "senior" for ages 65+. IMPORTANT: If there are NO humans visible in the image, default to "adult".
 - fear_index: A decimal number from 0.0 to 1.0 representing the presence of fear/security-related imagery. 0.0 = no fear/security imagery present, 1.0 = heavy presence of fear/security imagery. Analyze for: locks, shields, security cameras, alarms, warnings, danger symbols, threats, protective gear, barricades, crime-related imagery, disaster imagery, surveillance equipment. The greater the presence and prominence of these elements, the higher the index. Use increments of 0.1.
 - comfort_index: A decimal number from 0.0 to 1.0 representing the presence of comforting imagery. 0.0 = no comfort imagery present, 1.0 = heavy presence of comfort imagery. Analyze for: beds, blankets, pillows, cozy furniture, warm lighting (golden/soft lights), fireplaces, hot beverages (coffee/tea), soft textures, plush materials, relaxing environments, home settings, gentle colors, peaceful scenes. The greater the presence and prominence of these comforting elements, the higher the index. Use increments of 0.1.
+- category: A short category label (MAXIMUM 5 words) that describes the product/service category or industry footprint of the advertisement. Examples: "kitchen appliances", "beauty cosmetics", "gaming hardware", "fitness equipment", "fast food", "automotive", "financial services", "streaming entertainment", "mobile apps", "fashion clothing", etc. Be specific but concise. Use lowercase.
+- scene: An open-ended description of the primary scene/location/setting shown in the image. Examples: "park", "library", "office", "kitchen", "city street", "beach", "gym", "store", "living room", "car interior", "outdoor nature", "restaurant", "bedroom", "studio", etc. Be brief and descriptive. Use lowercase.
 - Other criteria same as video analysis
 
 Analyze each image independently based on text, colors, and visual elements."""

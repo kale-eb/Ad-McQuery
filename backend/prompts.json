@@ -19,7 +19,9 @@
       "hook_strength": "low, medium, or high",
       "fear_index": "0.0-1.0 (decimal number)",
       "comfort_index": "0.0-1.0 (decimal number)",
-      "humor_presence": "low, medium, or high"
+      "humor_presence": "low, medium, or high",
+      "category": "category name (less than 6 words)",
+      "scene": "scene/location description"
     },
     "criteria": {
       "targeting_type": "\"first_impression\" if introducing brand/product, \"retargeting\" if assumes familiarity",
@@ -40,7 +42,9 @@
       "hook_strength": "CRITICAL: Analyze ONLY the first 5 seconds of the video. \"low\" if the opening has minimal movement/cuts, quiet volume, and no human faces or products visible, \"medium\" if the opening has moderate movement/cuts, moderate volume, with some human faces or products appearing, \"high\" if the opening has rapid movement/multiple cuts, loud volume, and prominent human faces or products immediately visible. Consider the combination of: amount of movement and cuts in first 5 seconds, audio volume/intensity in first 5 seconds, and whether human faces or products appear in first 5 seconds.",
       "fear_index": "A decimal number from 0.0 to 1.0 representing the presence of fear/security-related imagery. 0.0 = no fear/security imagery present, 1.0 = heavy presence of fear/security imagery. Analyze for: locks, shields, security cameras, alarms, warnings, danger symbols, threats, protective gear, barricades, crime-related imagery, disaster imagery, surveillance equipment. The greater the presence and prominence of these elements, the higher the index. Use increments of 0.1 (e.g., 0.0, 0.1, 0.2, ..., 0.9, 1.0).",
       "comfort_index": "A decimal number from 0.0 to 1.0 representing the presence of comforting imagery. 0.0 = no comfort imagery present, 1.0 = heavy presence of comfort imagery. Analyze for: beds, blankets, pillows, cozy furniture, warm lighting (golden/soft lights), fireplaces, hot beverages (coffee/tea), soft textures, plush materials, relaxing environments, home settings, gentle colors, peaceful scenes. The greater the presence and prominence of these comforting elements, the higher the index. Use increments of 0.1 (e.g., 0.0, 0.1, 0.2, ..., 0.9, 1.0).",
-      "humor_presence": "Analyze based on the presence of laughter audio and recognizable meme templates/formats in the video. \"low\" if there is no laughter audio and no meme templates visible, \"medium\" if there is some laughter audio OR some recognizable meme templates/internet humor formats, \"high\" if there is frequent laughter audio AND/OR multiple meme templates/internet humor formats present. Look for: laugh tracks, audience laughter, people laughing in the video, popular meme formats (distracted boyfriend, Drake pointing, surprised Pikachu, etc.), text overlays in meme style, and other internet culture references."
+      "humor_presence": "Analyze based on the presence of laughter audio and recognizable meme templates/formats in the video. \"low\" if there is no laughter audio and no meme templates visible, \"medium\" if there is some laughter audio OR some recognizable meme templates/internet humor formats, \"high\" if there is frequent laughter audio AND/OR multiple meme templates/internet humor formats present. Look for: laugh tracks, audience laughter, people laughing in the video, popular meme formats (distracted boyfriend, Drake pointing, surprised Pikachu, etc.), text overlays in meme style, and other internet culture references.",
+      "category": "A short category label (MAXIMUM 5 words) that describes the product/service category or industry footprint of the advertisement. Examples: \"kitchen appliances\", \"beauty cosmetics\", \"gaming hardware\", \"fitness equipment\", \"fast food\", \"automotive\", \"financial services\", \"streaming entertainment\", \"mobile apps\", \"fashion clothing\", etc. Be specific but concise. Use lowercase.",
+      "scene": "An open-ended description of the primary scene/location/setting where the video takes place. Examples: \"park\", \"library\", \"office\", \"kitchen\", \"city street\", \"beach\", \"gym\", \"store\", \"living room\", \"car interior\", \"outdoor nature\", \"restaurant\", \"bedroom\", \"studio\", etc. Be brief and descriptive. Use lowercase. If multiple scenes, choose the most prominent one."
     },
     "instruction": "Analyze this video advertisement objectively for targeting and marketing effectiveness. Be objective and analytical. Base conclusions on concrete evidence from the transcript and metadata."
   },
@@ -59,7 +63,9 @@
       "color_palette": ["#RRGGBB", "#RRGGBB", "#RRGGBB", "#RRGGBB", "#RRGGBB"],
       "age_demographic": "child, teenage, adult, or senior",
       "fear_index": "0.0-1.0 (decimal number)",
-      "comfort_index": "0.0-1.0 (decimal number)"
+      "comfort_index": "0.0-1.0 (decimal number)",
+      "category": "category name (less than 6 words)",
+      "scene": "scene/location description"
     },
     "criteria": {
       "visual_appeal_rating": "1=unappealing, 5=extremely eye-catching",
