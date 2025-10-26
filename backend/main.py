@@ -288,19 +288,19 @@ def process_zip_file(zip_path: str, dataset_name: str = None) -> Dict[str, Dict[
     # Step 5: Clean up compressed files after analysis
     print("\n=== Cleaning up compressed files ===")
     compressed_files_removed = 0
-    for filename, file_data in results.items():
-        if '_temp_file_path' in file_data:
-            compressed_path = file_data['_temp_file_path']
-            original_path = os.path.join(extract_dir, 'images' if filename.lower().endswith('.png') else 'videos', filename)
-            
-            # Only remove if it's different from original (i.e., was actually compressed)
-            if compressed_path != original_path and os.path.exists(compressed_path):
-                try:
-                    os.remove(compressed_path)
-                    compressed_files_removed += 1
-                    print(f"   Removed: {os.path.basename(compressed_path)}")
-                except Exception as e:
-                    print(f"   Warning: Failed to remove {compressed_path}: {e}")
+    
+    # Find all compressed files in the dataset directory
+    for folder in ['images', 'videos']:
+        folder_path = extract_dir / folder
+        if folder_path.exists():
+            for file_path in folder_path.iterdir():
+                if '_compressed.' in file_path.name:
+                    try:
+                        file_path.unlink()  # Remove the file
+                        compressed_files_removed += 1
+                        print(f"   Removed: {file_path.name}")
+                    except Exception as e:
+                        print(f"   Warning: Failed to remove {file_path}: {e}")
     
     print(f"Removed {compressed_files_removed} compressed files")
 

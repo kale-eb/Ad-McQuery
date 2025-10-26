@@ -19,7 +19,7 @@ load_dotenv()
 # TESTING MODE TOGGLE
 # Set to True to use batch_test.json data (no API calls)
 # Set to False to use real Gemini API analysis
-TESTING_MODE = True
+TESTING_MODE = False
 
 app = FastAPI(title="Ad Media Processor API")
 
@@ -162,50 +162,11 @@ async def process_media(file: UploadFile = File(...)):
             print(f"Loaded {len(results)} files from ads-analysis.json")
 
         else:
-            # REAL MODE: Process with Gemini API
-            # Step 1: Process the zip file (preprocessing)
-            print("=== Step 1: Preprocessing ===")
-            results, temp_dir = process_zip_file(tmp_path)
-
-            # Step 2: Copy media files to tests directory for serving
-            print("\n=== Step 2: Copying media files ===")
-            tests_dir = Path(__file__).parent / "tests"
-            tests_dir.mkdir(exist_ok=True)
-
-            # Walk through temp directory and copy files
-            for root, dirs, files in os.walk(temp_dir):
-                for filename in files:
-                    file_lower = filename.lower()
-                    if filename.startswith('.') or '__MACOSX' in root:
-                        continue
-                    if file_lower.endswith('.png') or file_lower.endswith('.mp4'):
-                        src_path = os.path.join(root, filename)
-                        dst_path = tests_dir / filename
-                        shutil.copy2(src_path, dst_path)
-                        print(f"   Copied {filename} to tests directory")
-
-            # Step 3: Batch analyze videos and images with Gemini (concurrent processing)
-            print("\n=== Step 3: Gemini Batch Analysis (Videos + Images) ===")
-
-            with ThreadPoolExecutor(max_workers=2) as executor:
-                video_future = executor.submit(batch_analyze_videos, results, 3)
-                image_future = executor.submit(batch_analyze_images, results, 10)
-
-                # Get results as they complete
-                video_results = video_future.result()
-                image_results = image_future.result()
-
-            # Update results with Gemini analysis
-            for filename, analysis in video_results.items():
-                results[filename] = analysis
-            for filename, analysis in image_results.items():
-                results[filename] = analysis
-
-            print(f"\nCompleted Gemini analysis for {len(video_results)} videos and {len(image_results)} images")
-        # Process the zip file using main.py (now includes full pipeline) ,
-        # Extract dataset name from original filename
-        dataset_name = Path(file.filename).stem
-        results = process_zip_file(tmp_path, dataset_name)
+            # REAL MODE: Process with Gemini API using unified pipeline
+            print("=== REAL MODE: Full Processing Pipeline ===")
+            # Extract dataset name from original filename
+            dataset_name = Path(file.filename).stem
+            results = process_zip_file(tmp_path, dataset_name)
 
         return JSONResponse(content=results)
 
