@@ -32,6 +32,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Mount datasets directory as static files
+datasets_path = Path(__file__).parent / "datasets"
+datasets_path.mkdir(exist_ok=True)
+app.mount("/datasets", StaticFiles(directory=str(datasets_path)), name="datasets")
+
 
 @app.get("/")
 def read_root():
@@ -77,15 +82,15 @@ def list_datasets():
 @app.get("/batch-test")
 def get_batch_test():
     """
-    Return the batch_test.json data for display
+    Return the ads-analysis.json data for display
     """
     try:
-        batch_test_path = Path(__file__).parent / "batch_test.json"
-        with open(batch_test_path, 'r') as f:
+        ads_analysis_path = Path(__file__).parent / "datasets" / "ads" / "ads-analysis.json"
+        with open(ads_analysis_path, 'r') as f:
             data = json.load(f)
         return JSONResponse(content=data)
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Failed to load batch_test.json: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to load ads-analysis.json: {str(e)}")
 
 
 @app.get("/media/{dataset_name}/{folder}/{filename}")
@@ -146,15 +151,15 @@ async def process_media(file: UploadFile = File(...)):
         print(f"Is valid zip: {zf.is_zipfile(tmp_path)}")
 
         if TESTING_MODE:
-            # TESTING MODE: Load data from batch_test.json
-            print("=== TESTING MODE: Loading batch_test.json ===")
-            batch_test_path = Path(__file__).parent / "batch_test.json"
-            with open(batch_test_path, 'r') as f:
+            # TESTING MODE: Load data from ads-analysis.json
+            print("=== TESTING MODE: Loading ads-analysis.json ===")
+            ads_analysis_path = Path(__file__).parent / "datasets" / "ads" / "ads-analysis.json"
+            with open(ads_analysis_path, 'r') as f:
                 results = json.load(f)
 
-            # Copy media files from tests directory (they should already be there)
-            print("Using existing media files in tests directory")
-            print(f"Loaded {len(results)} files from batch_test.json")
+            # Media files are already in datasets/ads/images and datasets/ads/videos
+            print("Using existing media files in datasets/ads/ directory")
+            print(f"Loaded {len(results)} files from ads-analysis.json")
 
         else:
             # REAL MODE: Process with Gemini API
