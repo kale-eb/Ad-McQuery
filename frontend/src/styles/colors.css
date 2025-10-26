@@ -1,0 +1,127 @@
+/* 🎨 Cute Capybara Color Palette */
+:root {
+  /* Primary Palette */
+  --beanie-cream: #F8F5F2;
+  --soft-tan: #E5C9A9;
+  --capybara-brown: #C69C6D;
+  --rosy-cheek: #F4C7C7;
+  --paper-blue: #B0C4DE;
+  --dark-roast: #5D4037;
+  
+  /* Extended Functional Colors */
+  --success-green: #7FB069;
+  --warning-amber: #F2CC8F;
+  --error-coral: #E07A5F;
+  --data-purple: #9B7EBD;
+  --modal-overlay: rgba(93, 64, 55, 0.6);
+  
+  /* Semantic Color Assignments */
+  
+  /* Backgrounds */
+  --bg-primary: var(--soft-tan);
+  --bg-secondary: white;
+  --bg-accent: var(--capybara-brown);
+  --bg-modal: white;
+  
+  /* Text Colors */
+  --text-primary: var(--dark-roast);
+  --text-secondary: var(--capybara-brown);
+  --text-muted: rgba(93, 64, 55, 0.7);
+  --text-on-accent: var(--beanie-cream);
+  
+  /* Interactive Elements */
+  --button-primary: var(--dark-roast);
+  --button-primary-hover: #4A2F26;
+  --button-secondary: var(--paper-blue);
+  --button-secondary-hover: #9AB5D1;
+  
+  /* Form Elements */
+  --input-bg: var(--beanie-cream);
+  --input-border: var(--capybara-brown);
+  --input-focus: var(--rosy-cheek);
+  
+  /* Status Colors */
+  --status-success: var(--success-green);
+  --status-warning: var(--warning-amber);
+  --status-error: var(--error-coral);
+  --status-processing: var(--warning-amber);
+  
+  /* Data Visualization */
+  --data-highlight: var(--data-purple);
+  --emotion-high: var(--success-green);
+  --analysis-accent: var(--paper-blue);
+  
+  /* Borders & Shadows */
+  --border-subtle: var(--dark-roast);
+  --border-focus: var(--rosy-cheek);
+  --shadow-light: rgba(93, 64, 55, 0.1);
+  --shadow-medium: rgba(93, 64, 55, 0.15);
+  --shadow-strong: rgba(93, 64, 55, 0.25);
+  
+  /* Overlay & Modal */
+  --overlay-bg: var(--modal-overlay);
+  --modal-bg: var(--bg-modal);
+}
+
+/* Color Utility Classes */
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+.text-success { color: var(--status-success); }
+.text-warning { color: var(--status-warning); }
+.text-error { color: var(--status-error); }
+
+.bg-primary { background-color: var(--bg-primary); }
+.bg-secondary { background-color: var(--bg-secondary); }
+.bg-accent { background-color: var(--bg-accent); }
+.bg-success { background-color: var(--status-success); }
+.bg-warning { background-color: var(--status-warning); }
+.bg-error { background-color: var(--status-error); }
+
+.border-subtle { border-color: var(--border-subtle); }
+.border-focus { border-color: var(--border-focus); }
+
+/* Emotional Index Highlighting */
+.emotion-high {
+  color: var(--emotion-high);
+  font-weight: 600;
+}
+
+/* Button Variants */
+.btn-primary {
+  background-color: var(--button-primary);
+  color: var(--text-on-accent);
+  border: 1px solid var(--button-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--button-primary-hover);
+  border-color: var(--button-primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--button-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--button-secondary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--button-secondary-hover);
+  border-color: var(--button-secondary-hover);
+}
+
+/* Status Indicators */
+.status-analyzed {
+  background-color: var(--status-success);
+  color: var(--text-on-accent);
+}
+
+.status-processing {
+  background-color: var(--status-warning);
+  color: var(--text-primary);
+}
+
+.status-error {
+  background-color: var(--status-error);
+  color: var(--text-on-accent);
+}

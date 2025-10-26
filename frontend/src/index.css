@@ -1,11 +1,60 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import './styles/colors.css';
 
-  color-scheme: dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #2a2a2a;
+:root {
+  /* Typography */
+  --font-primary: 'Inter', 'SF Pro Display', system-ui, sans-serif;
+  --font-accent: 'Nunito', 'Poppins', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-logo: 'Atop', 'Nunito', 'Poppins', sans-serif;
+  
+  /* Typography Scale */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.875rem;   /* 14px */
+  --text-base: 1rem;     /* 16px */
+  --text-lg: 1.125rem;   /* 18px */
+  --text-xl: 1.25rem;    /* 20px */
+  --text-2xl: 1.5rem;    /* 24px */
+  --text-3xl: 2rem;      /* 32px */
+  --text-4xl: 2.5rem;    /* 40px */
+  
+  /* Spacing Scale (8px base) */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-2xl: 64px;
+  
+  /* Border Radius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
+  
+  /* Shadows */
+  --shadow-subtle: 0 2px 8px rgba(93, 64, 55, 0.08);
+  --shadow-medium: 0 4px 16px rgba(93, 64, 55, 0.12);
+  --shadow-high: 0 8px 32px rgba(93, 64, 55, 0.16);
+  --shadow-inner: inset 0 1px 3px rgba(93, 64, 55, 0.1);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease-out;
+  --transition-normal: 250ms ease-out;
+  --transition-slow: 400ms ease-out;
+
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+
+  color-scheme: light;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,11 +64,12 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--rosy-cheek);
   text-decoration: inherit;
+  transition: var(--transition-fast);
 }
 a:hover {
-  color: #535bf2;
+  color: var(--button-primary-hover);
 }
 
 body {
@@ -28,6 +78,9 @@ body {
   min-width: 320px;
   min-height: 100vh;
   width: 100%;
+  font-family: var(--font-primary);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 #root {
@@ -36,56 +89,113 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-family: var(--font-accent);
+  font-size: var(--text-4xl);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+h2 {
+  font-family: var(--font-accent);
+  font-size: var(--text-3xl);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+h3 {
+  font-family: var(--font-accent);
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+h4 {
+  font-family: var(--font-primary);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text-secondary);
+  margin: 0;
 }
 
 button {
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--text-base);
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  font-family: var(--font-primary);
+  background-color: var(--button-primary);
+  color: var(--text-primary);
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-subtle);
+  min-height: 44px;
 }
 
+button:hover:not(:disabled) {
+  background-color: var(--button-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-medium);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-subtle);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 2px solid var(--rosy-cheek);
+  outline-offset: 2px;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Reset video grid from index.css and let App.css handle it */
 .video-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
+  gap: var(--space-sm);
 }
 
 .video-container {
-  background: #111;
-  border-radius: 1rem;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: var(--shadow-subtle);
+  transition: all var(--transition-normal);
+}
+
+.video-container:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
 }
 
 .video-header {
-  padding: 0.5rem 0.75rem;
-  background: rgba(0,0,0,0.5);
-  color: #eee;
-  font-size: 0.85rem;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-accent);
+  color: var(--text-on-accent);
+  font-size: var(--text-sm);
 }
 
 .video-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 16/9; /* default */
-  background: #000;
+  aspect-ratio: 16/9;
+  background: var(--dark-roast);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,11 +205,11 @@ button:focus-visible {
 .video-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* key line */
-  transition: transform 0.25s ease;
+  object-fit: contain;
+  transition: transform var(--transition-normal);
 }
 
 .video-wrapper:hover video,
 .video-wrapper:hover img {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }

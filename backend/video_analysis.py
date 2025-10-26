@@ -103,6 +103,8 @@ Be objective and analytical. Base conclusions on concrete evidence from the tran
             "resolution": video_data["resolution"],
             "aspect_ratio": video_data["aspect_ratio"],
             "length": video_data["length"],
+            "video_bitrate_kbps": video_data.get("video_bitrate_kbps"),
+            "audio_bitrate_kbps": video_data.get("audio_bitrate_kbps"),
             "full_text_transcript": video_data["whisper_transcript"],
             
             # Gemini analysis (structured)
@@ -187,6 +189,8 @@ if __name__ == "__main__":
         if "error" not in results:
             print(f"Resolution: {results['resolution']}")
             print(f"Length: {results['length']} seconds")
+            print(f"Video Bitrate: {results['video_bitrate_kbps']} kbps" if results.get('video_bitrate_kbps') else "Video Bitrate: N/A")
+            print(f"Audio Bitrate: {results['audio_bitrate_kbps']} kbps" if results.get('audio_bitrate_kbps') else "Audio Bitrate: N/A")
             print(f"Targeting: {results['targeting_type']}")
             print(f"Target Age: {results['target_age_range']}")
             print(f"Hook Rating: {results['hook_rating']}/5")
