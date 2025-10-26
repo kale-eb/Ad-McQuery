@@ -6,8 +6,20 @@ import tempfile
 import os
 import json
 import traceback
+import shutil
 from pathlib import Path
 from main import process_zip_file
+from batch_analysis import batch_analyze_videos, batch_analyze_images
+from concurrent.futures import ThreadPoolExecutor
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+# TESTING MODE TOGGLE
+# Set to True to use batch_test.json data (no API calls)
+# Set to False to use real Gemini API analysis
+TESTING_MODE = True
 
 app = FastAPI(title="Ad Media Processor API")
 
@@ -73,7 +85,7 @@ async def process_media(file: UploadFile = File(...)):
     """
     Process a zip file containing PNG images and MP4 videos.
 
-    Returns a dictionary where each key is a filename and value is the preprocessing result.
+    Returns a dictionary where each key is a filename and value is the complete analysis.
     """
     # Validate file is a zip
     if not file.filename or not file.filename.endswith('.zip'):
@@ -82,6 +94,7 @@ async def process_media(file: UploadFile = File(...)):
     # Create temporary file to save upload
     tmp_file = tempfile.NamedTemporaryFile(delete=False, suffix='.zip')
     tmp_path = tmp_file.name
+    temp_dir = None
 
     try:
         # Write uploaded file to temporary location
@@ -97,8 +110,58 @@ async def process_media(file: UploadFile = File(...)):
         import zipfile as zf
         print(f"Is valid zip: {zf.is_zipfile(tmp_path)}")
 
-        # Process the zip file using main.py
-        results = process_zip_file(tmp_path)
+        if TESTING_MODE:
+            # TESTING MODE: Load data from batch_test.json
+            print("=== TESTING MODE: Loading batch_test.json ===")
+            batch_test_path = Path(__file__).parent / "batch_test.json"
+            with open(batch_test_path, 'r') as f:
+                results = json.load(f)
+
+            # Copy media files from tests directory (they should already be there)
+            print("Using existing media files in tests directory")
+            print(f"Loaded {len(results)} files from batch_test.json")
+
+        else:
+            # REAL MODE: Process with Gemini API
+            # Step 1: Process the zip file (preprocessing)
+            print("=== Step 1: Preprocessing ===")
+            results, temp_dir = process_zip_file(tmp_path)
+
+            # Step 2: Copy media files to tests directory for serving
+            print("\n=== Step 2: Copying media files ===")
+            tests_dir = Path(__file__).parent / "tests"
+            tests_dir.mkdir(exist_ok=True)
+
+            # Walk through temp directory and copy files
+            for root, dirs, files in os.walk(temp_dir):
+                for filename in files:
+                    file_lower = filename.lower()
+                    if filename.startswith('.') or '__MACOSX' in root:
+                        continue
+                    if file_lower.endswith('.png') or file_lower.endswith('.mp4'):
+                        src_path = os.path.join(root, filename)
+                        dst_path = tests_dir / filename
+                        shutil.copy2(src_path, dst_path)
+                        print(f"   Copied {filename} to tests directory")
+
+            # Step 3: Batch analyze videos and images with Gemini (concurrent processing)
+            print("\n=== Step 3: Gemini Batch Analysis (Videos + Images) ===")
+
+            with ThreadPoolExecutor(max_workers=2) as executor:
+                video_future = executor.submit(batch_analyze_videos, results, 3)
+                image_future = executor.submit(batch_analyze_images, results, 10)
+
+                # Get results as they complete
+                video_results = video_future.result()
+                image_results = image_future.result()
+
+            # Update results with Gemini analysis
+            for filename, analysis in video_results.items():
+                results[filename] = analysis
+            for filename, analysis in image_results.items():
+                results[filename] = analysis
+
+            print(f"\nCompleted Gemini analysis for {len(video_results)} videos and {len(image_results)} images")
 
         return JSONResponse(content=results)
 
@@ -109,9 +172,12 @@ async def process_media(file: UploadFile = File(...)):
         raise HTTPException(status_code=500, detail=f"Processing failed: {str(e)}")
 
     finally:
-        # Clean up temporary file
+        # Clean up temporary files
         if os.path.exists(tmp_path):
             os.remove(tmp_path)
+        if not TESTING_MODE and temp_dir and os.path.exists(temp_dir):
+            shutil.rmtree(temp_dir)
+            print(f"Cleaned up temporary directory: {temp_dir}")
 
 
 if __name__ == "__main__":

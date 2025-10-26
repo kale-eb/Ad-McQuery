@@ -310,11 +310,73 @@ function App() {
 
               <div className="modal-info">
                 <h3>{selectedMedia.filename}</h3>
-                <p className="modal-sample-text">
-                  This is sample text that provides additional information about the ad.
-                  It could include analysis results, metrics, or other relevant data about
-                  the advertisement performance and content.
-                </p>
+
+                {!selectedMedia.data.main_product ? (
+                  <div className="analysis-section error">
+                    <h4>No Analysis Available</h4>
+                    <p>This file doesn't have analysis data. In testing mode, only videos have analysis.</p>
+                  </div>
+                ) : (
+                  <>
+                    <div className="analysis-section">
+                      <h4>Product & Targeting</h4>
+                      <div className="analysis-grid">
+                        <div className="analysis-item">
+                          <span className="analysis-label">Main Product:</span>
+                          <span className="analysis-value">{selectedMedia.data.main_product}</span>
+                        </div>
+                        <div className="analysis-item">
+                          <span className="analysis-label">Target Age:</span>
+                          <span className="analysis-value">{selectedMedia.data.target_age_range}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="analysis-section">
+                      <h4>Emotional Indices</h4>
+                      <div className="analysis-grid">
+                        {selectedMedia.data.fear_index !== undefined && (
+                          <div className="analysis-item">
+                            <span className="analysis-label">Fear:</span>
+                            <span className="analysis-value">{selectedMedia.data.fear_index.toFixed(1)}</span>
+                          </div>
+                        )}
+                        {selectedMedia.data.comfort_index !== undefined && (
+                          <div className="analysis-item">
+                            <span className="analysis-label">Comfort:</span>
+                            <span className="analysis-value">{selectedMedia.data.comfort_index.toFixed(1)}</span>
+                          </div>
+                        )}
+                        {selectedMedia.data.family_index !== undefined && (
+                          <div className="analysis-item">
+                            <span className="analysis-label">Family:</span>
+                            <span className="analysis-value">{selectedMedia.data.family_index.toFixed(1)}</span>
+                          </div>
+                        )}
+                        {selectedMedia.data.love_index !== undefined && (
+                          <div className="analysis-item">
+                            <span className="analysis-label">Love:</span>
+                            <span className="analysis-value">{selectedMedia.data.love_index.toFixed(1)}</span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    {selectedMedia.data.color_palette && selectedMedia.data.color_palette.length > 0 && (
+                      <div className="analysis-section">
+                        <h4>Color Palette</h4>
+                        <div className="color-palette">
+                          {selectedMedia.data.color_palette.map((color: string, idx: number) => (
+                            <div key={idx} className="color-swatch">
+                              <div className="color-box" style={{ backgroundColor: color }}></div>
+                              <span className="color-hex">{color}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </>
+                )}
               </div>
             </div>
           </div>

@@ -503,20 +503,112 @@ h1 {
 .modal-info {
   padding: 2rem;
   background-color: #2a2a2a;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 .modal-info h3 {
   color: #fff;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1.5rem 0;
   font-size: 1.5rem;
   font-weight: 600;
 }
 
-.modal-sample-text {
-  color: #bbb;
-  margin: 0;
+.analysis-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.analysis-section h4 {
+  margin: 0 0 1rem 0;
   font-size: 1.1rem;
-  line-height: 1.6;
+  color: #ffa500;
+  font-weight: 600;
+}
+
+.analysis-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.analysis-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.analysis-item.full-width {
+  grid-column: 1 / -1;
+}
+
+.analysis-label {
+  font-size: 0.85rem;
+  color: #888;
+  font-weight: 500;
+}
+
+.analysis-value {
+  font-size: 1rem;
+  color: #fff;
+}
+
+.color-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.color-swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.color-box {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  border: 2px solid #444;
+}
+
+.color-hex {
+  font-size: 0.85rem;
+  color: #ccc;
+  font-family: monospace;
+}
+
+.message-types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.message-type-badge {
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 165, 0, 0.2);
+  border: 1px solid #ffa500;
+  border-radius: 20px;
+  color: #ffa500;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.analysis-section.error {
+  background-color: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+.analysis-section.error h4 {
+  color: #ff6b6b;
+}
+
+.analysis-section.error p {
+  color: #ff9999;
+  margin: 0;
 }
 
 /* Responsive Design */
@@ -642,8 +734,34 @@ h1 {
     font-size: 1.2rem;
   }
 
-  .modal-sample-text {
+  .analysis-section {
+    padding: 1rem;
+  }
+
+  .analysis-section h4 {
     font-size: 1rem;
+  }
+
+  .analysis-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .color-palette {
+    gap: 0.75rem;
+  }
+
+  .color-box {
+    width: 50px;
+    height: 50px;
+  }
+
+  .color-hex {
+    font-size: 0.75rem;
+  }
+
+  .message-type-badge {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
   }
 
   .search-container {
