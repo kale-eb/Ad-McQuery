@@ -5,7 +5,9 @@
       "Bash(python3:*)",
       "Bash(npm create:*)",
       "Bash(npm install:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(pip3 install:*)",
+      "Bash(brew install:*)"
     ],
     "deny": [],
     "ask": []

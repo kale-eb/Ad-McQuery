@@ -9,7 +9,17 @@
       "target_interests": ["list", "of", "customer", "interests", "(up to 3)"],
       "hook_rating": "1-5 (how engaging are first few seconds either visually or verbally)",
       "conversion_focused": "true/false (direct CTA vs general brand awareness)",
-      "message_types": ["list", "of", "message", "types", "from: humor, storytelling, demonstration, emotional_appeal, problem_solution"]
+      "message_types": ["list", "of", "message", "types", "from: humor, storytelling, demonstration, emotional_appeal, problem_solution"],
+      "product_visibility_score": "low, medium, or high",
+      "visual_density": "low, medium, or high",
+      "color_palette": ["#RRGGBB", "#RRGGBB", "#RRGGBB", "#RRGGBB", "#RRGGBB"],
+      "age_demographic": "child, teenage, adult, or senior",
+      "activity_level": "sedentary or dynamic",
+      "music_intensity": "low, medium, or high",
+      "hook_strength": "low, medium, or high",
+      "fear_index": "0.0-1.0 (decimal number)",
+      "comfort_index": "0.0-1.0 (decimal number)",
+      "humor_presence": "low, medium, or high"
     },
     "criteria": {
       "targeting_type": "\"first_impression\" if introducing brand/product, \"retargeting\" if assumes familiarity",
@@ -20,7 +30,17 @@
       "target_interests": "what hobbies/interests would this customer have",
       "hook_rating": "1=non-engaging start, 5=EXTREMELY gripping/interesting (stunt occurs, something unexpected happens, etc.). Remember the AVERAGE video is a 2.5",
       "conversion_focused": "true if has clear IMMEDIATE call-to-action (download, buy now, etc.), false if just building awareness (x product is good)",
-      "message_types": "list all applicable message types (can be multiple): humor=uses comedy/jokes to be memorable, storytelling=creates narrative/mini-story for emotional connection, demonstration=shows product in action/how it works, emotional_appeal=tugs at heartstrings using feelings like nostalgia/fear/joy, problem_solution=identifies pain point then presents product as solution"
+      "message_types": "list all applicable message types (can be multiple): humor=uses comedy/jokes to be memorable, storytelling=creates narrative/mini-story for emotional connection, demonstration=shows product in action/how it works, emotional_appeal=tugs at heartstrings using feelings like nostalgia/fear/joy, problem_solution=identifies pain point then presents product as solution",
+      "product_visibility_score": "\"low\" if product is barely shown or only mentioned briefly, \"medium\" if product appears multiple times or has moderate screen time, \"high\" if product is prominently featured throughout the ad with clear close-ups or demonstrations",
+      "visual_density": "\"low\" if screen has lots of negative/empty space with minimal objects (minimalist, clean design), \"medium\" if balanced mix of content and negative space, \"high\" if screen is crowded with many objects, text, or visual elements with little negative space. Analyze based on: portion of screen occupied by negative space vs objects, number of visual elements on screen, amount of empty/breathing room in composition, text density, and overall visual clutter",
+      "color_palette": "Array of EXACTLY 5 hex color codes (format: #RRGGBB) representing the most recurring colors in the video. Analyze the video frames and identify the 5 colors that appear most frequently throughout the media. These should be ordered from most to least recurring. Use uppercase letters for hex codes.",
+      "age_demographic": "Determine based on the appeared age of the MAJORITY of people visible in the advertisement. \"child\" for ages 0-12, \"teenage\" for ages 13-19, \"adult\" for ages 20-64, \"senior\" for ages 65+. IMPORTANT: If there are NO humans visible in the advertisement, default to \"adult\".",
+      "activity_level": "\"sedentary\" if the video has few cuts and camera angle changes (slow-paced, static shots, long takes), \"dynamic\" if the video has frequent cuts and camera angle changes (fast-paced editing, quick scene transitions, multiple perspectives). Analyze the editing rhythm and camera movement throughout the video.",
+      "music_intensity": "Analyze based on tempo, loudness, and genre of background music or soundtrack. \"low\" if music is soft, slow-tempo, ambient/calm genres (e.g., acoustic, classical, soft background music), \"medium\" if music has moderate tempo and volume with balanced energy (e.g., pop, indie, moderate beats), \"high\" if music is loud, fast-tempo, energetic genres (e.g., rock, EDM, hip-hop, intense orchestral). If there is no music, default to \"low\".",
+      "hook_strength": "CRITICAL: Analyze ONLY the first 5 seconds of the video. \"low\" if the opening has minimal movement/cuts, quiet volume, and no human faces or products visible, \"medium\" if the opening has moderate movement/cuts, moderate volume, with some human faces or products appearing, \"high\" if the opening has rapid movement/multiple cuts, loud volume, and prominent human faces or products immediately visible. Consider the combination of: amount of movement and cuts in first 5 seconds, audio volume/intensity in first 5 seconds, and whether human faces or products appear in first 5 seconds.",
+      "fear_index": "A decimal number from 0.0 to 1.0 representing the presence of fear/security-related imagery. 0.0 = no fear/security imagery present, 1.0 = heavy presence of fear/security imagery. Analyze for: locks, shields, security cameras, alarms, warnings, danger symbols, threats, protective gear, barricades, crime-related imagery, disaster imagery, surveillance equipment. The greater the presence and prominence of these elements, the higher the index. Use increments of 0.1 (e.g., 0.0, 0.1, 0.2, ..., 0.9, 1.0).",
+      "comfort_index": "A decimal number from 0.0 to 1.0 representing the presence of comforting imagery. 0.0 = no comfort imagery present, 1.0 = heavy presence of comfort imagery. Analyze for: beds, blankets, pillows, cozy furniture, warm lighting (golden/soft lights), fireplaces, hot beverages (coffee/tea), soft textures, plush materials, relaxing environments, home settings, gentle colors, peaceful scenes. The greater the presence and prominence of these comforting elements, the higher the index. Use increments of 0.1 (e.g., 0.0, 0.1, 0.2, ..., 0.9, 1.0).",
+      "humor_presence": "Analyze based on the presence of laughter audio and recognizable meme templates/formats in the video. \"low\" if there is no laughter audio and no meme templates visible, \"medium\" if there is some laughter audio OR some recognizable meme templates/internet humor formats, \"high\" if there is frequent laughter audio AND/OR multiple meme templates/internet humor formats present. Look for: laugh tracks, audience laughter, people laughing in the video, popular meme formats (distracted boyfriend, Drake pointing, surprised Pikachu, etc.), text overlays in meme style, and other internet culture references."
     },
     "instruction": "Analyze this video advertisement objectively for targeting and marketing effectiveness. Be objective and analytical. Base conclusions on concrete evidence from the transcript and metadata."
   },
@@ -33,7 +53,13 @@
       "target_geographic_area": "specific geographic type that the ad targets",
       "target_interests": ["list", "of", "customer", "interests", "(up to 3)"],
       "visual_appeal_rating": "1-5 (how visually appealing)",
-      "conversion_focused": "true/false (direct CTA vs general brand awareness)"
+      "conversion_focused": "true/false (direct CTA vs general brand awareness)",
+      "product_visibility_score": "low, medium, or high",
+      "visual_density": "low, medium, or high",
+      "color_palette": ["#RRGGBB", "#RRGGBB", "#RRGGBB", "#RRGGBB", "#RRGGBB"],
+      "age_demographic": "child, teenage, adult, or senior",
+      "fear_index": "0.0-1.0 (decimal number)",
+      "comfort_index": "0.0-1.0 (decimal number)"
     },
     "criteria": {
       "visual_appeal_rating": "1=unappealing, 5=extremely eye-catching",

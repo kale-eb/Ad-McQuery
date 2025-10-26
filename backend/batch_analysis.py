@@ -135,7 +135,7 @@ Aspect Ratio: {aspect_ratio}
     format_str = json.dumps({str(i): video_prompt['format'] for i in range(len(batch_data))}, indent=4)
     criteria_str = '\n'.join([f"- {k}: {v}" for k, v in video_prompt['criteria'].items()])
     
-    prompt = f"""Analyze these {len(batch_data)} video advertisements for targeting and marketing effectiveness.
+    prompt = f"""Analyze these {len(batch_data)} video advertisements for meaningful signals.
 
 {chr(10).join(videos_info)}
 
@@ -303,13 +303,25 @@ For EACH image, provide analysis in the following JSON format:
         "target_geographic_area": "specific area type",
         "target_interests": ["up to 3 interests"],
         "visual_appeal_rating": 1-5,
-        "conversion_focused": true/false
+        "conversion_focused": true/false,
+        "product_visibility_score": "low", "medium", or "high",
+        "visual_density": "low", "medium", or "high",
+        "color_palette": ["#RRGGBB", "#RRGGBB", "#RRGGBB", "#RRGGBB", "#RRGGBB"],
+        "age_demographic": "child", "teenage", "adult", or "senior",
+        "fear_index": 0.0-1.0,
+        "comfort_index": 0.0-1.0
     }},
     ... (repeat for all images)
 }}
 
 CRITERIA:
 - visual_appeal_rating: 1=unappealing, 5=extremely eye-catching
+- product_visibility_score: "low" if product is barely shown or only mentioned briefly, "medium" if product appears multiple times or has moderate presence, "high" if product is prominently featured with clear visibility
+- visual_density: "low" if image has lots of negative/empty space with minimal objects (minimalist, clean design), "medium" if balanced mix of content and negative space, "high" if image is crowded with many objects, text, or visual elements with little negative space. Analyze based on: portion of screen occupied by negative space vs objects, number of visual elements, amount of empty/breathing room in composition, text density, and overall visual clutter
+- color_palette: Array of EXACTLY 5 hex color codes (format: #RRGGBB) representing the most recurring colors in the image. Identify the 5 colors that appear most frequently. Order from most to least recurring. Use uppercase letters for hex codes.
+- age_demographic: Determine based on the appeared age of the MAJORITY of people visible in the image. "child" for ages 0-12, "teenage" for ages 13-19, "adult" for ages 20-64, "senior" for ages 65+. IMPORTANT: If there are NO humans visible in the image, default to "adult".
+- fear_index: A decimal number from 0.0 to 1.0 representing the presence of fear/security-related imagery. 0.0 = no fear/security imagery present, 1.0 = heavy presence of fear/security imagery. Analyze for: locks, shields, security cameras, alarms, warnings, danger symbols, threats, protective gear, barricades, crime-related imagery, disaster imagery, surveillance equipment. The greater the presence and prominence of these elements, the higher the index. Use increments of 0.1.
+- comfort_index: A decimal number from 0.0 to 1.0 representing the presence of comforting imagery. 0.0 = no comfort imagery present, 1.0 = heavy presence of comfort imagery. Analyze for: beds, blankets, pillows, cozy furniture, warm lighting (golden/soft lights), fireplaces, hot beverages (coffee/tea), soft textures, plush materials, relaxing environments, home settings, gentle colors, peaceful scenes. The greater the presence and prominence of these comforting elements, the higher the index. Use increments of 0.1.
 - Other criteria same as video analysis
 
 Analyze each image independently based on text, colors, and visual elements."""
