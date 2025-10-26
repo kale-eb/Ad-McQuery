@@ -13,13 +13,13 @@ load_dotenv()
 
 
 
-def batch_analyze_videos(preprocessed_videos: Dict[str, Dict[str, Any]], batch_size: int = 5) -> Dict[str, Dict[str, Any]]:
+def batch_analyze_videos(preprocessed_videos: Dict[str, Dict[str, Any]], batch_size: int = 3) -> Dict[str, Dict[str, Any]]:
     """
     Analyze preprocessed videos in batches using Gemini with multithreading.
     
     Args:
         preprocessed_videos: Dictionary mapping filename to preprocessed video data
-        batch_size: Number of videos to process in each Gemini call
+        batch_size: Number of videos to process in each Gemini call (default: 3)
     
     Returns:
         Dictionary mapping filename to complete analysis (preprocessing + Gemini analysis)
@@ -386,7 +386,7 @@ if __name__ == "__main__":
     print(f"Loaded {len(preprocessed_data)} preprocessed files")
     
     # Analyze videos in batches
-    video_results = batch_analyze_videos(preprocessed_data, batch_size=5)
+    video_results = batch_analyze_videos(preprocessed_data, batch_size=3)
     print(f"\nAnalyzed {len(video_results)} videos")
     
     # Analyze images in batches

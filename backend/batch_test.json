@@ -9322,116 +9322,143 @@
     "resolution": "720x900",
     "aspect_ratio": "4:5",
     "length": 15.02,
-    "main_product": "Abercrombie & Fitch Kids' Winter Clothing Collection",
+    "main_product": "Children's clothing line by Abercrombie & Fitch",
     "targeting_type": "first_impression",
-    "clarity": 5,
-    "target_age_range": "0-12",
-    "target_income_level": "mid to high-income",
+    "verbosity": "low",
+    "target_age_range": "35-50",
+    "target_income_level": "mid-high income",
     "target_geographic_area": "N/A",
     "target_interests": [
-      "children's fashion",
-      "comfortable clothing",
-      "family activities"
+      "fashion for children",
+      "family activities",
+      "comfort clothing"
     ],
     "hook_rating": 3,
-    "purchase_urgency": 2,
+    "purchase_urgency": "low",
     "message_types": [
-      "emotional_appeal",
-      "storytelling",
-      "demonstration"
-    ],
-    "product_visibility_score": "high",
-    "visual_density": "medium",
-    "color_palette": [
-      "#E6E1D9",
-      "#F0F0F0",
-      "#E5E5E5",
-      "#6A8EAE",
-      "#000000"
-    ],
-    "age_demographic": "child",
-    "gender_demographic": "N/A",
-    "activity_level": "dynamic",
-    "music_intensity": "medium",
-    "fear_index": 0.0,
-    "comfort_index": 0.7,
-    "humor_index": 0.0,
-    "success_index": 0.0,
-    "love_index": 0.0,
-    "family_index": 0.6,
-    "adventure_index": 0.0,
-    "nostalgia_index": 0.1,
-    "health_index": 0.0,
-    "luxury_index": 0.2,
-    "scene_cuts": [
-      0.0,
-      0.4,
-      1.2,
-      1.8,
-      2.3,
-      3.4,
-      4.0,
-      4.4,
-      5.1,
-      5.7,
-      6.2,
-      7.3,
-      8.0,
-      9.1,
-      9.8,
-      10.4,
-      11.0,
-      11.5,
-      12.0,
-      12.5,
-      13.0,
-      13.5
-    ],
-    "visual_motifs": [
-      "plaid patterns",
-      "knitwear/beanies",
-      "faux fur textures"
-    ],
-    "scene_settings": [
-      "bright studio with warm wooden paneling",
-      "bright studio with white backdrop",
-      "studio with checkered floor"
-    ]
-  },
-  "v0011.mp4": {
-    "resolution": "1920x1080",
-    "aspect_ratio": "16:9",
-    "length": 15.01,
-    "main_product": "Laffy Taffy Candy (4 Fruit Flavors bag and individual bars)",
-    "targeting_type": "first_impression",
-    "clarity": 5,
-    "target_age_range": "13-35",
-    "target_income_level": "all income levels",
-    "target_geographic_area": "N/A",
-    "target_interests": [
-      "humor",
-      "candy/sweets",
-      "parties/social gatherings"
-    ],
-    "hook_rating": 4,
-    "purchase_urgency": 3,
-    "message_types": [
-      "humor",
-      "demonstration",
       "emotional_appeal",
       "storytelling"
     ],
     "product_visibility_score": "high",
     "visual_density": "medium",
     "color_palette": [
-      "#FE8298",
-      "#A2DEFA",
-      "#6A8A41",
-      "#FFEB3B",
-      "#FFFFFF"
+      "#E0E0E0",
+      "#6D9EC0",
+      "#A88F7B",
+      "#454B52",
+      "#D5A09F"
+    ],
+    "age_demographic": "child",
+    "gender_demographic": "other",
+    "activity_level": "dynamic",
+    "music_intensity": "medium",
+    "fear_index": 0.0,
+    "comfort_index": 0.7,
+    "humor_index": 0.0,
+    "success_index": 0.0,
+    "love_index": 0.6,
+    "family_index": 0.8,
+    "adventure_index": 0.0,
+    "nostalgia_index": 0.0,
+    "health_index": 0.0,
+    "luxury_index": 0.2,
+    "scene_cuts": [
+      0.0,
+      0.5,
+      1.0,
+      1.4,
+      1.9,
+      2.1,
+      2.5,
+      2.7,
+      3.1,
+      3.5,
+      3.8,
+      4.1,
+      4.3,
+      4.5,
+      4.8,
+      5.0,
+      5.2,
+      5.5,
+      5.7,
+      5.8,
+      6.0,
+      6.2,
+      6.5,
+      6.8,
+      7.1,
+      7.4,
+      7.7,
+      8.0,
+      8.2,
+      8.5,
+      8.8,
+      9.1,
+      9.4,
+      9.7,
+      10.0,
+      10.2,
+      10.5,
+      10.7,
+      11.0,
+      11.3,
+      11.6,
+      11.8,
+      12.1,
+      12.4,
+      12.7,
+      13.0,
+      13.2,
+      13.5,
+      13.7,
+      14.0,
+      14.3,
+      14.6
+    ],
+    "visual_motifs": [
+      "plaid patterns",
+      "beanie hats",
+      "smiling children"
+    ],
+    "scene_settings": [
+      "indoor studio with plain backdrops",
+      "indoor studio with wooden wall"
+    ]
+  },
+  "v0011.mp4": {
+    "resolution": "1920x1080",
+    "aspect_ratio": "16:9",
+    "length": 15.01,
+    "main_product": "Laffy Taffy candy",
+    "targeting_type": "first_impression",
+    "verbosity": "high",
+    "target_age_range": "35-50",
+    "target_income_level": "low-mid to mid-income",
+    "target_geographic_area": "N/A",
+    "target_interests": [
+      "humor",
+      "snack foods",
+      "family fun"
+    ],
+    "hook_rating": 4,
+    "purchase_urgency": "medium",
+    "message_types": [
+      "humor",
+      "demonstration",
+      "problem_solution"
+    ],
+    "product_visibility_score": "high",
+    "visual_density": "medium",
+    "color_palette": [
+      "#E8BA45",
+      "#64B0C7",
+      "#F771BB",
+      "#509D3E",
+      "#AE52C8"
     ],
     "age_demographic": "adult",
-    "gender_demographic": "N/A",
+    "gender_demographic": "other",
     "activity_level": "sedentary",
     "music_intensity": "low",
     "fear_index": 0.0,
@@ -9439,63 +9466,110 @@
     "humor_index": 0.9,
     "success_index": 0.0,
     "love_index": 0.0,
-    "family_index": 0.5,
+    "family_index": 0.7,
     "adventure_index": 0.0,
-    "nostalgia_index": 0.3,
+    "nostalgia_index": 0.0,
     "health_index": 0.0,
     "luxury_index": 0.0,
     "scene_cuts": [
       0.0,
+      0.1,
+      0.3,
+      0.4,
+      0.6,
+      0.8,
+      1.0,
+      1.3,
+      1.6,
       1.8,
-      3.7,
-      4.4,
-      5.0,
-      5.8,
-      7.3,
-      8.4,
+      2.1,
+      2.4,
+      2.7,
+      3.0,
+      3.2,
+      3.5,
+      3.8,
+      4.1,
+      4.3,
+      4.6,
+      4.9,
+      5.1,
+      5.4,
+      5.7,
+      5.9,
+      6.2,
+      6.4,
+      6.7,
+      7.0,
+      7.2,
+      7.5,
+      7.7,
+      8.0,
+      8.2,
+      8.5,
+      8.8,
+      9.0,
+      9.3,
+      9.5,
       9.8,
-      11.2,
-      12.0
+      10.0,
+      10.3,
+      10.6,
+      10.8,
+      11.1,
+      11.4,
+      11.6,
+      11.9,
+      12.1,
+      12.4,
+      12.7,
+      12.9,
+      13.2,
+      13.5,
+      13.7,
+      14.0,
+      14.3,
+      14.5,
+      14.8
     ],
     "visual_motifs": [
-      "dad jokes on wrappers",
-      "people reacting to jokes",
-      "bright outdoor lighting"
+      "Laffy Taffy wrappers with jokes",
+      "colorful clothing",
+      "backyard party setting"
     ],
     "scene_settings": [
-      "sunny backyard barbecue with picnic tables and groups of people mingling"
+      "outdoor backyard party"
     ]
   },
   "v0010.mp4": {
     "resolution": "720x1280",
     "aspect_ratio": "9:16",
     "length": 15.0,
-    "main_product": "Laffy Taffy Candy (Strawberry flavor)",
+    "main_product": "Laffy Taffy candy",
     "targeting_type": "first_impression",
-    "clarity": 5,
-    "target_age_range": "8-35",
-    "target_income_level": "all income levels",
+    "verbosity": "high",
+    "target_age_range": "adult",
+    "target_income_level": "low-mid to mid-income",
     "target_geographic_area": "N/A",
     "target_interests": [
-      "candy/sweets",
       "humor",
-      "puzzles/riddles"
+      "snack foods",
+      "social media trends"
     ],
-    "hook_rating": 3,
-    "purchase_urgency": 2,
+    "hook_rating": 4,
+    "purchase_urgency": "medium",
     "message_types": [
       "humor",
-      "demonstration",
-      "problem_solution"
+      "demonstration"
     ],
     "product_visibility_score": "high",
-    "visual_density": "low",
+    "visual_density": "medium",
     "color_palette": [
       "#6A0DAD",
-      "#FF69B4",
+      "#E040FB",
+      "#1E90FF",
       "#FFFFFF",
-      "#000000",
-      "#41B2D0"
+      "#000000"
     ],
     "age_demographic": "N/A",
     "gender_demographic": "N/A",
@@ -9508,45 +9582,42 @@
     "love_index": 0.0,
     "family_index": 0.0,
     "adventure_index": 0.0,
-    "nostalgia_index": 0.2,
+    "nostalgia_index": 0.0,
     "health_index": 0.0,
     "luxury_index": 0.0,
     "scene_cuts": [
       0.0,
-      1.0,
-      1.5,
-      4.8,
-      9.3,
-      10.3,
-      11.3
+      4.9,
+      8.8,
+      11.2
     ],
     "visual_motifs": [
-      "text overlay of riddles",
-      "animated elements (butterflies)",
-      "product spinning"
+      "spinning candy wrapper",
+      "joke text overlays",
+      "butterfly/butter stick animation"
     ],
     "scene_settings": [
-      "simple purple studio backdrop",
-      "city street with tall buildings and clear blue sky (CGI/animated)"
+      "minimalist studio with solid purple background",
+      "animated urban street"
     ]
   },
   "v0004.mp4": {
     "resolution": "720x1280",
     "aspect_ratio": "9:16",
     "length": 13.73,
-    "main_product": "Abercrombie & Fitch Hoodies (Essentials collection)",
+    "main_product": "Abercrombie & Fitch hooded sweatshirts and casual wear",
     "targeting_type": "first_impression",
-    "clarity": 4,
+    "verbosity": "low",
     "target_age_range": "18-35",
-    "target_income_level": "mid to high-income",
+    "target_income_level": "mid",
     "target_geographic_area": "N/A",
     "target_interests": [
       "fashion",
-      "comfortable clothing",
-      "casual wear"
+      "casual wear",
+      "comfort"
     ],
     "hook_rating": 3,
-    "purchase_urgency": 2,
+    "purchase_urgency": "low",
     "message_types": [
       "demonstration",
       "emotional_appeal"
@@ -9554,79 +9625,65 @@
     "product_visibility_score": "high",
     "visual_density": "medium",
     "color_palette": [
-      "#C4BFB8",
-      "#546A5E",
-      "#EAEAEA",
-      "#333333",
-      "#A09D96"
+      "#457A5C",
+      "#E8E3D7",
+      "#A39E99",
+      "#6D6D6D",
+      "#B35848"
     ],
     "age_demographic": "adult",
     "gender_demographic": "male",
-    "activity_level": "sedentary",
+    "activity_level": "dynamic",
     "music_intensity": "medium",
     "fear_index": 0.0,
-    "comfort_index": 0.7,
+    "comfort_index": 0.8,
     "humor_index": 0.0,
-    "success_index": 0.1,
+    "success_index": 0.0,
     "love_index": 0.0,
     "family_index": 0.0,
     "adventure_index": 0.0,
     "nostalgia_index": 0.0,
     "health_index": 0.0,
-    "luxury_index": 0.3,
+    "luxury_index": 0.1,
     "scene_cuts": [
-      0.0,
-      0.9,
-      1.4,
-      2.3,
-      3.2,
-      3.7,
-      4.4,
-      5.1,
-      5.6,
-      6.0,
-      6.7,
-      7.3,
-      7.8,
+      0.5,
+      1.1,
+      2.4,
+      3.4,
+      4.9,
+      5.8,
+      6.8,
       8.2,
-      8.7,
-      9.3,
-      9.8,
-      10.3,
-      10.8,
-      11.2,
-      11.7,
-      12.3,
-      12.8
+      9.1,
+      10.1,
+      11.1
     ],
     "visual_motifs": [
-      "contact sheet/film strip frames",
-      "stylized posing",
-      "casual layering"
+      "A&F logo",
+      "contact sheet style layouts",
+      "ESSENTIAL FOR A REASON text"
     ],
     "scene_settings": [
-      "minimalist bedroom with bed and striped wallpaper",
-      "simple studio with wooden backdrop and chair",
-      "studio with light-colored couch"
+      "indoor studio"
     ]
   },
   "v0012.mp4": {
     "resolution": "1080x1920",
     "aspect_ratio": "9:16",
     "length": 11.93,
-    "main_product": "Domino's Pizza ($9.99 deal)",
-    "targeting_type": "retargeting",
-    "clarity": 5,
+    "main_product": "Dominos Pizza $9.99 pizzas",
+    "targeting_type": "first_impression",
+    "verbosity": "high",
     "target_age_range": "18-35",
-    "target_income_level": "low to mid-income",
+    "target_income_level": "low to mid",
     "target_geographic_area": "N/A",
     "target_interests": [
-      "gaming",
-      "online culture/memes",
-      "pizza/fast food"
+      "fast food",
+      "pizza",
+      "memes"
     ],
-    "hook_rating": 4,
-    "purchase_urgency": 4,
+    "hook_rating": 5,
+    "purchase_urgency": "medium",
     "message_types": [
       "humor",
       "problem_solution"
@@ -9634,11 +9691,11 @@
     "product_visibility_score": "medium",
     "visual_density": "medium",
     "color_palette": [
-      "#3F2000",
-      "#FFB060",
+      "#201A18",
+      "#C67F37",
       "#FFFFFF",
-      "#D11B23",
-      "#004F9F"
+      "#E0012B",
+      "#0B3A69"
     ],
     "age_demographic": "N/A",
     "gender_demographic": "N/A",
@@ -9650,39 +9707,37 @@
     "success_index": 0.0,
     "love_index": 0.0,
     "family_index": 0.0,
-    "adventure_index": 0.4,
+    "adventure_index": 0.2,
     "nostalgia_index": 0.0,
     "health_index": 0.0,
     "luxury_index": 0.0,
-    "scene_cuts": [
-      0.0
-    ],
+    "scene_cuts": [],
     "visual_motifs": [
       "spinning car",
-      "geometric tunnel",
-      "pulsing light"
+      "light tunnel",
+      "Domino's logo"
     ],
     "scene_settings": [
-      "futuristic, glowing hexagonal tunnel with a bright light at the end"
+      "sci-fi tunnel/wormhole"
     ]
   },
   "v0006.mp4": {
     "resolution": "1080x1916",
     "aspect_ratio": "270:479",
     "length": 11.13,
-    "main_product": "Wonder food hall app",
+    "main_product": "Wonder food hall delivery app",
     "targeting_type": "first_impression",
-    "clarity": 5,
-    "target_age_range": "25-40",
-    "target_income_level": "middle to upper-middle income",
-    "target_geographic_area": "urban and suburban areas with diverse restaurant options",
+    "verbosity": "high",
+    "target_age_range": "25-45",
+    "target_income_level": "mid to high",
+    "target_geographic_area": "urban settings",
     "target_interests": [
       "food delivery",
-      "dining out",
-      "convenience"
+      "convenience",
+      "dining"
     ],
-    "hook_rating": 4,
-    "purchase_urgency": 3,
+    "hook_rating": 3,
+    "purchase_urgency": "medium",
     "message_types": [
       "problem_solution",
       "demonstration",
@@ -9692,45 +9747,41 @@
     "visual_density": "medium",
     "color_palette": [
       "#FFFFFF",
-      "#2F6F33",
-      "#F0F0F0",
-      "#8D4F3C",
-      "#E6E0D7"
+      "#3C6A4F",
+      "#D1C7C1",
+      "#000000",
+      "#D5737C"
     ],
     "age_demographic": "adult",
     "gender_demographic": "female",
     "activity_level": "dynamic",
-    "music_intensity": "low",
+    "music_intensity": "medium",
     "fear_index": 0.0,
-    "comfort_index": 0.7,
-    "humor_index": 0.1,
-    "success_index": 0.6,
-    "love_index": 0.3,
-    "family_index": 0.5,
+    "comfort_index": 0.4,
+    "humor_index": 0.0,
+    "success_index": 0.0,
+    "love_index": 0.2,
+    "family_index": 0.3,
     "adventure_index": 0.0,
     "nostalgia_index": 0.0,
-    "health_index": 0.3,
-    "luxury_index": 0.2,
+    "health_index": 0.2,
+    "luxury_index": 0.1,
     "scene_cuts": [
-      0.0,
-      1.2,
-      2.3,
-      3.3,
-      4.0,
-      6.3,
-      7.1,
-      9.0
+      0.4,
+      1.0,
+      2.1,
+      3.8,
+      6.0,
+      7.5
     ],
     "visual_motifs": [
-      "Wonder logo/branding on bags",
-      "various food dishes",
-      "app interface"
+      "Wonder bag",
+      "phone displaying the Wonder app",
+      "various food items"
     ],
     "scene_settings": [
-      "urban street outside a food hall",
-      "woman walking and holding food bags",
-      "kitchen countertop with multiple food items",
-      "woman eating a salad at a dining table"
+      "urban street",
+      "indoor home/kitchen setting"
     ]
   },
   "v0007.mp4": {
@@ -9739,29 +9790,30 @@
     "length": 12.03,
     "main_product": "Seamless food delivery service",
     "targeting_type": "first_impression",
-    "clarity": 5,
-    "target_age_range": "18-35",
-    "target_income_level": "middle to upper-middle income",
-    "target_geographic_area": "urban and suburban areas",
+    "verbosity": "medium",
+    "target_age_range": "25-50",
+    "target_income_level": "mid-to-high income",
+    "target_geographic_area": "urban/suburban areas",
     "target_interests": [
-      "food",
+      "food delivery",
       "convenience",
-      "takeout"
+      "dining out"
     ],
     "hook_rating": 4,
-    "purchase_urgency": 3,
+    "purchase_urgency": "medium",
     "message_types": [
       "demonstration",
+      "problem_solution",
       "emotional_appeal"
     ],
     "product_visibility_score": "high",
     "visual_density": "medium",
     "color_palette": [
-      "#EBEBEB",
-      "#C28D5F",
-      "#934B27",
-      "#B565A7",
-      "#547A46"
+      "#E87612",
+      "#F0EBE7",
+      "#503223",
+      "#9C27B0",
+      "#FFD700"
     ],
     "age_demographic": "adult",
     "gender_demographic": "female",
@@ -9776,76 +9828,53 @@
     "adventure_index": 0.0,
     "nostalgia_index": 0.0,
     "health_index": 0.2,
-    "luxury_index": 0.4,
+    "luxury_index": 0.1,
     "scene_cuts": [
       0.0,
-      0.1,
-      0.2,
-      0.6,
-      0.8,
-      1.1,
-      1.6,
-      2.2,
-      2.7,
-      3.0,
-      3.5,
-      4.0,
-      4.7,
-      5.1,
-      5.6,
-      6.0,
-      6.5,
-      6.9,
-      7.4,
-      7.9,
-      8.3,
-      8.7,
-      9.1,
-      9.6,
-      10.0
+      2.4,
+      4.8,
+      8.5,
+      10.7
     ],
     "visual_motifs": [
-      "hands interacting with food",
-      "takeout containers",
-      "sauces and dips"
+      "close-ups of food",
+      "hands with nail polish and rings"
     ],
     "scene_settings": [
-      "close-up of a chicken sandwich with sweet potato fries",
-      "close-up of a breakfast burrito being dipped in sauce",
-      "close-up of macaroni and cheese being served",
-      "close-up of a burger being unwrapped"
+      "indoor restaurant/cafe setting",
+      "home dining table"
     ]
   },
   "v0013.mp4": {
     "resolution": "720x480",
     "aspect_ratio": "3:2",
     "length": 14.9,
-    "main_product": "Domino's $9.99 Best Deal Ever pizza offer",
+    "main_product": "Domino's Pizza 9.99 Best Deal Ever",
     "targeting_type": "first_impression",
-    "clarity": 5,
-    "target_age_range": "18-50",
-    "target_income_level": "middle to lower-middle income",
-    "target_geographic_area": "widespread, wherever Domino's operates",
+    "verbosity": "high",
+    "target_age_range": "18-35",
+    "target_income_level": "low-to-mid income",
+    "target_geographic_area": "national/widespread regional",
     "target_interests": [
+      "fast food",
       "pizza",
-      "deals/discounts",
-      "convenience food"
+      "deals/value"
     ],
     "hook_rating": 5,
-    "purchase_urgency": 5,
+    "purchase_urgency": "high",
     "message_types": [
       "demonstration",
-      "emotional_appeal",
-      "humor"
+      "problem_solution",
+      "emotional_appeal"
     ],
     "product_visibility_score": "high",
     "visual_density": "high",
     "color_palette": [
-      "#D60A2A",
-      "#F9C701",
-      "#F7F7F7",
-      "#5C8C38",
-      "#006491"
+      "#E4002B",
+      "#FFC600",
+      "#620000",
+      "#204C00",
+      "#FFFFFF"
     ],
     "age_demographic": "adult",
     "gender_demographic": "N/A",
@@ -9853,7 +9882,7 @@
     "music_intensity": "high",
     "fear_index": 0.0,
     "comfort_index": 0.7,
-    "humor_index": 0.5,
+    "humor_index": 0.1,
     "success_index": 0.0,
     "love_index": 0.0,
     "family_index": 0.4,
@@ -9863,82 +9892,60 @@
     "luxury_index": 0.0,
     "scene_cuts": [
       0.0,
-      1.4,
-      1.9,
-      2.2,
-      2.8,
-      3.0,
-      3.4,
+      1.8,
       3.8,
-      4.0,
-      4.2,
-      4.6,
-      4.9,
-      5.3,
-      5.7,
-      6.0,
-      6.6,
-      7.2,
-      7.8,
-      8.3,
-      8.7,
-      9.0,
-      9.3,
-      9.7,
-      10.0,
-      10.4,
-      11.4,
-      11.9,
-      12.3,
-      12.8,
-      13.2,
-      13.7,
-      14.2
+      6.7,
+      8.5,
+      9.8,
+      10.5,
+      11.0,
+      11.5,
+      12.1
     ],
     "visual_motifs": [
-      "cheese pulls",
-      "pizza slices",
-      "various toppings"
+      "pizza slices with cheese pull",
+      "abundant toppings",
+      "split screen effects"
     ],
     "scene_settings": [
-      "close-up of pizzas being pulled apart",
-      "red background with animated pizza toppings",
-      "a man holding a large pizza box at home",
-      "various people enthusiastically eating pizza in different settings"
+      "indoor kitchen/dining area",
+      "indoor studio",
+      "inside a car"
     ]
   },
   "v0017.mp4": {
     "resolution": "720x900",
     "aspect_ratio": "4:5",
     "length": 15.47,
-    "main_product": "Shein hooded cardigans/outerwear",
+    "main_product": "Shein women's long cardigans/hooded jackets",
     "targeting_type": "first_impression",
-    "clarity": 5,
+    "verbosity": "low",
     "target_age_range": "18-35",
-    "target_income_level": "lower-middle to middle income",
-    "target_geographic_area": "global",
+    "target_income_level": "low-to-mid income",
+    "target_geographic_area": "UK/Europe (and global)",
     "target_interests": [
       "fashion",
       "online shopping",
       "affordable clothing"
     ],
     "hook_rating": 3,
-    "purchase_urgency": 4,
+    "purchase_urgency": "high",
     "message_types": [
-      "demonstration"
+      "demonstration",
+      "emotional_appeal"
     ],
     "product_visibility_score": "high",
     "visual_density": "medium",
     "color_palette": [
-      "#E5DED4",
-      "#000000",
-      "#E6C5C0",
-      "#677D7A",
+      "#D1C4B4",
+      "#2E3333",
+      "#E2B7C8",
+      "#5F6D6C",
       "#FFFFFF"
     ],
     "age_demographic": "adult",
     "gender_demographic": "female",
-    "activity_level": "sedentary",
+    "activity_level": "dynamic",
     "music_intensity": "medium",
     "fear_index": 0.0,
     "comfort_index": 0.6,
@@ -9952,49 +9959,51 @@
     "luxury_index": 0.0,
     "scene_cuts": [
       0.0,
-      2.0,
-      4.0,
-      6.0,
-      8.0,
-      10.0
+      1.8,
+      3.4,
+      5.1,
+      7.9,
+      9.6,
+      12.0
     ],
     "visual_motifs": [
-      "models posing",
-      "variations of the cardigan style",
-      "product price and 'new arrivals' banner"
+      "split screen with two model poses",
+      "quick color changes of garments"
     ],
     "scene_settings": [
-      "minimalist indoor setting with models showcasing different colors of a hooded cardigan"
+      "indoor studio/minimalist room"
     ]
   },
   "v0003.mp4": {
     "resolution": "1920x1080",
     "aspect_ratio": "16:9",
     "length": 15.0,
-    "main_product": "Formula 1 tickets from StubHub",
+    "main_product": "Formula 1 tickets",
     "targeting_type": "first_impression",
-    "clarity": 5,
+    "verbosity": "high",
     "target_age_range": "25-50",
     "target_income_level": "middle to high income",
-    "target_geographic_area": "international",
+    "target_geographic_area": "Global",
     "target_interests": [
-      "motorsports",
-      "Formula 1",
-      "live events"
+      "Motorsports",
+      "Travel",
+      "Live events"
     ],
-    "hook_rating": 5,
-    "purchase_urgency": 4,
+    "hook_rating": 4,
+    "purchase_urgency": "high",
     "message_types": [
-      "emotional_appeal"
+      "emotional_appeal",
+      "problem_solution",
+      "demonstration"
     ],
-    "product_visibility_score": "low",
-    "visual_density": "medium",
+    "product_visibility_score": "medium",
+    "visual_density": "high",
     "color_palette": [
-      "#1D1D1D",
-      "#E73D4D",
+      "#000000",
       "#FFFFFF",
-      "#2F869A",
-      "#969B9B"
+      "#DC3545",
+      "#0A69D6",
+      "#6C757D"
     ],
     "age_demographic": "N/A",
     "gender_demographic": "N/A",
@@ -10003,54 +10012,55 @@
     "fear_index": 0.0,
     "comfort_index": 0.0,
     "humor_index": 0.0,
-    "success_index": 0.5,
+    "success_index": 0.0,
     "love_index": 0.0,
     "family_index": 0.0,
     "adventure_index": 0.8,
     "nostalgia_index": 0.0,
     "health_index": 0.0,
-    "luxury_index": 0.7,
+    "luxury_index": 0.6,
     "scene_cuts": [
       0.0
     ],
     "visual_motifs": [
-      "Formula 1 cars",
-      "race track stripes",
-      "text overlays"
+      "F1 racing cars",
+      "speed lines/blur",
+      "track curbs"
     ],
     "scene_settings": [
-      "overhead view of Formula 1 cars racing on a track"
+      "Formula 1 racetrack"
     ]
   },
   "v0002.mp4": {
     "resolution": "720x720",
     "aspect_ratio": "1:1",
     "length": 15.02,
-    "main_product": "Precision1 contact lenses and prescription glasses from Target Optical",
+    "main_product": "Alcon Precision1 contact lenses and prescription glasses",
     "targeting_type": "first_impression",
-    "clarity": 5,
+    "verbosity": "medium",
     "target_age_range": "18-35",
     "target_income_level": "middle income",
-    "target_geographic_area": "general/nationwide US",
+    "target_geographic_area": "General/National",
     "target_interests": [
-      "fashion",
-      "active lifestyle",
-      "social gatherings"
+      "Fashion",
+      "Active lifestyle",
+      "Socializing"
     ],
     "hook_rating": 3,
-    "purchase_urgency": 4,
+    "purchase_urgency": "high",
     "message_types": [
+      "problem_solution",
       "demonstration",
-      "problem_solution"
+      "emotional_appeal"
     ],
     "product_visibility_score": "high",
     "visual_density": "medium",
     "color_palette": [
-      "#A3A1F4",
-      "#FFFFFF",
-      "#2C90E2",
-      "#8A1F8D",
-      "#55CEAB"
+      "#9933CC",
+      "#F3E9FF",
+      "#0099CC",
+      "#4ECDC4",
+      "#FFFFFF"
     ],
     "age_demographic": "adult",
     "gender_demographic": "female",
@@ -10064,64 +10074,64 @@
     "family_index": 0.0,
     "adventure_index": 0.1,
     "nostalgia_index": 0.0,
-    "health_index": 0.2,
+    "health_index": 0.4,
     "luxury_index": 0.0,
     "scene_cuts": [
       0.0,
       1.8,
-      3.7,
-      5.7,
+      3.5,
+      5.5,
       7.8,
-      11.5
+      11.7
     ],
     "visual_motifs": [
-      "polaroid photos",
-      "blue frames",
-      "purple accents"
+      "Polaroid photos",
+      "purple hair",
+      "smiling faces"
     ],
     "scene_settings": [
-      "flat lay of personal items on a purple background",
-      "nightclub or party scene with a woman singing karaoke",
-      "woman reading on a couch with a dog",
-      "group selfie on a rooftop at sunset",
-      "clean white and purple background with product display"
+      "flat lay studio",
+      "bar/karaoke lounge",
+      "living room",
+      "rooftop/outdoor urban setting",
+      "race course/outdoor event",
+      "product display studio"
     ]
   },
   "v0016.mp4": {
     "resolution": "720x900",
     "aspect_ratio": "4:5",
     "length": 15.23,
-    "main_product": "CeraVe skincare products (Moisturising Cream, Anti-Imperfections Care, SA Smoothing Cleanser, Hydrating Cream-to-Foam Cleanser, Resurfacing Retinol Serum)",
+    "main_product": "Skincare products from various trending brands on Shein",
     "targeting_type": "first_impression",
-    "clarity": 4,
+    "verbosity": "low",
     "target_age_range": "18-35",
-    "target_income_level": "middle to lower-middle income",
-    "target_geographic_area": "global/nationwide",
+    "target_income_level": "low to middle income",
+    "target_geographic_area": "Global",
     "target_interests": [
-      "skincare",
-      "beauty",
-      "online shopping"
+      "Skincare",
+      "Beauty",
+      "Online shopping"
     ],
     "hook_rating": 3,
-    "purchase_urgency": 5,
+    "purchase_urgency": "high",
     "message_types": [
       "demonstration",
-      "emotional_appeal",
-      "problem_solution"
+      "emotional_appeal"
     ],
     "product_visibility_score": "high",
     "visual_density": "high",
     "color_palette": [
-      "#0A0F38",
-      "#FFC107",
+      "#0D1B2A",
+      "#FFD700",
       "#FFFFFF",
-      "#2883BE",
-      "#00C6FF"
+      "#2196F3",
+      "#4CAF50"
     ],
     "age_demographic": "N/A",
     "gender_demographic": "N/A",
     "activity_level": "N/A",
-    "music_intensity": "high",
+    "music_intensity": "medium",
     "fear_index": 0.0,
     "comfort_index": 0.0,
     "humor_index": 0.0,
@@ -10130,26 +10140,26 @@
     "family_index": 0.0,
     "adventure_index": 0.0,
     "nostalgia_index": 0.0,
-    "health_index": 0.7,
-    "luxury_index": 0.0,
+    "health_index": 0.4,
+    "luxury_index": 0.1,
     "scene_cuts": [
       0.0,
-      1.9,
+      1.8,
       3.4,
-      5.1,
+      5.0,
       6.6,
       8.2,
-      10.0,
-      12.0
+      9.8,
+      11.5
     ],
     "visual_motifs": [
-      "sparkling particles",
-      "stars/celestial bodies",
-      "speech bubbles"
+      "sparkling stars",
+      "speech bubbles",
+      "product rotation"
     ],
     "scene_settings": [
-      "animated starry night sky with glowing particles and floating product displays",
-      "black screen with app store download buttons and search bar graphic"
+      "digital animated background",
+      "product display studio"
     ]
   },
   "v0014.mp4": {
@@ -10158,178 +10168,170 @@
     "length": 15.4,
     "main_product": "Ben & Jerry's Cookie Vermont-ster ice cream",
     "targeting_type": "first_impression",
-    "clarity": 5,
-    "target_age_range": "18-50",
+    "verbosity": "medium",
+    "target_age_range": "25-35",
     "target_income_level": "middle income",
-    "target_geographic_area": "general/nationwide",
+    "target_geographic_area": "General consumer market",
     "target_interests": [
-      "desserts",
-      "comfort food",
-      "pop culture/memes"
+      "Desserts",
+      "Comfort food",
+      "Pop culture"
     ],
-    "hook_rating": 4,
-    "purchase_urgency": 3,
+    "hook_rating": 3,
+    "purchase_urgency": "low",
     "message_types": [
       "humor",
-      "emotional_appeal",
       "demonstration"
     ],
     "product_visibility_score": "high",
     "visual_density": "medium",
     "color_palette": [
-      "#DDF0D6",
-      "#9BE0BA",
-      "#E7EDF0",
-      "#6E452B",
-      "#203A26"
+      "#BEEF7A",
+      "#FFFFFF",
+      "#6F8B67",
+      "#1D4E93",
+      "#A6553B"
     ],
-    "age_demographic": "N/A",
-    "gender_demographic": "N/A",
-    "activity_level": "N/A",
+    "age_demographic": "adult",
+    "gender_demographic": "female",
+    "activity_level": "sedentary",
     "music_intensity": "low",
     "fear_index": 0.0,
     "comfort_index": 0.8,
-    "humor_index": 0.9,
+    "humor_index": 0.7,
     "success_index": 0.0,
     "love_index": 0.0,
     "family_index": 0.0,
     "adventure_index": 0.0,
-    "nostalgia_index": 0.6,
+    "nostalgia_index": 0.5,
     "health_index": 0.0,
     "luxury_index": 0.0,
     "scene_cuts": [
       0.0,
       0.2,
-      0.9,
-      2.5,
-      3.1,
-      4.4,
-      6.0,
-      7.8,
-      8.8,
-      10.2,
-      11.5,
-      12.8
+      2.0,
+      7.7,
+      10.7
     ],
     "visual_motifs": [
-      "spoon scooping ice cream",
-      "chocolate chunks and syrup",
-      "kitchen counter details"
+      "ice cream scoop",
+      "colorful kitchenware"
     ],
     "scene_settings": [
-      "close-up on a kitchen countertop with Ben & Jerry's ice cream, green dishware, and wooden cutting boards"
+      "modern kitchen counter"
     ]
   },
   "v0015.mp4": {
     "resolution": "1920x1080",
     "aspect_ratio": "16:9",
     "length": 15.01,
-    "main_product": "Olly brand women's vitamins and supplements",
+    "main_product": "Olly Women's Multi vitamins and other Olly wellness supplements",
     "targeting_type": "first_impression",
-    "clarity": 4,
+    "verbosity": "medium",
     "target_age_range": "25-50",
-    "target_income_level": "middle to upper-middle income",
-    "target_geographic_area": "general/nationwide",
+    "target_income_level": "middle to high income",
+    "target_geographic_area": "General consumer market",
     "target_interests": [
-      "wellness",
-      "health",
-      "self-care"
+      "Health and wellness",
+      "Self-care",
+      "Women's health"
     ],
-    "hook_rating": 3,
-    "purchase_urgency": 2,
+    "hook_rating": 4,
+    "purchase_urgency": "low",
     "message_types": [
-      "storytelling",
       "emotional_appeal",
       "problem_solution"
     ],
-    "product_visibility_score": "medium",
-    "visual_density": "medium",
+    "product_visibility_score": "high",
+    "visual_density": "high",
     "color_palette": [
-      "#F04D79",
-      "#FFD700",
+      "#EB2764",
+      "#F4C03B",
       "#FFFFFF",
-      "#B91C49",
-      "#6B3050"
+      "#6C0A4B",
+      "#925C4D"
     ],
     "age_demographic": "adult",
     "gender_demographic": "female",
     "activity_level": "dynamic",
     "music_intensity": "medium",
     "fear_index": 0.0,
-    "comfort_index": 0.5,
+    "comfort_index": 0.6,
     "humor_index": 0.0,
-    "success_index": 0.2,
-    "love_index": 0.1,
-    "family_index": 0.6,
+    "success_index": 0.3,
+    "love_index": 0.0,
+    "family_index": 0.5,
     "adventure_index": 0.0,
     "nostalgia_index": 0.0,
     "health_index": 0.9,
-    "luxury_index": 0.1,
+    "luxury_index": 0.2,
     "scene_cuts": [
       0.0,
-      0.8,
+      0.4,
+      1.2,
       2.0,
-      4.8,
+      2.7,
+      4.3,
       5.0,
+      5.9,
       6.7,
-      7.8,
-      9.1,
-      10.7,
-      13.5
+      7.1,
+      8.5,
+      9.4,
+      10.8,
+      11.2,
+      11.8,
+      13.9
     ],
     "visual_motifs": [
-      "colorful backgrounds",
-      "Olly product bottles",
-      "happy/relieved expressions"
+      "bright color palette",
+      "colorful product bottles",
+      "smiling women"
     ],
     "scene_settings": [
-      "overhead shot of a desk with a backpack and Olly vitamins",
-      "woman with a child in a colorful living room, man dancing in background",
-      "woman sitting on the floor looking stressed, writing in a notebook",
-      "woman opening a colorful cabinet filled with Olly products in a pink kitchen",
-      "woman greeting a child at a colorful front door",
-      "woman dancing in a vibrant pink/red room",
-      "woman reading on a couch in a colorful living room"
+      "modern home interior",
+      "colorful living room",
+      "bright kitchen",
+      "front entryway"
     ]
   },
   "v0001.mp4": {
     "resolution": "720x720",
     "aspect_ratio": "1:1",
     "length": 15.02,
-    "main_product": "Pataday Extra Strength Once Daily Relief Eye Allergy Itch Relief drops",
+    "main_product": "Pataday Extra Strength Once Daily Relief eye allergy itch relief drops",
     "targeting_type": "first_impression",
-    "clarity": 5,
-    "target_age_range": "25-50",
+    "verbosity": "high",
+    "target_age_range": "35-50",
     "target_income_level": "middle income",
-    "target_geographic_area": "general/nationwide",
+    "target_geographic_area": "General consumer market",
     "target_interests": [
-      "health",
-      "wellness",
-      "outdoor activities"
+      "Allergy relief",
+      "Health",
+      "Gardening"
     ],
     "hook_rating": 4,
-    "purchase_urgency": 3,
+    "purchase_urgency": "medium",
     "message_types": [
       "problem_solution",
-      "demonstration",
-      "storytelling"
+      "demonstration"
     ],
     "product_visibility_score": "high",
     "visual_density": "medium",
     "color_palette": [
       "#FFFFFF",
-      "#E42226",
-      "#2187C5",
-      "#149D34",
-      "#F2BF00"
+      "#0A7337",
+      "#DC282C",
+      "#1C69A2",
+      "#F9E5C6"
     ],
     "age_demographic": "adult",
-    "gender_demographic": "female",
+    "gender_demographic": "N/A",
     "activity_level": "dynamic",
-    "music_intensity": "high",
+    "music_intensity": "medium",
     "fear_index": 0.0,
     "comfort_index": 0.0,
-    "humor_index": 0.2,
+    "humor_index": 0.1,
     "success_index": 0.7,
     "love_index": 0.0,
     "family_index": 0.0,
@@ -10339,60 +10341,57 @@
     "luxury_index": 0.0,
     "scene_cuts": [
       0.0,
-      1.8,
-      4.5,
-      6.2,
-      7.3,
-      9.0,
+      1.2,
+      2.0,
+      2.7,
+      4.7,
+      5.7,
+      6.7,
+      8.8,
       10.7,
-      12.9
+      13.0
     ],
     "visual_motifs": [
-      "red and blue arrows/shapes",
-      "VS graphic",
-      "pollen/dust particles"
+      "\"VS\" graphic",
+      "eye close-ups",
+      "allergen particles (subtle)"
     ],
     "scene_settings": [
-      "suburban house exterior with a green lawn on a sunny day",
-      "split screen showing a woman inside looking annoyed and a man outside weed whacking",
-      "woman rubbing her itchy eyes indoors",
-      "woman holding the Pataday product box, outdoor background",
-      "extreme close-up of a woman's eye blinking",
-      "woman walking happily outdoors, pollen/dust floating around",
-      "Pataday product box on a wooden surface with a soft outdoor background"
+      "suburban house exterior",
+      "home interior",
+      "backyard"
     ]
   },
   "v0018.mp4": {
     "resolution": "1920x1080",
     "aspect_ratio": "16:9",
     "length": 15.01,
-    "main_product": "Old Spice Swagger deodorant and antiperspirant line",
+    "main_product": "Old Spice Swagger Dry Spray and Deodorant",
     "targeting_type": "first_impression",
-    "clarity": 5,
+    "verbosity": "high",
     "target_age_range": "18-35",
-    "target_income_level": "average income",
-    "target_geographic_area": "general, global market (with a hint towards Spanish-speaking regions due to dialogue)",
+    "target_income_level": "medium income",
+    "target_geographic_area": "urban/suburban areas",
     "target_interests": [
       "sports",
       "fitness",
-      "personal care"
+      "personal hygiene"
     ],
     "hook_rating": 3,
-    "purchase_urgency": 2,
+    "purchase_urgency": "medium",
     "message_types": [
       "storytelling",
-      "demonstration",
       "problem_solution",
       "humor"
     ],
     "product_visibility_score": "high",
     "visual_density": "medium",
     "color_palette": [
-      "#B20000",
-      "#FFFFFF",
-      "#1A488B",
-      "#008000",
-      "#D7A84B"
+      "#DA1C22",
+      "#2D588D",
+      "#3B9C3B",
+      "#F7F7F7",
+      "#808080"
     ],
     "age_demographic": "adult",
     "gender_demographic": "male",
@@ -10400,84 +10399,76 @@
     "music_intensity": "medium",
     "fear_index": 0.0,
     "comfort_index": 0.0,
-    "humor_index": 0.3,
+    "humor_index": 0.6,
     "success_index": 0.8,
     "love_index": 0.0,
     "family_index": 0.0,
     "adventure_index": 0.0,
     "nostalgia_index": 0.0,
-    "health_index": 0.5,
+    "health_index": 0.7,
     "luxury_index": 0.2,
     "scene_cuts": [
       0.0,
+      0.2,
+      0.5,
       1.4,
       2.0,
-      2.7,
-      3.1,
-      3.6,
-      4.4,
-      5.2,
-      5.7,
-      6.7,
+      3.8,
+      5.0,
+      6.2,
+      6.9,
       7.8,
-      8.8,
-      9.4,
-      10.5,
-      11.2,
-      12.0,
+      8.4,
+      10.9,
+      11.9,
       12.8
     ],
     "visual_motifs": [
       "soccer ball",
-      "red and white team colors",
-      "sweat/water droplets"
+      "red and white sports attire",
+      "sweat/steam effects"
     ],
     "scene_settings": [
-      "intense discussion between a coach and player on a sunny soccer field",
-      "close-up of Old Spice Swagger products on a table with soccer gear in the background",
-      "a player's feet dribbling a soccer ball on a green turf field",
-      "a player running with the soccer ball on a green turf field with buildings in the background",
-      "a player applying Old Spice Swagger deodorant under a clear sky on a practice field",
-      "a player performing an acrobatic kick in a large, illuminated soccer stadium at night",
-      "a close-up of a mock magazine cover featuring the player and Old Spice product",
-      "a proud-looking coach in a crowd of cheering soccer fans",
-      "a player in a car signing an autograph for a fan",
-      "final product display with Old Spice Swagger products against a background of cheering fans and a stadium"
+      "soccer field",
+      "locker room/changing area",
+      "large stadium",
+      "outdoor urban street"
     ]
   },
   "v0019.mp4": {
     "resolution": "720x480",
     "aspect_ratio": "3:2",
     "length": 14.9,
-    "main_product": "Zevo Flying Insect Trap",
+    "main_product": "Zevo Flying Insect Traps",
     "targeting_type": "first_impression",
-    "clarity": 5,
-    "target_age_range": "25-65",
-    "target_income_level": "average income",
-    "target_geographic_area": "general residential areas",
+    "verbosity": "high",
+    "target_age_range": "25-50",
+    "target_income_level": "medium income",
+    "target_geographic_area": "residential areas",
     "target_interests": [
-      "home care",
+      "home maintenance",
       "pest control",
       "clean living"
     ],
     "hook_rating": 3,
-    "purchase_urgency": 2,
+    "purchase_urgency": "medium",
     "message_types": [
       "problem_solution",
-      "demonstration"
+      "demonstration",
+      "emotional_appeal"
     ],
     "product_visibility_score": "high",
     "visual_density": "medium",
     "color_palette": [
+      "#33CCFF",
       "#FFFFFF",
-      "#0000FF",
-      "#ADD8E6",
-      "#008000",
-      "#808080"
+      "#CCCCCC",
+      "#4CAF50",
+      "#8B4513"
     ],
     "age_demographic": "adult",
     "gender_demographic": "female",
-    "activity_level": "dynamic",
+    "activity_level": "sedentary",
     "music_intensity": "medium",
     "fear_index": 0.2,
     "comfort_index": 0.5,
@@ -10491,70 +10482,62 @@
     "luxury_index": 0.0,
     "scene_cuts": [
       0.0,
+      0.1,
       0.4,
       1.3,
-      1.9,
-      2.7,
+      2.0,
       3.2,
-      3.8,
       4.4,
-      4.9,
-      5.7,
-      6.4,
-      7.0,
-      7.5,
-      8.4,
-      9.4,
-      10.3,
-      11.2,
+      5.0,
+      6.0,
+      6.7,
+      8.0,
+      9.0,
+      10.9,
       12.0
     ],
     "visual_motifs": [
       "flying insects",
-      "blue glowing light (from the trap)",
-      "clean home interiors"
+      "blue glowing light",
+      "indoor plants"
     ],
     "scene_settings": [
-      "a bright, modern living room with a woman attempting to swat flying bugs",
-      "a close-up of a Zevo trap plugged into a wall near a potted plant",
-      "a Zevo trap plugged into a kitchen wall with white subway tiles",
-      "a dark kitchen scene with flying insects attracted to the glowing Zevo trap",
-      "a dark bathroom scene with flying insects attracted to the glowing Zevo trap",
-      "a woman holding a Zevo trap cartridge filled with dead insects",
-      "a woman effortlessly disposing of the trap into a sleek trash can in a modern kitchen",
-      "final product shot of the Zevo trap and packaging against a vibrant blue background"
+      "modern living room",
+      "kitchen",
+      "bathroom"
     ]
   },
   "v0022.mp4": {
     "resolution": "1080x1920",
     "aspect_ratio": "9:16",
     "length": 20.33,
-    "main_product": "Blackjack 3D Game (mobile application)",
+    "main_product": "Blackjack 3D Game",
     "targeting_type": "first_impression",
-    "clarity": 5,
-    "target_age_range": "18-50",
+    "verbosity": "low",
+    "target_age_range": "25-50",
     "target_income_level": "N/A",
-    "target_geographic_area": "general, global (mobile app users)",
+    "target_geographic_area": "global",
     "target_interests": [
       "mobile gaming",
       "card games",
       "casino games"
     ],
-    "hook_rating": 3,
-    "purchase_urgency": 1,
+    "hook_rating": 4,
+    "purchase_urgency": "high",
     "message_types": [
-      "demonstration"
+      "demonstration",
+      "problem_solution"
     ],
     "product_visibility_score": "high",
-    "visual_density": "high",
+    "visual_density": "medium",
     "color_palette": [
-      "#000080",
+      "#006699",
       "#FFFFFF",
-      "#FF0000",
-      "#00FF00",
-      "#FFD700"
+      "#FFD700",
+      "#800080",
+      "#00FF00"
     ],
-    "age_demographic": "N/A",
+    "age_demographic": "adult",
     "gender_demographic": "N/A",
     "activity_level": "sedentary",
     "music_intensity": "low",
@@ -10567,19 +10550,18 @@
     "adventure_index": 0.0,
     "nostalgia_index": 0.0,
     "health_index": 0.0,
-    "luxury_index": 0.3,
+    "luxury_index": 0.6,
     "scene_cuts": [
       0.0,
-      18.2
+      17.9
     ],
     "visual_motifs": [
       "playing cards",
       "casino chips",
-      "winning messages"
+      "blackjack table layout"
     ],
     "scene_settings": [
-      "an animated top-down view of a blackjack table with a dealer's hands, player's hands, and casino chips, simulating gameplay",
-      "a static screen displaying 'BLACKJACK 3D GAME' and 'INSTALL NOW!' over the blackjack table backdrop"
+      "virtual casino blackjack table"
     ]
   },
   "v0023.mp4": {
@@ -10588,53 +10570,50 @@
     "length": 7.97,
     "main_product": "Gym membership or fitness motivation",
     "targeting_type": "first_impression",
-    "clarity": 4,
-    "target_age_range": "18-40",
-    "target_income_level": "average income",
-    "target_geographic_area": "general/local (as gyms are often local businesses)",
+    "verbosity": "low",
+    "target_age_range": "18-35",
+    "target_income_level": "medium",
+    "target_geographic_area": "N/A",
     "target_interests": [
-      "fitness",
-      "health",
-      "self-improvement"
+      "Fitness",
+      "Health",
+      "Working out"
     ],
-    "hook_rating": 4,
-    "purchase_urgency": 1,
+    "hook_rating": 3,
+    "purchase_urgency": "low",
     "message_types": [
-      "emotional_appeal",
-      "humor"
+      "emotional_appeal"
     ],
-    "product_visibility_score": "low",
+    "product_visibility_score": "medium",
     "visual_density": "medium",
     "color_palette": [
-      "#333333",
+      "#1C1C1C",
       "#FFFFFF",
-      "#FF0000",
-      "#00FF00",
-      "#808080"
+      "#F44336",
+      "#4CAF50",
+      "#E0E0E0"
     ],
     "age_demographic": "N/A",
     "gender_demographic": "N/A",
-    "activity_level": "N/A",
+    "activity_level": "sedentary",
     "music_intensity": "low",
     "fear_index": 0.0,
     "comfort_index": 0.0,
-    "humor_index": 0.4,
-    "success_index": 0.6,
+    "humor_index": 0.0,
+    "success_index": 0.0,
     "love_index": 0.0,
     "family_index": 0.0,
     "adventure_index": 0.0,
     "nostalgia_index": 0.0,
-    "health_index": 0.9,
+    "health_index": 0.5,
     "luxury_index": 0.0,
-    "scene_cuts": [
-      0.0
-    ],
+    "scene_cuts": [],
     "visual_motifs": [
-      "smartphone call interface",
-      "flexing bicep emoji"
+      "phone call interface",
+      "gym equipment"
     ],
     "scene_settings": [
-      "a wide shot of a modern gym interior with rows of treadmills and other exercise equipment, overlaid with a 'GYM is calling...' phone call interface"
+      "indoor gym"
     ]
   },
   "v0021.mp4": {
@@ -10643,29 +10622,29 @@
     "length": 14.7,
     "main_product": "Amazon Prime Big Deal Days sales event",
     "targeting_type": "first_impression",
-    "clarity": 5,
-    "target_age_range": "25-65",
-    "target_income_level": "all income levels",
-    "target_geographic_area": "general (where Amazon operates)",
+    "verbosity": "medium",
+    "target_age_range": "25-50",
+    "target_income_level": "medium",
+    "target_geographic_area": "N/A",
     "target_interests": [
-      "shopping",
-      "deals",
-      "home goods"
+      "Shopping",
+      "Home improvement",
+      "Deals and discounts"
     ],
-    "hook_rating": 3,
-    "purchase_urgency": 4,
+    "hook_rating": 4,
+    "purchase_urgency": "high",
     "message_types": [
       "humor",
-      "emotional_appeal"
+      "demonstration"
     ],
-    "product_visibility_score": "medium",
+    "product_visibility_score": "high",
     "visual_density": "medium",
     "color_palette": [
-      "#F5F5DC",
+      "#D4B889",
       "#FFFFFF",
-      "#0000FF",
-      "#A52A2A",
-      "#FFA500"
+      "#0066CC",
+      "#333333",
+      "#9E6C3B"
     ],
     "age_demographic": "adult",
     "gender_demographic": "male",
@@ -10683,34 +10662,25 @@
     "luxury_index": 0.0,
     "scene_cuts": [
       0.0,
-      0.2,
-      0.8,
-      1.4,
-      3.2,
-      4.0,
-      4.9,
-      5.7,
-      6.7,
-      7.3,
-      8.1,
-      9.0,
-      9.8,
-      10.7,
-      11.2,
-      12.0
+      1.3,
+      4.2,
+      5.5,
+      6.0,
+      6.6,
+      8.6,
+      10.4,
+      11.6
     ],
     "visual_motifs": [
       "Amazon box",
-      "vacuum cleaner",
       "dust clouds",
-      "sunlight"
+      "dancing with vacuum"
     ],
     "scene_settings": [
-      "a young man unboxing a vacuum cleaner from an Amazon box in a bright, modern living room with a kitchen in the background",
-      "the man dancing energetically with the vacuum cleaner, stirring up dust on the hardwood floor in the living room",
-      "the man continuing his dance with the vacuum in the kitchen area",
-      "the man dancing with the vacuum cleaner as he ascends a staircase in his home",
-      "a final graphical screen with 'Prime Big Deal Days' text, event dates, and an Amazon box against a solid blue background"
+      "modern home living room",
+      "modern home kitchen",
+      "home staircase",
+      "blue studio background"
     ]
   },
   "v0009.mp4": {
@@ -10719,97 +10689,92 @@
     "length": 15.01,
     "main_product": "Chevrolet Silverado Trail Boss truck",
     "targeting_type": "first_impression",
-    "clarity": 5,
-    "target_age_range": "25-50",
-    "target_income_level": "middle to high income",
-    "target_geographic_area": "rural or suburban areas, North America",
+    "verbosity": "low",
+    "target_age_range": "35-50",
+    "target_income_level": "high",
+    "target_geographic_area": "N/A",
     "target_interests": [
-      "off-roading",
-      "outdoor activities",
-      "family outings"
+      "Automotive",
+      "Off-roading",
+      "Family activities"
     ],
     "hook_rating": 3,
-    "purchase_urgency": 2,
+    "purchase_urgency": "low",
     "message_types": [
       "demonstration",
-      "emotional_appeal",
-      "storytelling"
+      "emotional_appeal"
     ],
     "product_visibility_score": "high",
-    "visual_density": "medium",
+    "visual_density": "low",
     "color_palette": [
-      "#554E41",
-      "#8C795C",
-      "#A8B3B5",
-      "#0E0D0C",
-      "#E4D6BD"
+      "#7C7A6D",
+      "#1A1A1A",
+      "#BF953F",
+      "#F0F0F0",
+      "#4A4A4A"
     ],
     "age_demographic": "adult",
     "gender_demographic": "male",
     "activity_level": "dynamic",
     "music_intensity": "medium",
     "fear_index": 0.0,
-    "comfort_index": 0.7,
+    "comfort_index": 0.6,
     "humor_index": 0.0,
     "success_index": 0.0,
     "love_index": 0.0,
     "family_index": 0.7,
-    "adventure_index": 0.8,
+    "adventure_index": 0.5,
     "nostalgia_index": 0.0,
     "health_index": 0.0,
-    "luxury_index": 0.0,
+    "luxury_index": 0.3,
     "scene_cuts": [
       0.0,
-      0.5,
+      0.9,
       3.8,
       6.7,
-      9.5,
-      10.5,
-      13.5
+      8.8,
+      10.1,
+      11.2
     ],
     "visual_motifs": [
-      "Chevrolet logo",
       "dirt roads",
-      "trees/foliage"
+      "bare trees",
+      "Chevrolet logo"
     ],
     "scene_settings": [
-      "Overhead view of a dark grey pickup truck driving on a dirt road through sparse, wintery-looking woods",
-      "Close-up of the front wheel and undercarriage of the truck on a dirt road, kicked up dust",
-      "Interior shot of a young boy in the back seat eating ice cream, looking comfortable and peaceful",
-      "Rearview mirror reflecting a smiling adult man driving the truck",
-      "Overhead view of the dark grey pickup truck driving on a dirt road through sparse, wintery-looking woods, with text overlay"
+      "forest dirt trail",
+      "car interior"
     ]
   },
   "v0008.mp4": {
     "resolution": "720x720",
     "aspect_ratio": "1:1",
     "length": 13.47,
-    "main_product": "Chevrolet Equinox EV electric vehicle",
+    "main_product": "Chevrolet Equinox EV",
     "targeting_type": "first_impression",
-    "clarity": 5,
+    "verbosity": "medium",
     "target_age_range": "25-50",
-    "target_income_level": "middle to high income",
-    "target_geographic_area": "urban and suburban areas, broad appeal",
+    "target_income_level": "middle to upper-middle income",
+    "target_geographic_area": "National/Global",
     "target_interests": [
-      "environmentalism",
-      "technology",
-      "road trips"
+      "Automotive technology",
+      "Sustainable living",
+      "Road trips/Travel"
     ],
     "hook_rating": 3,
-    "purchase_urgency": 2,
+    "purchase_urgency": "low",
     "message_types": [
       "demonstration",
-      "problem_solution",
-      "emotional_appeal"
+      "problem_solution"
     ],
     "product_visibility_score": "high",
     "visual_density": "medium",
     "color_palette": [
-      "#1A51A7",
-      "#F1F1F1",
-      "#B0C2D0",
-      "#424C52",
-      "#EDC749"
+      "#2267B8",
+      "#FFFFFF",
+      "#5F992E",
+      "#F7D42C",
+      "#9BA3A7"
     ],
     "age_demographic": "adult",
     "gender_demographic": "male",
@@ -10817,54 +10782,53 @@
     "music_intensity": "medium",
     "fear_index": 0.0,
     "comfort_index": 0.0,
-    "humor_index": 0.0,
+    "humor_index": 0.1,
     "success_index": 0.0,
     "love_index": 0.0,
     "family_index": 0.0,
-    "adventure_index": 0.5,
+    "adventure_index": 0.3,
     "nostalgia_index": 0.0,
     "health_index": 0.0,
-    "luxury_index": 0.0,
+    "luxury_index": 0.3,
     "scene_cuts": [
-      0.0,
-      1.8,
-      4.0,
-      6.3,
-      7.0,
-      10.6
+      1.7,
+      2.0,
+      4.2,
+      5.7,
+      6.8,
+      9.5,
+      10.9
     ],
     "visual_motifs": [
-      "charging cable",
-      "ice cream cone",
-      "Chevrolet logo",
-      "green trees"
+      "Text overlays for features",
+      "Chevy logo",
+      "Green foliage"
     ],
     "scene_settings": [
-      "Close-up of an electric car's charging port with a charging cable inserted, indicating 319 miles of range",
-      "An outdoor ice cream stand named 'KING KONE' where a man receives two ice cream cones, with a blue car in the background",
-      "Close-up of the 'EQUINOX EV' badge on the side of a silver car, reflecting the sky",
-      "A silver Chevrolet Equinox EV driving on a scenic rural road lined with lush green trees and a wooden fence on a sunny day"
+      "Car charging port",
+      "Ice cream shop exterior",
+      "Rural road"
     ]
   },
   "v0020.mp4": {
     "resolution": "1920x1080",
     "aspect_ratio": "16:9",
     "length": 15.01,
-    "main_product": "Amazon Prime Big Deal Days event",
+    "main_product": "Amazon Prime Big Deal Days",
     "targeting_type": "first_impression",
-    "clarity": 5,
+    "verbosity": "medium",
     "target_age_range": "25-50",
-    "target_income_level": "broad",
-    "target_geographic_area": "broad, online shoppers",
+    "target_income_level": "middle income",
+    "target_geographic_area": "National/Global",
     "target_interests": [
-      "shopping",
-      "cooking",
-      "home goods"
+      "Shopping",
+      "Home cooking/Culinary",
+      "Deals/Discounts"
     ],
     "hook_rating": 3,
-    "purchase_urgency": 4,
+    "purchase_urgency": "high",
     "message_types": [
-      "demonstration",
+      "problem_solution",
       "emotional_appeal",
       "storytelling"
     ],
@@ -10872,49 +10836,44 @@
     "visual_density": "medium",
     "color_palette": [
       "#FFFFFF",
-      "#C3B8A5",
-      "#7F675A",
-      "#2D2D2D",
-      "#2B57E4"
+      "#0076CE",
+      "#8B4513",
+      "#000000",
+      "#4CAF50"
     ],
     "age_demographic": "adult",
     "gender_demographic": "female",
     "activity_level": "dynamic",
     "music_intensity": "medium",
     "fear_index": 0.0,
-    "comfort_index": 0.6,
-    "humor_index": 0.2,
-    "success_index": 0.0,
+    "comfort_index": 0.2,
+    "humor_index": 0.0,
+    "success_index": 0.2,
     "love_index": 0.0,
-    "family_index": 0.0,
+    "family_index": 0.1,
     "adventure_index": 0.0,
     "nostalgia_index": 0.0,
-    "health_index": 0.4,
+    "health_index": 0.3,
     "luxury_index": 0.0,
     "scene_cuts": [
-      0.0,
+      0.2,
       0.4,
-      1.2,
-      2.0,
-      3.4,
-      4.9,
-      7.0,
-      8.8,
-      10.3,
-      11.8
+      0.8,
+      1.0,
+      1.3,
+      1.6,
+      1.9,
+      2.4
     ],
     "visual_motifs": [
-      "Amazon package/logo",
-      "knife block",
-      "colorful vegetables",
-      "magical cooking effects (floating food)"
+      "Amazon package",
+      "Chopped vegetables",
+      "Clean kitchen aesthetic"
     ],
     "scene_settings": [
-      "A modern, well-lit kitchen with a woman in an apron unboxing a knife block from an Amazon package on a wooden island",
-      "The woman in the kitchen expertly chopping and preparing colorful vegetables, which magically float and arrange themselves",
-      "Close-up of the woman smiling with satisfaction as she prepares food",
-      "The woman presenting a meticulously and creatively arranged dish resembling a fish on a blue oval plate, made from vegetables",
-      "A solid blue background with prominent white text promoting 'Prime Big Deal Days October 7-8' and 'Deals up to 40% off', with an Amazon package in the corner"
+      "Modern kitchen",
+      "Dining table",
+      "Blue graphic screen"
     ]
   }
 }

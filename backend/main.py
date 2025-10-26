@@ -189,7 +189,7 @@ if __name__ == "__main__":
         from concurrent.futures import ThreadPoolExecutor, as_completed
         
         with ThreadPoolExecutor(max_workers=2) as executor:
-            video_future = executor.submit(batch_analyze_videos, results, 5)
+            video_future = executor.submit(batch_analyze_videos, results, 3)
             image_future = executor.submit(batch_analyze_images, results, 10)
             
             # Get results as they complete
