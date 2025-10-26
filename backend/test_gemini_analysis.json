@@ -1,0 +1,342 @@
+{
+  "resolution": "1080x1916",
+  "aspect_ratio": "270:479",
+  "length": 11.13,
+  "full_text_transcript": {
+    "full_text": "My husband and I can never agree on what we want for dinner, so that's where Wonder comes in. Wonder is a food haul app where you can order from all different restaurants all in one app. So if I'm in the mood for a healthy salad, but my husband wants wings, we can both be happy.",
+    "segments": [
+      {
+        "start": 0.0,
+        "end": 2.12,
+        "text": "My husband and I can never agree on what we want for dinner,"
+      },
+      {
+        "start": 2.26,
+        "end": 3.34,
+        "text": "so that's where Wonder comes in."
+      },
+      {
+        "start": 3.56,
+        "end": 4.96,
+        "text": "Wonder is a food haul app where you"
+      },
+      {
+        "start": 4.96,
+        "end": 6.82,
+        "text": "can order from all different restaurants all in one app."
+      },
+      {
+        "start": 6.82,
+        "end": 8.24,
+        "text": "So if I'm in the mood for a healthy salad,"
+      },
+      {
+        "start": 8.3,
+        "end": 10.06,
+        "text": "but my husband wants wings, we can both be happy."
+      }
+    ],
+    "words": [
+      {
+        "word": "My",
+        "start": 0.0,
+        "end": 0.22
+      },
+      {
+        "word": "husband",
+        "start": 0.22,
+        "end": 0.46
+      },
+      {
+        "word": "and",
+        "start": 0.46,
+        "end": 0.58
+      },
+      {
+        "word": "I",
+        "start": 0.58,
+        "end": 0.68
+      },
+      {
+        "word": "can",
+        "start": 0.68,
+        "end": 0.84
+      },
+      {
+        "word": "never",
+        "start": 0.84,
+        "end": 1.02
+      },
+      {
+        "word": "agree",
+        "start": 1.02,
+        "end": 1.26
+      },
+      {
+        "word": "on",
+        "start": 1.26,
+        "end": 1.42
+      },
+      {
+        "word": "what",
+        "start": 1.42,
+        "end": 1.5
+      },
+      {
+        "word": "we",
+        "start": 1.5,
+        "end": 1.62
+      },
+      {
+        "word": "want",
+        "start": 1.62,
+        "end": 1.78
+      },
+      {
+        "word": "for",
+        "start": 1.78,
+        "end": 1.94
+      },
+      {
+        "word": "dinner",
+        "start": 1.94,
+        "end": 2.12
+      },
+      {
+        "word": "so",
+        "start": 2.26,
+        "end": 2.3
+      },
+      {
+        "word": "that's",
+        "start": 2.3,
+        "end": 2.52
+      },
+      {
+        "word": "where",
+        "start": 2.52,
+        "end": 2.68
+      },
+      {
+        "word": "Wonder",
+        "start": 2.68,
+        "end": 2.86
+      },
+      {
+        "word": "comes",
+        "start": 2.86,
+        "end": 3.16
+      },
+      {
+        "word": "in",
+        "start": 3.16,
+        "end": 3.34
+      },
+      {
+        "word": "Wonder",
+        "start": 3.56,
+        "end": 3.56
+      },
+      {
+        "word": "is",
+        "start": 3.56,
+        "end": 3.78
+      },
+      {
+        "word": "a",
+        "start": 3.78,
+        "end": 4.0
+      },
+      {
+        "word": "food",
+        "start": 4.0,
+        "end": 4.18
+      },
+      {
+        "word": "haul",
+        "start": 4.18,
+        "end": 4.34
+      },
+      {
+        "word": "app",
+        "start": 4.34,
+        "end": 4.7
+      },
+      {
+        "word": "where",
+        "start": 4.7,
+        "end": 4.86
+      },
+      {
+        "word": "you",
+        "start": 4.86,
+        "end": 4.96
+      },
+      {
+        "word": "can",
+        "start": 4.96,
+        "end": 5.24
+      },
+      {
+        "word": "order",
+        "start": 5.24,
+        "end": 5.28
+      },
+      {
+        "word": "from",
+        "start": 5.28,
+        "end": 5.48
+      },
+      {
+        "word": "all",
+        "start": 5.48,
+        "end": 5.66
+      },
+      {
+        "word": "different",
+        "start": 5.66,
+        "end": 5.86
+      },
+      {
+        "word": "restaurants",
+        "start": 5.86,
+        "end": 6.22
+      },
+      {
+        "word": "all",
+        "start": 6.22,
+        "end": 6.44
+      },
+      {
+        "word": "in",
+        "start": 6.44,
+        "end": 6.58
+      },
+      {
+        "word": "one",
+        "start": 6.58,
+        "end": 6.68
+      },
+      {
+        "word": "app",
+        "start": 6.68,
+        "end": 6.82
+      },
+      {
+        "word": "So",
+        "start": 6.82,
+        "end": 6.98
+      },
+      {
+        "word": "if",
+        "start": 6.98,
+        "end": 7.06
+      },
+      {
+        "word": "I'm",
+        "start": 7.06,
+        "end": 7.22
+      },
+      {
+        "word": "in",
+        "start": 7.22,
+        "end": 7.24
+      },
+      {
+        "word": "the",
+        "start": 7.24,
+        "end": 7.44
+      },
+      {
+        "word": "mood",
+        "start": 7.44,
+        "end": 7.46
+      },
+      {
+        "word": "for",
+        "start": 7.46,
+        "end": 7.62
+      },
+      {
+        "word": "a",
+        "start": 7.62,
+        "end": 7.74
+      },
+      {
+        "word": "healthy",
+        "start": 7.74,
+        "end": 7.92
+      },
+      {
+        "word": "salad",
+        "start": 7.92,
+        "end": 8.24
+      },
+      {
+        "word": "but",
+        "start": 8.3,
+        "end": 8.4
+      },
+      {
+        "word": "my",
+        "start": 8.4,
+        "end": 8.62
+      },
+      {
+        "word": "husband",
+        "start": 8.62,
+        "end": 8.72
+      },
+      {
+        "word": "wants",
+        "start": 8.72,
+        "end": 8.98
+      },
+      {
+        "word": "wings",
+        "start": 8.98,
+        "end": 9.26
+      },
+      {
+        "word": "we",
+        "start": 9.38,
+        "end": 9.42
+      },
+      {
+        "word": "can",
+        "start": 9.42,
+        "end": 9.56
+      },
+      {
+        "word": "both",
+        "start": 9.56,
+        "end": 9.72
+      },
+      {
+        "word": "be",
+        "start": 9.72,
+        "end": 10.0
+      },
+      {
+        "word": "happy",
+        "start": 10.0,
+        "end": 10.06
+      }
+    ]
+  },
+  "targeting_type": "first_impression",
+  "comprehension_rating": 5,
+  "target_age_range": "25-35",
+  "target_income_level": "middle",
+  "target_geographic_area": "urban",
+  "target_interests": [
+    "food delivery",
+    "convenience",
+    "dining out",
+    "couples activities",
+    "mobile apps",
+    "variety in food"
+  ],
+  "hook_rating": 5,
+  "conversion_focused": false
+}
