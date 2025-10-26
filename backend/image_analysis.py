@@ -26,12 +26,25 @@ def analyze_image_with_gemini(image: Image.Image) -> Dict[str, Any]:
         - product_visibility_score: "Low", "Medium", or "High"
         - negative_space_ratio: "Low", "Medium", or "High"
         - color_palette: List of up to 5 hex colors
-        - demographic_cues: Dict with age_band, hairstyle_archetype, presence_of_kids, presence_of_elders
+        - age_demographic: "child", "teenage", "adult", or "senior"
+        - gender_demographic: "male", "female", "other", or "N/A"
+        - verbosity: "low", "medium", "high", or "none"
         - activity: "sedentary" or "dynamic"
         - call_to_action_level: 1-3 (based on OCR)
         - formality_level: 1-4 (based on OCR)
         - benefit_framing: "outcome", "feature", or "social_proof"
         - temporal_urgency_intensity: 1-3
+        - scene_setting: "scene/location description"
+        - fear_index: 0.0-1.0
+        - comfort_index: 0.0-1.0
+        - humor_index: 0.0-1.0
+        - success_index: 0.0-1.0
+        - love_index: 0.0-1.0
+        - family_index: 0.0-1.0
+        - adventure_index: 0.0-1.0
+        - nostalgia_index: 0.0-1.0
+        - health_index: 0.0-1.0
+        - luxury_index: 0.0-1.0
     """
     # Configure Gemini API
     api_key = os.environ.get("GEMINI_API_KEY")
@@ -51,96 +64,28 @@ def analyze_image_with_gemini(image: Image.Image) -> Dict[str, Any]:
     image_bytes = buffer.getvalue()
     image_b64 = base64.b64encode(image_bytes).decode('utf-8')
 
-    # Step 3: Create the analysis prompt
-    ocr_text = image_data.get('text', 'No text detected')
-    ocr_details = image_data.get('ocr_details', {})
-    text_elements = ocr_details.get('text_elements', [])
-
-    # Format text elements for context
-    prominent_texts = []
-    for elem in text_elements[:10]:  # Top 10 most prominent text elements
-        prominent_texts.append({
-            'text': elem['text'],
-            'prominence_score': elem['prominence_score']
-        })
-
+    # Load prompts from JSON
+    with open(os.path.join(os.path.dirname(__file__), 'prompts.json'), 'r') as f:
+        prompts = json.load(f)
+    
+    image_prompt = prompts['image_analysis']
+    
+    # Create format string from the format dict
+    format_str = json.dumps(image_prompt['format'], indent=4)
+    criteria_str = '\n'.join([f"- {k}: {v}" for k, v in image_prompt['criteria'].items()])
+    
     prompt = f"""Analyze this advertisement image for visual and textual characteristics.
 
 IMAGE METADATA:
 - Resolution: {image_data.get('resolution', 'Unknown')}
-- Extracted Text (OCR): "{ocr_text}"
-- Prominent Text Elements: {json.dumps(prominent_texts, indent=2)}
 
 Please analyze and return the following fields in JSON format:
-
-{{
-    "product_visibility_score": "Low" | "Medium" | "High",
-    "negative_space_ratio": "Low" | "Medium" | "High",
-    "color_palette": ["#RRGGBB", "#RRGGBB", ...],
-    "demographic_cues": {{
-        "age_band": "child (0-12)" | "teenage (13-19)" | "adult (20-64)" | "senior (65+)" | null,
-        "hairstyle_archetype": "description" | null,
-        "presence_of_kids": true | false,
-        "presence_of_elders": true | false
-    }},
-    "activity": "sedentary" | "dynamic",
-    "call_to_action_level": 1 | 2 | 3,
-    "formality_level": 1 | 2 | 3 | 4,
-    "benefit_framing": "outcome" | "feature" | "social_proof",
-    "temporal_urgency_intensity": 1 | 2 | 3
-}}
+{format_str}
 
 ANALYSIS CRITERIA:
+{criteria_str}
 
-1. **product_visibility_score**: How prominently the product appears in the image
-   - "Low": Product barely visible or only mentioned in text
-   - "Medium": Product appears but not dominant focus
-   - "High": Product is prominently featured and clearly visible
-
-2. **negative_space_ratio**: Proportion of empty/negative space in the image
-   - "Low": Image is crowded with minimal empty space (high visual density)
-   - "Medium": Balanced mix of content and negative space
-   - "High": Lots of empty space, minimalist design (low visual density)
-
-3. **color_palette**: Extract up to 5 most significant/recurring hex colors in the image
-   - Order from most to least significant
-   - Use uppercase format: #RRGGBB
-   - Must be EXACTLY 5 colors (or fewer if image is very simple)
-
-4. **demographic_cues**: Analyze human presence (if any)
-   - age_band: Age range of MAJORITY of people visible (null if no humans)
-   - hairstyle_archetype: Describe predominant hairstyle if humans present (e.g., "long wavy", "short professional", "bald", "curly afro") (null if no humans)
-   - presence_of_kids: true if children (0-12) are visible
-   - presence_of_elders: true if elderly people (65+) are visible
-   - IMPORTANT: If NO humans are present in the image, all fields should be null/false
-
-5. **activity**: Visual dynamism level
-   - "sedentary": Static, calm, peaceful imagery (people sitting, standing still, minimal motion)
-   - "dynamic": Active, energetic imagery (people moving, sports, action, motion blur)
-
-6. **call_to_action_level** (based on OCR text):
-   - 1: Not urgent - No clear CTA or very soft CTA ("Learn more", "Discover")
-   - 2: Semi-urgent - Moderate CTA ("Shop now", "Get started", "Try it")
-   - 3: Urgent - Strong immediate CTA ("Buy now", "Limited time", "Act now", "Don't miss out")
-
-7. **formality_level** (based on OCR text and visual style):
-   - 1: Meme speak - Internet slang, all caps, emojis, casual abbreviations
-   - 2: Casual - Conversational, friendly, informal tone
-   - 3: Semi-professional - Polished but approachable
-   - 4: Professional - Formal, corporate, business language
-
-8. **benefit_framing** (based on OCR text):
-   - "outcome": Focuses on results/benefits user will achieve ("Get fit", "Save money", "Feel confident")
-   - "feature": Focuses on product attributes ("Made with X", "Features Y", "Includes Z")
-   - "social_proof": Focuses on testimonials, reviews, popularity ("1M+ users", "5-star rated", "Trusted by...")
-
-9. **temporal_urgency_intensity** (based on OCR text):
-   - 1: Longer than week or no urgency - No time pressure or general timeline
-   - 2: Within week - "This week", "7 days", weekly timeline
-   - 3: Within day - "Today only", "24 hours", "Ends tonight", immediate urgency
-
-Analyze the image objectively based on what you see and the extracted text. Return ONLY valid JSON.
-"""
+{image_prompt['instruction']}"""
 
     try:
         # Step 4: Send to Gemini with both image and prompt
@@ -168,17 +113,25 @@ Analyze the image objectively based on what you see and the extracted text. Retu
             "product_visibility_score": analysis.get("product_visibility_score"),
             "negative_space_ratio": analysis.get("negative_space_ratio"),
             "color_palette": analysis.get("color_palette", []),
-            "demographic_cues": analysis.get("demographic_cues", {
-                "age_band": None,
-                "hairstyle_archetype": None,
-                "presence_of_kids": False,
-                "presence_of_elders": False
-            }),
+            "age_demographic": analysis.get("age_demographic"),
+            "gender_demographic": analysis.get("gender_demographic"),
+            "verbosity": analysis.get("verbosity"),
             "activity": analysis.get("activity"),
             "call_to_action_level": analysis.get("call_to_action_level"),
             "formality_level": analysis.get("formality_level"),
             "benefit_framing": analysis.get("benefit_framing"),
-            "temporal_urgency_intensity": analysis.get("temporal_urgency_intensity")
+            "temporal_urgency_intensity": analysis.get("temporal_urgency_intensity"),
+            "scene_setting": analysis.get("scene_setting"),
+            "fear_index": analysis.get("fear_index"),
+            "comfort_index": analysis.get("comfort_index"),
+            "humor_index": analysis.get("humor_index"),
+            "success_index": analysis.get("success_index"),
+            "love_index": analysis.get("love_index"),
+            "family_index": analysis.get("family_index"),
+            "adventure_index": analysis.get("adventure_index"),
+            "nostalgia_index": analysis.get("nostalgia_index"),
+            "health_index": analysis.get("health_index"),
+            "luxury_index": analysis.get("luxury_index")
         }
 
     except Exception as e:
@@ -187,17 +140,25 @@ Analyze the image objectively based on what you see and the extracted text. Retu
             "product_visibility_score": None,
             "negative_space_ratio": None,
             "color_palette": [],
-            "demographic_cues": {
-                "age_band": None,
-                "hairstyle_archetype": None,
-                "presence_of_kids": False,
-                "presence_of_elders": False
-            },
+            "age_demographic": None,
+            "gender_demographic": None,
+            "verbosity": None,
             "activity": None,
             "call_to_action_level": None,
             "formality_level": None,
             "benefit_framing": None,
-            "temporal_urgency_intensity": None
+            "temporal_urgency_intensity": None,
+            "scene_setting": None,
+            "fear_index": None,
+            "comfort_index": None,
+            "humor_index": None,
+            "success_index": None,
+            "love_index": None,
+            "family_index": None,
+            "adventure_index": None,
+            "nostalgia_index": None,
+            "health_index": None,
+            "luxury_index": None
         }
 
 

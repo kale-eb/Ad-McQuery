@@ -49,8 +49,10 @@ def batch_analyze_videos(preprocessed_videos: Dict[str, Dict[str, Any]], batch_s
         batch_num, batch_filenames, batch_data = batch_info
         model = genai.GenerativeModel('gemini-2.5-flash')
         
-        print(f"\nProcessing batch {batch_num} ({len(batch_filenames)} videos)...")
+        print(f"\nProcessing video batch {batch_num} ({len(batch_filenames)} videos)...")
         batch_start = time.time()
+        file_prep_time = 0
+        api_call_time = 0
         
         try:
             # Create batch prompt
@@ -126,8 +128,10 @@ def batch_analyze_videos(preprocessed_videos: Dict[str, Dict[str, Any]], batch_s
                 }
             return batch_results
     
-    # Process all batches concurrently
-    with ThreadPoolExecutor(max_workers=len(batches)) as executor:
+    # Process batches with limited concurrency to avoid overwhelming the API
+    # Reduce workers to avoid timeout issues
+    max_concurrent = min(3, len(batches))  # Max 3 concurrent requests
+    with ThreadPoolExecutor(max_workers=max_concurrent) as executor:
         future_to_batch = {executor.submit(process_batch, batch): batch for batch in batches}
         
         for future in as_completed(future_to_batch):
@@ -212,7 +216,7 @@ def parse_batch_response(response_text: str, expected_filenames: List[str]) -> D
         return {}
 
 
-def batch_analyze_images(preprocessed_images: Dict[str, Dict[str, Any]], batch_size: int = 10) -> Dict[str, Dict[str, Any]]:
+def batch_analyze_images(preprocessed_images: Dict[str, Dict[str, Any]], batch_size: int = 5) -> Dict[str, Dict[str, Any]]:
     """
     Analyze preprocessed images in batches using Gemini with multithreading.
     Similar to video analysis but optimized for images.
@@ -227,9 +231,9 @@ def batch_analyze_images(preprocessed_images: Dict[str, Dict[str, Any]], batch_s
     # Configure Gemini API
     genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
     
-    # Filter out only image files (png)
+    # Filter out only image files (png) and ensure they have file paths
     image_files = {k: v for k, v in preprocessed_images.items() 
-                   if k.lower().endswith('.png') and 'error' not in v}
+                   if k.lower().endswith('.png') and 'error' not in v and '_temp_file_path' in v}
     
     if not image_files:
         print("No valid image files to analyze")
@@ -253,11 +257,40 @@ def batch_analyze_images(preprocessed_images: Dict[str, Dict[str, Any]], batch_s
         batch_start = time.time()
         
         try:
-            # Create image-specific batch prompt
+            # Create image-specific batch prompt with actual image files
             batch_prompt = create_image_batch_prompt(batch_data)
             
+            # Prepare content parts with actual images
+            content_parts = [batch_prompt]
+            
+            # Add each image file to the content
+            import base64
+            from PIL import Image
+            from io import BytesIO
+            
+            for i, filename in enumerate(batch_filenames):
+                try:
+                    file_path = batch_data[filename]['_temp_file_path']
+                    
+                    # Read and encode image file
+                    with Image.open(file_path) as img:
+                        buffer = BytesIO()
+                        img.save(buffer, format='PNG')
+                        image_bytes = buffer.getvalue()
+                    
+                    image_part = {
+                        "mime_type": "image/png",
+                        "data": base64.b64encode(image_bytes).decode('utf-8')
+                    }
+                    content_parts.append(image_part)
+                        
+                except Exception as e:
+                    print(f"   Warning: Could not process image file {filename}: {e}")
+                    continue
+            
+            # Send actual image files + prompt to Gemini
             response = model.generate_content(
-                batch_prompt,
+                content_parts,
                 generation_config=genai.GenerationConfig(
                     response_mime_type="application/json"
                 )
@@ -268,13 +301,17 @@ def batch_analyze_images(preprocessed_images: Dict[str, Dict[str, Any]], batch_s
             batch_results = {}
             for filename in batch_filenames:
                 if filename in batch_analysis:
+                    # Clean preprocessing data (remove temp file path)
+                    clean_preprocessing_data = {k: v for k, v in batch_data[filename].items() if k != '_temp_file_path'}
                     batch_results[filename] = {
-                        **batch_data[filename],
-                        **batch_analysis[filename]
+                        **clean_preprocessing_data,  # Original preprocessing data
+                        **batch_analysis[filename]  # Gemini analysis
                     }
                 else:
+                    # Clean preprocessing data (remove temp file path)
+                    clean_preprocessing_data = {k: v for k, v in batch_data[filename].items() if k != '_temp_file_path'}
                     batch_results[filename] = {
-                        **batch_data[filename],
+                        **clean_preprocessing_data,
                         "analysis_error": "Failed to get Gemini analysis"
                     }
             
@@ -287,14 +324,17 @@ def batch_analyze_images(preprocessed_images: Dict[str, Dict[str, Any]], batch_s
             print(f"   Image batch {batch_num} failed ({batch_time:.2f}s): {e}")
             batch_results = {}
             for filename in batch_filenames:
+                # Clean preprocessing data (remove temp file path)
+                clean_preprocessing_data = {k: v for k, v in batch_data[filename].items() if k != '_temp_file_path'}
                 batch_results[filename] = {
-                    **batch_data[filename],
+                    **clean_preprocessing_data,
                     "analysis_error": str(e)
                 }
             return batch_results
     
-    # Process all image batches concurrently
-    with ThreadPoolExecutor(max_workers=len(batches)) as executor:
+    # Process image batches with limited concurrency
+    max_concurrent = min(3, len(batches))  # Max 3 concurrent requests
+    with ThreadPoolExecutor(max_workers=max_concurrent) as executor:
         future_to_batch = {executor.submit(process_image_batch, batch): batch for batch in batches}
         
         for future in as_completed(future_to_batch):
@@ -306,61 +346,44 @@ def batch_analyze_images(preprocessed_images: Dict[str, Dict[str, Any]], batch_s
 
 def create_image_batch_prompt(batch_data: Dict[str, Dict[str, Any]]) -> str:
     """
-    Create a prompt for batch image analysis.
+    Create a prompt for batch image analysis using the new format from prompts.json.
     """
+    # Load prompts from JSON
+    with open(os.path.join(os.path.dirname(__file__), 'prompts.json'), 'r') as f:
+        prompts = json.load(f)
+    
+    image_prompt = prompts['image_analysis']
+    
+    # Create images info with metadata and OCR details
     images_info = []
-    for filename, data in batch_data.items():
-        text = data.get('text', 'No text extracted')
+    filenames = list(batch_data.keys())
+    
+    for i, filename in enumerate(filenames):
+        data = batch_data[filename]
         resolution = data.get('resolution', 'Unknown')
-        colors = data.get('dominant_colors', [])
         
         images_info.append(f"""
-Image: {filename}
+Image {i}: {filename}
 Resolution: {resolution}
-Extracted Text: "{text}"
-Dominant Colors: {colors[:3] if colors else 'Unknown'}
 """)
     
-    prompt = f"""Analyze these {len(batch_data)} image advertisements for targeting and marketing effectiveness.
+    # Create format example using indices
+    format_str = json.dumps({str(i): image_prompt['format'] for i in range(len(batch_data))}, indent=4)
+    criteria_str = '\n'.join([f"- {k}: {v}" for k, v in image_prompt['criteria'].items()])
+    
+    prompt = f"""Analyze these {len(batch_data)} image advertisements for visual and textual characteristics.
 
 {chr(10).join(images_info)}
 
-For EACH image, provide analysis in the following JSON format:
-{{
-    "{list(batch_data.keys())[0]}": {{
-        "targeting_type": "first_impression" or "retargeting",
-        "comprehension_rating": 1-5,
-        "target_age_range": "18-25", "25-35", "35-50", or "50+",
-        "target_income_level": "low", "middle", "high", or "mixed",
-        "target_geographic_area": "specific area type",
-        "target_interests": ["up to 3 interests"],
-        "visual_appeal_rating": 1-5,
-        "conversion_focused": true/false,
-        "product_visibility_score": "low", "medium", or "high",
-        "visual_density": "low", "medium", or "high",
-        "color_palette": ["#RRGGBB", "#RRGGBB", "#RRGGBB", "#RRGGBB", "#RRGGBB"],
-        "age_demographic": "child", "teenage", "adult", or "senior",
-        "fear_index": 0.0-1.0,
-        "comfort_index": 0.0-1.0,
-        "category": "category name",
-        "scene": "scene/location description"
-    }},
-    ... (repeat for all images)
-}}
+For EACH image, provide analysis using the image INDEX as the key in the following JSON format:
+{format_str}
 
-CRITERIA:
-- visual_appeal_rating: 1=unappealing, 5=extremely eye-catching
-- product_visibility_score: "low" if product is barely shown or only mentioned briefly, "medium" if product appears multiple times or has moderate presence, "high" if product is prominently featured with clear visibility
-- visual_density: "low" if image has lots of negative/empty space with minimal objects (minimalist, clean design), "medium" if balanced mix of content and negative space, "high" if image is crowded with many objects, text, or visual elements with little negative space. Analyze based on: portion of screen occupied by negative space vs objects, number of visual elements, amount of empty/breathing room in composition, text density, and overall visual clutter
-- color_palette: Array of EXACTLY 5 hex color codes (format: #RRGGBB) representing the most recurring colors in the image. Identify the 5 colors that appear most frequently. Order from most to least recurring. Use uppercase letters for hex codes.
-- age_demographic: Determine based on the appeared age of the MAJORITY of people visible in the image. "child" for ages 0-12, "teenage" for ages 13-19, "adult" for ages 20-64, "senior" for ages 65+. IMPORTANT: If there are NO humans visible in the image, default to "adult".
-- fear_index: A decimal number from 0.0 to 1.0 representing the presence of fear/security-related imagery. 0.0 = no fear/security imagery present, 1.0 = heavy presence of fear/security imagery. Analyze for: locks, shields, security cameras, alarms, warnings, danger symbols, threats, protective gear, barricades, crime-related imagery, disaster imagery, surveillance equipment. The greater the presence and prominence of these elements, the higher the index. Use increments of 0.1.
-- comfort_index: A decimal number from 0.0 to 1.0 representing the presence of comforting imagery. 0.0 = no comfort imagery present, 1.0 = heavy presence of comfort imagery. Analyze for: beds, blankets, pillows, cozy furniture, warm lighting (golden/soft lights), fireplaces, hot beverages (coffee/tea), soft textures, plush materials, relaxing environments, home settings, gentle colors, peaceful scenes. The greater the presence and prominence of these comforting elements, the higher the index. Use increments of 0.1.
-- category: A short category label (MAXIMUM 5 words) that describes the product/service category or industry footprint of the advertisement. Examples: "kitchen appliances", "beauty cosmetics", "gaming hardware", "fitness equipment", "fast food", "automotive", "financial services", "streaming entertainment", "mobile apps", "fashion clothing", etc. Be specific but concise. Use lowercase.
-- scene: An open-ended description of the primary scene/location/setting shown in the image. Examples: "park", "library", "office", "kitchen", "city street", "beach", "gym", "store", "living room", "car interior", "outdoor nature", "restaurant", "bedroom", "studio", etc. Be brief and descriptive. Use lowercase.
-- Other criteria same as video analysis
+ANALYSIS CRITERIA:
+{criteria_str}
 
-Analyze each image independently based on text, colors, and visual elements."""
+{image_prompt['instruction']}
+
+IMPORTANT: Use the image index (0, 1, 2, etc.) as the JSON key, not the filename."""
     
     return prompt
 
@@ -390,7 +413,7 @@ if __name__ == "__main__":
     print(f"\nAnalyzed {len(video_results)} videos")
     
     # Analyze images in batches
-    image_results = batch_analyze_images(preprocessed_data, batch_size=10)
+    image_results = batch_analyze_images(preprocessed_data, batch_size=5)
     print(f"Analyzed {len(image_results)} images")
     
     # Combine results

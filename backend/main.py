@@ -13,6 +13,49 @@ from video_preprocessing import preprocess_video
 from batch_analysis import batch_analyze_videos, batch_analyze_images
 
 
+def compress_image_for_gemini(image_path: str, max_size_kb: int = 500) -> str:
+    """
+    Compress image for Gemini API (max 500KB).
+    Returns path to compressed image or original if compression not needed.
+    """
+    try:
+        current_size_kb = os.path.getsize(image_path) / 1024
+        
+        # If already small enough, return original
+        if current_size_kb <= max_size_kb:
+            return image_path
+        
+        # Create compressed version
+        output_path = image_path.replace('.png', '_compressed.png')
+        
+        with Image.open(image_path) as img:
+            # Calculate compression ratio needed
+            compression_ratio = max_size_kb / current_size_kb
+            
+            # Try quality-based compression first
+            quality = max(int(95 * compression_ratio), 10)
+            img.save(output_path, 'PNG', optimize=True, quality=quality)
+            
+            # If still too large, resize
+            if os.path.getsize(output_path) / 1024 > max_size_kb:
+                # Calculate new dimensions
+                scale_factor = (max_size_kb / (os.path.getsize(output_path) / 1024)) ** 0.5
+                new_width = int(img.width * scale_factor)
+                new_height = int(img.height * scale_factor)
+                
+                # Resize and save
+                img_resized = img.resize((new_width, new_height), Image.Resampling.LANCZOS)
+                img_resized.save(output_path, 'PNG', optimize=True, quality=85)
+            
+            compressed_size_kb = os.path.getsize(output_path) / 1024
+            print(f"   Compressed image: {current_size_kb:.1f}KB → {compressed_size_kb:.1f}KB")
+            return output_path
+            
+    except Exception as e:
+        print(f"   Warning: Image compression failed: {e}")
+        return image_path
+
+
 def compress_video_for_gemini(input_path: str, max_size_mb: int = 2) -> str:
     """
     Compress video for Gemini API (max 2MB, 720p).
@@ -111,6 +154,11 @@ def process_zip_file(zip_path: str) -> tuple[Dict[str, Dict[str, Any]], str]:
                     img_start = time.time()
                     with Image.open(file_path) as img:
                         results[filename] = extract_image_features(img)
+                    
+                    # Compress image for batch analysis
+                    compressed_path = compress_image_for_gemini(file_path)
+                    results[filename]['_temp_file_path'] = compressed_path
+                    
                     img_time = time.time() - img_start
                     print(f"   Completed image preprocessing ({img_time:.2f}s)")
 
@@ -189,8 +237,8 @@ if __name__ == "__main__":
         from concurrent.futures import ThreadPoolExecutor, as_completed
         
         with ThreadPoolExecutor(max_workers=2) as executor:
-            video_future = executor.submit(batch_analyze_videos, results, 3)
-            image_future = executor.submit(batch_analyze_images, results, 10)
+            video_future = executor.submit(batch_analyze_videos, results, 2)  # Reduced from 3
+            image_future = executor.submit(batch_analyze_images, results, 3)  # Reduced from 5
             
             # Get results as they complete
             video_results = video_future.result()

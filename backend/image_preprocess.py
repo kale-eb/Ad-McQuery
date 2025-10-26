@@ -62,14 +62,6 @@ def extract_image_features(image: Image.Image) -> Dict[str, Any]:
             text_elements.append({
                 'text': text,
                 'confidence': confidence,
-                'bbox': {
-                    'x': ocr_data['left'][i],
-                    'y': ocr_data['top'][i],
-                    'width': width,
-                    'height': height
-                },
-                'area': area,
-                'relative_size': relative_size,
                 'prominence_score': prominence_score
             })
 

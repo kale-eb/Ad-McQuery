@@ -306,7 +306,34 @@
       "most_prominent_text": "McCaffrey",
       "most_prominent_score": 2.457995606393455
     },
-    "analysis_error": "Failed to get Gemini analysis"
+    "product_visibility_score": "High",
+    "negative_space_ratio": "Medium",
+    "color_palette": [
+      "#E0DDDB",
+      "#463E3A",
+      "#8D9094",
+      "#334A60",
+      "#000000"
+    ],
+    "age_demographic": "adult",
+    "gender_demographic": "male",
+    "verbosity": "medium",
+    "activity": "sedentary",
+    "call_to_action_level": "2",
+    "formality_level": "3",
+    "benefit_framing": "social_proof",
+    "temporal_urgency_intensity": "1",
+    "scene_setting": "studio setting with blurred background",
+    "fear_index": 0.0,
+    "comfort_index": 0.2,
+    "humor_index": 0.0,
+    "success_index": 0.4,
+    "love_index": 0.0,
+    "family_index": 0.0,
+    "adventure_index": 0.0,
+    "nostalgia_index": 0.0,
+    "health_index": 0.0,
+    "luxury_index": 0.8
   },
   "i0009.png": {
     "metadata": {
@@ -537,7 +564,34 @@
       "most_prominent_text": "relief",
       "most_prominent_score": 36.35074822788133
     },
-    "analysis_error": "Failed to get Gemini analysis"
+    "product_visibility_score": "High",
+    "negative_space_ratio": "Medium",
+    "color_palette": [
+      "#43464C",
+      "#958B86",
+      "#C5E9EA",
+      "#4A9C9E",
+      "#7BA6D7"
+    ],
+    "age_demographic": "adult",
+    "gender_demographic": "male",
+    "verbosity": "medium",
+    "activity": "sedentary",
+    "call_to_action_level": "1",
+    "formality_level": "3",
+    "benefit_framing": "outcome",
+    "temporal_urgency_intensity": "1",
+    "scene_setting": "bedroom",
+    "fear_index": 0.0,
+    "comfort_index": 0.9,
+    "humor_index": 0.0,
+    "success_index": 0.0,
+    "love_index": 0.0,
+    "family_index": 0.0,
+    "adventure_index": 0.0,
+    "nostalgia_index": 0.0,
+    "health_index": 0.8,
+    "luxury_index": 0.2
   },
   "i0008.png": {
     "metadata": {
@@ -885,7 +939,34 @@
       "most_prominent_text": "10%",
       "most_prominent_score": 18.19559525643
     },
-    "analysis_error": "Failed to get Gemini analysis"
+    "product_visibility_score": "High",
+    "negative_space_ratio": "Medium",
+    "color_palette": [
+      "#D2D2D2",
+      "#4D5E79",
+      "#8C8C8C",
+      "#F6F6F6",
+      "#C9343B"
+    ],
+    "age_demographic": "adult",
+    "gender_demographic": "N/A",
+    "verbosity": "medium",
+    "activity": "sedentary",
+    "call_to_action_level": "2",
+    "formality_level": "3",
+    "benefit_framing": "feature",
+    "temporal_urgency_intensity": "1",
+    "scene_setting": "studio/abstract background",
+    "fear_index": 0.0,
+    "comfort_index": 0.7,
+    "humor_index": 0.0,
+    "success_index": 0.0,
+    "love_index": 0.0,
+    "family_index": 0.0,
+    "adventure_index": 0.3,
+    "nostalgia_index": 0.0,
+    "health_index": 0.5,
+    "luxury_index": 0.0
   },
   "i0006.png": {
     "metadata": {
@@ -1415,7 +1496,34 @@
       "most_prominent_text": "DOUBLE",
       "most_prominent_score": 89.50236279069767
     },
-    "analysis_error": "Failed to get Gemini analysis"
+    "product_visibility_score": "High",
+    "negative_space_ratio": "Medium",
+    "color_palette": [
+      "#F7C82B",
+      "#D5A76B",
+      "#000000",
+      "#D9AD2C",
+      "#F78F56"
+    ],
+    "age_demographic": "adult",
+    "gender_demographic": "N/A",
+    "verbosity": "medium",
+    "activity": "sedentary",
+    "call_to_action_level": "2",
+    "formality_level": "2",
+    "benefit_framing": "feature",
+    "temporal_urgency_intensity": "2",
+    "scene_setting": "studio food display",
+    "fear_index": 0.0,
+    "comfort_index": 0.5,
+    "humor_index": 0.2,
+    "success_index": 0.0,
+    "love_index": 0.0,
+    "family_index": 0.0,
+    "adventure_index": 0.0,
+    "nostalgia_index": 0.0,
+    "health_index": 0.0,
+    "luxury_index": 0.0
   },
   "i0012.png": {
     "metadata": {
@@ -1945,7 +2053,34 @@
       "most_prominent_text": "Scholarship",
       "most_prominent_score": 19.18292073018255
     },
-    "analysis_error": "Failed to get Gemini analysis"
+    "product_visibility_score": "Medium",
+    "negative_space_ratio": "High",
+    "color_palette": [
+      "#2E6B4B",
+      "#F5F5F5",
+      "#000000",
+      "#F1B71E",
+      "#D9312E"
+    ],
+    "age_demographic": "teenage",
+    "gender_demographic": "N/A",
+    "verbosity": "high",
+    "activity": "sedentary",
+    "call_to_action_level": "2",
+    "formality_level": "3",
+    "benefit_framing": "outcome",
+    "temporal_urgency_intensity": "2",
+    "scene_setting": "notebook page on a speckled green background",
+    "fear_index": 0.0,
+    "comfort_index": 0.0,
+    "humor_index": 0.0,
+    "success_index": 0.7,
+    "love_index": 0.0,
+    "family_index": 0.0,
+    "adventure_index": 0.0,
+    "nostalgia_index": 0.0,
+    "health_index": 0.0,
+    "luxury_index": 0.0
   },
   "i0013.png": {
     "metadata": {
@@ -2553,7 +2688,34 @@
       "most_prominent_text": "Insurance",
       "most_prominent_score": 14.552287078392114
     },
-    "analysis_error": "Failed to get Gemini analysis"
+    "product_visibility_score": "Medium",
+    "negative_space_ratio": "Medium",
+    "color_palette": [
+      "#4CAF50",
+      "#FFFFFF",
+      "#3C3C3C",
+      "#EC2E7E",
+      "#E0F2F7"
+    ],
+    "age_demographic": "adult",
+    "gender_demographic": "N/A",
+    "verbosity": "medium",
+    "activity": "sedentary",
+    "call_to_action_level": "2",
+    "formality_level": "4",
+    "benefit_framing": "outcome",
+    "temporal_urgency_intensity": "3",
+    "scene_setting": "A digital interface on a smartphone against a stylized, abstract background with green and white elements.",
+    "fear_index": 0.1,
+    "comfort_index": 0.0,
+    "humor_index": 0.0,
+    "success_index": 0.3,
+    "love_index": 0.0,
+    "family_index": 0.0,
+    "adventure_index": 0.0,
+    "nostalgia_index": 0.0,
+    "health_index": 0.0,
+    "luxury_index": 0.0
   },
   "i0007.png": {
     "metadata": {
@@ -2888,7 +3050,34 @@
       "most_prominent_text": "Sponsored",
       "most_prominent_score": 7.7542137828034985
     },
-    "analysis_error": "Failed to get Gemini analysis"
+    "product_visibility_score": "High",
+    "negative_space_ratio": "High",
+    "color_palette": [
+      "#000000",
+      "#FFFFFF",
+      "#3F8380",
+      "#800080",
+      "#4D8C57"
+    ],
+    "age_demographic": "adult",
+    "gender_demographic": "N/A",
+    "verbosity": "low",
+    "activity": "sedentary",
+    "call_to_action_level": "2",
+    "formality_level": "2",
+    "benefit_framing": "feature",
+    "temporal_urgency_intensity": "1",
+    "scene_setting": "A plain white studio background with a single shoe.",
+    "fear_index": 0.0,
+    "comfort_index": 0.7,
+    "humor_index": 0.0,
+    "success_index": 0.0,
+    "love_index": 0.0,
+    "family_index": 0.0,
+    "adventure_index": 0.4,
+    "nostalgia_index": 0.0,
+    "health_index": 0.3,
+    "luxury_index": 0.0
   },
   "i0011.png": {
     "metadata": {
@@ -3886,7 +4075,34 @@
       "most_prominent_text": "applications,",
       "most_prominent_score": 34.14133264879533
     },
-    "analysis_error": "Failed to get Gemini analysis"
+    "product_visibility_score": "Medium",
+    "negative_space_ratio": "Medium",
+    "color_palette": [
+      "#E73A8F",
+      "#FFFFFF",
+      "#301934",
+      "#4CAF50",
+      "#CCCCCC"
+    ],
+    "age_demographic": "adult",
+    "gender_demographic": "N/A",
+    "verbosity": "high",
+    "activity": "sedentary",
+    "call_to_action_level": "2",
+    "formality_level": "3",
+    "benefit_framing": "outcome",
+    "temporal_urgency_intensity": "2",
+    "scene_setting": "A hand holding a smartphone displaying a chat interface, against a pink/white abstract background.",
+    "fear_index": 0.0,
+    "comfort_index": 0.0,
+    "humor_index": 0.0,
+    "success_index": 0.7,
+    "love_index": 0.0,
+    "family_index": 0.6,
+    "adventure_index": 0.0,
+    "nostalgia_index": 0.0,
+    "health_index": 0.0,
+    "luxury_index": 0.0
   },
   "i0005.png": {
     "metadata": {
@@ -4416,7 +4632,34 @@
       "most_prominent_text": "OKTOBERFEST",
       "most_prominent_score": 22.632781395348836
     },
-    "analysis_error": "Failed to get Gemini analysis"
+    "product_visibility_score": "High",
+    "negative_space_ratio": "Low",
+    "color_palette": [
+      "#D27622",
+      "#FFFFFF",
+      "#F0E6D6",
+      "#FFD700",
+      "#8B0000"
+    ],
+    "age_demographic": "adult",
+    "gender_demographic": "N/A",
+    "verbosity": "low",
+    "activity": "sedentary",
+    "call_to_action_level": "3",
+    "formality_level": "2",
+    "benefit_framing": "feature",
+    "temporal_urgency_intensity": "3",
+    "scene_setting": "Close-up of hands holding a sandwich, with a blurred background.",
+    "fear_index": 0.0,
+    "comfort_index": 0.6,
+    "humor_index": 0.0,
+    "success_index": 0.0,
+    "love_index": 0.0,
+    "family_index": 0.0,
+    "adventure_index": 0.0,
+    "nostalgia_index": 0.1,
+    "health_index": 0.0,
+    "luxury_index": 0.0
   },
   "i0004.png": {
     "metadata": {
@@ -4803,7 +5046,34 @@
       "most_prominent_text": "AMATIC",
       "most_prominent_score": 21.333032287198016
     },
-    "analysis_error": "Failed to get Gemini analysis"
+    "product_visibility_score": "High",
+    "negative_space_ratio": "Medium",
+    "color_palette": [
+      "#A0A0A0",
+      "#000000",
+      "#FFFFFF",
+      "#303030",
+      "#AEC6CF"
+    ],
+    "age_demographic": "adult",
+    "gender_demographic": "N/A",
+    "verbosity": "low",
+    "activity": "sedentary",
+    "call_to_action_level": "1",
+    "formality_level": "4",
+    "benefit_framing": "feature",
+    "temporal_urgency_intensity": "1",
+    "scene_setting": "A sleek silver car (Mercedes-Benz GLE 450 4MATIC Coupe) on an asphalt road with a dark, atmospheric sky.",
+    "fear_index": 0.0,
+    "comfort_index": 0.4,
+    "humor_index": 0.0,
+    "success_index": 0.7,
+    "love_index": 0.0,
+    "family_index": 0.0,
+    "adventure_index": 0.2,
+    "nostalgia_index": 0.0,
+    "health_index": 0.0,
+    "luxury_index": 0.9
   },
   "i0010.png": {
     "metadata": {
@@ -5242,7 +5512,34 @@
       "most_prominent_text": "cooler",
       "most_prominent_score": 34.99212391703859
     },
-    "analysis_error": "Failed to get Gemini analysis"
+    "product_visibility_score": "High",
+    "negative_space_ratio": "Medium",
+    "color_palette": [
+      "#266C7A",
+      "#FFFFFF",
+      "#EAEAEA",
+      "#7F7F7F",
+      "#333333"
+    ],
+    "age_demographic": "adult",
+    "gender_demographic": "N/A",
+    "verbosity": "medium",
+    "activity": "sedentary",
+    "call_to_action_level": "1",
+    "formality_level": "3",
+    "benefit_framing": "feature",
+    "temporal_urgency_intensity": "1",
+    "scene_setting": "A modern bedroom setting with a smart bed.",
+    "fear_index": 0.0,
+    "comfort_index": 0.8,
+    "humor_index": 0.0,
+    "success_index": 0.0,
+    "love_index": 0.0,
+    "family_index": 0.0,
+    "adventure_index": 0.0,
+    "nostalgia_index": 0.0,
+    "health_index": 0.5,
+    "luxury_index": 0.4
   },
   "i0014.png": {
     "metadata": {
@@ -5499,7 +5796,34 @@
       "most_prominent_text": "Insurance",
       "most_prominent_score": 22.86323874546618
     },
-    "analysis_error": "Failed to get Gemini analysis"
+    "product_visibility_score": "Low",
+    "negative_space_ratio": "Medium",
+    "color_palette": [
+      "#2DA8D3",
+      "#66BB33",
+      "#F8F8F8",
+      "#333333",
+      "#7F7F7F"
+    ],
+    "age_demographic": "adult",
+    "gender_demographic": "N/A",
+    "verbosity": "low",
+    "activity": "sedentary",
+    "call_to_action_level": "2",
+    "formality_level": "2",
+    "benefit_framing": "outcome",
+    "temporal_urgency_intensity": "2",
+    "scene_setting": "An illustrated outdoor road scene with a car and palm trees.",
+    "fear_index": 0.0,
+    "comfort_index": 0.0,
+    "humor_index": 0.0,
+    "success_index": 0.0,
+    "love_index": 0.0,
+    "family_index": 0.0,
+    "adventure_index": 0.1,
+    "nostalgia_index": 0.0,
+    "health_index": 0.0,
+    "luxury_index": 0.0
   },
   "i0001.png": {
     "metadata": {
@@ -6094,7 +6418,34 @@
       "most_prominent_text": "MONTH",
       "most_prominent_score": 12.07472359893252
     },
-    "analysis_error": "Failed to get Gemini analysis"
+    "product_visibility_score": "Low",
+    "negative_space_ratio": "Low",
+    "color_palette": [
+      "#1A1A1A",
+      "#D82A27",
+      "#FDD901",
+      "#505050",
+      "#FFFFFF"
+    ],
+    "age_demographic": "adult",
+    "gender_demographic": "female",
+    "verbosity": "high",
+    "activity": "dynamic",
+    "call_to_action_level": "3",
+    "formality_level": "2",
+    "benefit_framing": "outcome",
+    "temporal_urgency_intensity": "3",
+    "scene_setting": "A bustling gym with people exercising.",
+    "fear_index": 0.0,
+    "comfort_index": 0.0,
+    "humor_index": 0.0,
+    "success_index": 0.4,
+    "love_index": 0.0,
+    "family_index": 0.0,
+    "adventure_index": 0.0,
+    "nostalgia_index": 0.0,
+    "health_index": 0.8,
+    "luxury_index": 0.0
   },
   "i0015.png": {
     "metadata": {
@@ -6806,7 +7157,34 @@
       "most_prominent_text": "Paleovalley",
       "most_prominent_score": 9.4208
     },
-    "analysis_error": "Failed to get Gemini analysis"
+    "product_visibility_score": "High",
+    "negative_space_ratio": "Medium",
+    "color_palette": [
+      "#4B91C9",
+      "#C2937A",
+      "#E8E8E8",
+      "#333333",
+      "#FFFFFF"
+    ],
+    "age_demographic": "adult",
+    "gender_demographic": "female",
+    "verbosity": "high",
+    "activity": "sedentary",
+    "call_to_action_level": "2",
+    "formality_level": "2",
+    "benefit_framing": "feature",
+    "temporal_urgency_intensity": "1",
+    "scene_setting": "An indoor home setting, possibly a kitchen or living room.",
+    "fear_index": 0.0,
+    "comfort_index": 0.0,
+    "humor_index": 0.0,
+    "success_index": 0.0,
+    "love_index": 0.0,
+    "family_index": 0.0,
+    "adventure_index": 0.0,
+    "nostalgia_index": 0.0,
+    "health_index": 0.7,
+    "luxury_index": 0.2
   },
   "i0003.png": {
     "metadata": {
@@ -7180,7 +7558,34 @@
       "most_prominent_text": "2,000\"",
       "most_prominent_score": 15.898601530400693
     },
-    "analysis_error": "Failed to get Gemini analysis"
+    "product_visibility_score": "High",
+    "negative_space_ratio": "Medium",
+    "color_palette": [
+      "#222222",
+      "#FFFFFF",
+      "#00A0E2",
+      "#6A6A6A",
+      "#D0D0D0"
+    ],
+    "age_demographic": "adult",
+    "gender_demographic": "N/A",
+    "verbosity": "medium",
+    "activity": "sedentary",
+    "call_to_action_level": "1",
+    "formality_level": "4",
+    "benefit_framing": "feature",
+    "temporal_urgency_intensity": "1",
+    "scene_setting": "An outdoor setting, possibly a showroom or dealership lot, with two commercial vans.",
+    "fear_index": 0.0,
+    "comfort_index": 0.0,
+    "humor_index": 0.0,
+    "success_index": 0.5,
+    "love_index": 0.0,
+    "family_index": 0.0,
+    "adventure_index": 0.0,
+    "nostalgia_index": 0.0,
+    "health_index": 0.0,
+    "luxury_index": 0.5
   },
   "i0017.png": {
     "metadata": {
@@ -7476,7 +7881,34 @@
       "most_prominent_text": "craftsmanship",
       "most_prominent_score": 4.261150273404045
     },
-    "analysis_error": "Failed to get Gemini analysis"
+    "product_visibility_score": "High",
+    "negative_space_ratio": "Medium",
+    "color_palette": [
+      "#FFFFFF",
+      "#000000",
+      "#DAA520",
+      "#C0C0C0",
+      "#808080"
+    ],
+    "age_demographic": "adult",
+    "gender_demographic": "male",
+    "verbosity": "low",
+    "activity": "sedentary",
+    "call_to_action_level": 2,
+    "formality_level": 3,
+    "benefit_framing": "outcome",
+    "temporal_urgency_intensity": 1,
+    "scene_setting": "product showcase on a plain background",
+    "fear_index": 0.0,
+    "comfort_index": 0.0,
+    "humor_index": 0.0,
+    "success_index": 0.0,
+    "love_index": 0.0,
+    "family_index": 0.0,
+    "adventure_index": 0.0,
+    "nostalgia_index": 0.0,
+    "health_index": 0.0,
+    "luxury_index": 0.9
   },
   "i0016.png": {
     "metadata": {
@@ -8682,7 +9114,34 @@
       "most_prominent_text": "paleovalley",
       "most_prominent_score": 5.556815627107636
     },
-    "analysis_error": "Failed to get Gemini analysis"
+    "product_visibility_score": "Low",
+    "negative_space_ratio": "Medium",
+    "color_palette": [
+      "#000000",
+      "#FFFFFF",
+      "#1E90FF",
+      "#36454F",
+      "#D3D3D3"
+    ],
+    "age_demographic": "adult",
+    "gender_demographic": "N/A",
+    "verbosity": "high",
+    "activity": "sedentary",
+    "call_to_action_level": 3,
+    "formality_level": 2,
+    "benefit_framing": "feature",
+    "temporal_urgency_intensity": 1,
+    "scene_setting": "digital advertisement on a black background",
+    "fear_index": 0.0,
+    "comfort_index": 0.0,
+    "humor_index": 0.1,
+    "success_index": 0.0,
+    "love_index": 0.0,
+    "family_index": 0.0,
+    "adventure_index": 0.0,
+    "nostalgia_index": 0.0,
+    "health_index": 0.8,
+    "luxury_index": 0.0
   },
   "i0002.png": {
     "metadata": {
@@ -9316,37 +9775,65 @@
       "most_prominent_text": "Sponsored",
       "most_prominent_score": 6.126554894537588
     },
-    "analysis_error": "Failed to get Gemini analysis"
+    "product_visibility_score": "Low",
+    "negative_space_ratio": "Low",
+    "color_palette": [
+      "#FFFFFF",
+      "#000000",
+      "#DC143C",
+      "#FF8C00",
+      "#228B22"
+    ],
+    "age_demographic": "adult",
+    "gender_demographic": "N/A",
+    "verbosity": "high",
+    "activity": "sedentary",
+    "call_to_action_level": 3,
+    "formality_level": 2,
+    "benefit_framing": "feature",
+    "temporal_urgency_intensity": 3,
+    "scene_setting": "digital advertisement displaying membership options/pricing",
+    "fear_index": 0.0,
+    "comfort_index": 0.0,
+    "humor_index": 0.1,
+    "success_index": 0.4,
+    "love_index": 0.0,
+    "family_index": 0.0,
+    "adventure_index": 0.0,
+    "nostalgia_index": 0.0,
+    "health_index": 0.9,
+    "luxury_index": 0.0
   },
   "v0005.mp4": {
     "resolution": "720x900",
     "aspect_ratio": "4:5",
     "length": 15.02,
-    "main_product": "Children's clothing line by Abercrombie & Fitch",
+    "main_product": "Abercrombie Kids clothing line",
     "targeting_type": "first_impression",
     "verbosity": "low",
     "target_age_range": "35-50",
-    "target_income_level": "mid-high income",
+    "target_income_level": "middle to upper-middle class",
     "target_geographic_area": "N/A",
     "target_interests": [
-      "fashion for children",
-      "family activities",
-      "comfort clothing"
+      "parenting",
+      "children's fashion",
+      "comfortable clothing"
     ],
     "hook_rating": 3,
     "purchase_urgency": "low",
     "message_types": [
       "emotional_appeal",
-      "storytelling"
+      "storytelling",
+      "demonstration"
     ],
     "product_visibility_score": "high",
     "visual_density": "medium",
     "color_palette": [
-      "#E0E0E0",
-      "#6D9EC0",
-      "#A88F7B",
-      "#454B52",
-      "#D5A09F"
+      "#EAEAEA",
+      "#B48E66",
+      "#3E659A",
+      "#F0CEDF",
+      "#A81F28"
     ],
     "age_demographic": "child",
     "gender_demographic": "other",
@@ -9354,76 +9841,40 @@
     "music_intensity": "medium",
     "fear_index": 0.0,
     "comfort_index": 0.7,
-    "humor_index": 0.0,
+    "humor_index": 0.1,
     "success_index": 0.0,
-    "love_index": 0.6,
+    "love_index": 0.2,
     "family_index": 0.8,
     "adventure_index": 0.0,
-    "nostalgia_index": 0.0,
-    "health_index": 0.0,
+    "nostalgia_index": 0.1,
+    "health_index": 0.1,
     "luxury_index": 0.2,
     "scene_cuts": [
       0.0,
-      0.5,
-      1.0,
+      0.4,
+      0.9,
       1.4,
-      1.9,
-      2.1,
-      2.5,
-      2.7,
-      3.1,
-      3.5,
-      3.8,
-      4.1,
-      4.3,
-      4.5,
-      4.8,
-      5.0,
+      1.8,
+      2.3,
+      2.8,
+      3.3,
+      3.7,
+      4.2,
+      4.7,
       5.2,
-      5.5,
       5.7,
-      5.8,
-      6.0,
       6.2,
-      6.5,
-      6.8,
-      7.1,
-      7.4,
-      7.7,
-      8.0,
-      8.2,
-      8.5,
-      8.8,
-      9.1,
-      9.4,
-      9.7,
-      10.0,
-      10.2,
-      10.5,
-      10.7,
-      11.0,
-      11.3,
-      11.6,
-      11.8,
-      12.1,
-      12.4,
-      12.7,
-      13.0,
-      13.2,
-      13.5,
-      13.7,
-      14.0,
-      14.3,
-      14.6
+      6.7
     ],
     "visual_motifs": [
       "plaid patterns",
-      "beanie hats",
-      "smiling children"
+      "cozy knitwear",
+      "children playing"
     ],
     "scene_settings": [
       "indoor studio with plain backdrops",
-      "indoor studio with wooden wall"
+      "indoor studio with wooden panel backdrop",
+      "indoor studio with plaid floor"
     ]
   },
   "v0011.mp4": {
@@ -9433,13 +9884,13 @@
     "main_product": "Laffy Taffy candy",
     "targeting_type": "first_impression",
     "verbosity": "high",
-    "target_age_range": "35-50",
-    "target_income_level": "low-mid to mid-income",
+    "target_age_range": "25-35",
+    "target_income_level": "mass market",
     "target_geographic_area": "N/A",
     "target_interests": [
-      "humor",
-      "snack foods",
-      "family fun"
+      "comedy",
+      "casual gatherings",
+      "sweet treats"
     ],
     "hook_rating": 4,
     "purchase_urgency": "medium",
@@ -9448,97 +9899,47 @@
       "demonstration",
       "problem_solution"
     ],
-    "product_visibility_score": "high",
+    "product_visibility_score": "medium",
     "visual_density": "medium",
     "color_palette": [
-      "#E8BA45",
-      "#64B0C7",
-      "#F771BB",
-      "#509D3E",
-      "#AE52C8"
+      "#598E2E",
+      "#97D3DF",
+      "#FBE446",
+      "#E6498F",
+      "#3F2615"
     ],
     "age_demographic": "adult",
-    "gender_demographic": "other",
+    "gender_demographic": "male",
     "activity_level": "sedentary",
     "music_intensity": "low",
     "fear_index": 0.0,
-    "comfort_index": 0.5,
-    "humor_index": 0.9,
+    "comfort_index": 0.7,
+    "humor_index": 1.0,
     "success_index": 0.0,
     "love_index": 0.0,
-    "family_index": 0.7,
+    "family_index": 0.5,
     "adventure_index": 0.0,
     "nostalgia_index": 0.0,
     "health_index": 0.0,
     "luxury_index": 0.0,
     "scene_cuts": [
       0.0,
-      0.1,
-      0.3,
-      0.4,
-      0.6,
-      0.8,
-      1.0,
-      1.3,
       1.6,
-      1.8,
-      2.1,
-      2.4,
-      2.7,
-      3.0,
       3.2,
-      3.5,
-      3.8,
-      4.1,
-      4.3,
-      4.6,
-      4.9,
-      5.1,
-      5.4,
-      5.7,
-      5.9,
-      6.2,
-      6.4,
-      6.7,
-      7.0,
-      7.2,
-      7.5,
-      7.7,
-      8.0,
-      8.2,
-      8.5,
-      8.8,
-      9.0,
-      9.3,
-      9.5,
-      9.8,
-      10.0,
-      10.3,
-      10.6,
-      10.8,
-      11.1,
-      11.4,
-      11.6,
-      11.9,
-      12.1,
-      12.4,
-      12.7,
-      12.9,
-      13.2,
-      13.5,
-      13.7,
-      14.0,
-      14.3,
-      14.5,
-      14.8
+      4.4,
+      5.8,
+      7.3,
+      9.1,
+      10.4,
+      12.0
     ],
     "visual_motifs": [
-      "Laffy Taffy wrappers with jokes",
-      "colorful clothing",
-      "backyard party setting"
+      "Laffy Taffy wrappers",
+      "backyard party setting",
+      "expressions of humor"
     ],
     "scene_settings": [
-      "outdoor backyard party"
+      "suburban backyard party"
     ]
   },
   "v0010.mp4": {
@@ -9547,37 +9948,37 @@
     "length": 15.0,
     "main_product": "Laffy Taffy candy",
     "targeting_type": "first_impression",
-    "verbosity": "high",
-    "target_age_range": "adult",
-    "target_income_level": "low-mid to mid-income",
+    "verbosity": "medium",
+    "target_age_range": "teenage",
+    "target_income_level": "mass market",
     "target_geographic_area": "N/A",
     "target_interests": [
       "humor",
-      "snack foods",
+      "candy",
       "social media trends"
     ],
-    "hook_rating": 4,
-    "purchase_urgency": "medium",
+    "hook_rating": 5,
+    "purchase_urgency": "low",
     "message_types": [
       "humor",
-      "demonstration"
+      "storytelling"
     ],
     "product_visibility_score": "high",
-    "visual_density": "medium",
+    "visual_density": "low",
     "color_palette": [
-      "#6A0DAD",
-      "#E040FB",
-      "#1E90FF",
+      "#8A2BE2",
+      "#FF69B4",
       "#FFFFFF",
-      "#000000"
+      "#3B00FF",
+      "#6ECBF2"
     ],
     "age_demographic": "N/A",
     "gender_demographic": "N/A",
-    "activity_level": "N/A",
-    "music_intensity": "medium",
+    "activity_level": "dynamic",
+    "music_intensity": "high",
     "fear_index": 0.0,
     "comfort_index": 0.0,
-    "humor_index": 0.8,
+    "humor_index": 1.0,
     "success_index": 0.0,
     "love_index": 0.0,
     "family_index": 0.0,
@@ -9587,34 +9988,35 @@
     "luxury_index": 0.0,
     "scene_cuts": [
       0.0,
-      4.9,
-      8.8,
+      4.5,
+      8.9,
       11.2
     ],
     "visual_motifs": [
-      "spinning candy wrapper",
-      "joke text overlays",
-      "butterfly/butter stick animation"
+      "purple background",
+      "pink candy wrapper",
+      "text jokes",
+      "animated butter-flies"
     ],
     "scene_settings": [
-      "minimalist studio with solid purple background",
-      "animated urban street"
+      "abstract purple background",
+      "urban city street (CGI/animation)"
     ]
   },
   "v0004.mp4": {
     "resolution": "720x1280",
     "aspect_ratio": "9:16",
     "length": 13.73,
-    "main_product": "Abercrombie & Fitch hooded sweatshirts and casual wear",
+    "main_product": "Abercrombie & Fitch hoodies and sweatpants",
     "targeting_type": "first_impression",
     "verbosity": "low",
     "target_age_range": "18-35",
-    "target_income_level": "mid",
-    "target_geographic_area": "N/A",
+    "target_income_level": "medium income",
+    "target_geographic_area": "Urban/Suburban areas",
     "target_interests": [
-      "fashion",
-      "casual wear",
-      "comfort"
+      "Casual fashion",
+      "Comfort wear",
+      "Streetwear"
     ],
     "hook_rating": 3,
     "purchase_urgency": "low",
@@ -9625,15 +10027,15 @@
     "product_visibility_score": "high",
     "visual_density": "medium",
     "color_palette": [
-      "#457A5C",
-      "#E8E3D7",
-      "#A39E99",
-      "#6D6D6D",
-      "#B35848"
+      "#3A694F",
+      "#E2DBD2",
+      "#BDBBB9",
+      "#72625D",
+      "#2F2F2F"
     ],
     "age_demographic": "adult",
     "gender_demographic": "male",
-    "activity_level": "dynamic",
+    "activity_level": "sedentary",
     "music_intensity": "medium",
     "fear_index": 0.0,
     "comfort_index": 0.8,
@@ -9644,58 +10046,60 @@
     "adventure_index": 0.0,
     "nostalgia_index": 0.0,
     "health_index": 0.0,
-    "luxury_index": 0.1,
+    "luxury_index": 0.0,
     "scene_cuts": [
-      0.5,
-      1.1,
-      2.4,
-      3.4,
-      4.9,
-      5.8,
-      6.8,
-      8.2,
-      9.1,
-      10.1,
-      11.1
+      0.0,
+      1.0,
+      2.0,
+      3.0,
+      4.0,
+      5.0,
+      6.0,
+      7.0,
+      8.0,
+      9.0,
+      10.0,
+      11.0
     ],
     "visual_motifs": [
-      "A&F logo",
-      "contact sheet style layouts",
-      "ESSENTIAL FOR A REASON text"
+      "NY Yankees cap",
+      "Plaid patterns",
+      "Contact sheet style photo frames"
     ],
     "scene_settings": [
-      "indoor studio"
+      "Indoor studio",
+      "Bedroom setting"
     ]
   },
   "v0012.mp4": {
     "resolution": "1080x1920",
     "aspect_ratio": "9:16",
     "length": 11.93,
-    "main_product": "Dominos Pizza $9.99 pizzas",
+    "main_product": "Domino's $9.99 pizza delivery service",
     "targeting_type": "first_impression",
-    "verbosity": "high",
-    "target_age_range": "18-35",
-    "target_income_level": "low to mid",
+    "verbosity": "low",
+    "target_age_range": "18-25",
+    "target_income_level": "low to medium income",
     "target_geographic_area": "N/A",
     "target_interests": [
-      "fast food",
-      "pizza",
-      "memes"
+      "Fast food",
+      "Online gaming",
+      "Meme culture"
     ],
-    "hook_rating": 5,
+    "hook_rating": 4,
     "purchase_urgency": "medium",
     "message_types": [
       "humor",
       "problem_solution"
     ],
     "product_visibility_score": "medium",
-    "visual_density": "medium",
+    "visual_density": "high",
     "color_palette": [
-      "#201A18",
-      "#C67F37",
+      "#A3642D",
       "#FFFFFF",
-      "#E0012B",
-      "#0B3A69"
+      "#CD1A2B",
+      "#003F6F",
+      "#FFFBFC"
     ],
     "age_demographic": "N/A",
     "gender_demographic": "N/A",
@@ -9707,81 +10111,94 @@
     "success_index": 0.0,
     "love_index": 0.0,
     "family_index": 0.0,
-    "adventure_index": 0.2,
+    "adventure_index": 0.3,
     "nostalgia_index": 0.0,
     "health_index": 0.0,
     "luxury_index": 0.0,
-    "scene_cuts": [],
+    "scene_cuts": [
+      0.0,
+      1.0,
+      2.0,
+      3.0,
+      4.0,
+      5.0,
+      6.0,
+      7.0,
+      8.0,
+      9.0,
+      10.0
+    ],
     "visual_motifs": [
-      "spinning car",
-      "light tunnel",
+      "Octagonal tunnel",
+      "Rotating car",
       "Domino's logo"
     ],
     "scene_settings": [
-      "sci-fi tunnel/wormhole"
+      "Futuristic tunnel"
     ]
   },
   "v0006.mp4": {
     "resolution": "1080x1916",
     "aspect_ratio": "270:479",
     "length": 11.13,
-    "main_product": "Wonder food hall delivery app",
+    "main_product": "Wonder Food Hall app delivery service",
     "targeting_type": "first_impression",
     "verbosity": "high",
-    "target_age_range": "25-45",
-    "target_income_level": "mid to high",
-    "target_geographic_area": "urban settings",
+    "target_age_range": "25-50",
+    "target_income_level": "medium income",
+    "target_geographic_area": "Urban areas",
     "target_interests": [
-      "food delivery",
-      "convenience",
-      "dining"
+      "Food delivery",
+      "Meal planning",
+      "Culinary experiences"
     ],
     "hook_rating": 3,
     "purchase_urgency": "medium",
     "message_types": [
       "problem_solution",
-      "demonstration",
-      "storytelling"
+      "demonstration"
     ],
     "product_visibility_score": "high",
     "visual_density": "medium",
     "color_palette": [
       "#FFFFFF",
-      "#3C6A4F",
-      "#D1C7C1",
-      "#000000",
-      "#D5737C"
+      "#4F7F53",
+      "#8C7B70",
+      "#FDD559",
+      "#1D1D1D"
     ],
     "age_demographic": "adult",
     "gender_demographic": "female",
     "activity_level": "dynamic",
     "music_intensity": "medium",
     "fear_index": 0.0,
-    "comfort_index": 0.4,
+    "comfort_index": 0.6,
     "humor_index": 0.0,
     "success_index": 0.0,
-    "love_index": 0.2,
+    "love_index": 0.0,
     "family_index": 0.3,
     "adventure_index": 0.0,
     "nostalgia_index": 0.0,
-    "health_index": 0.2,
-    "luxury_index": 0.1,
+    "health_index": 0.4,
+    "luxury_index": 0.0,
     "scene_cuts": [
-      0.4,
-      1.0,
-      2.1,
-      3.8,
-      6.0,
-      7.5
+      0.0,
+      0.09,
+      0.09,
+      0.16,
+      0.21,
+      0.28,
+      0.33,
+      0.4
     ],
     "visual_motifs": [
-      "Wonder bag",
-      "phone displaying the Wonder app",
-      "various food items"
+      "Wonder app interface",
+      "Food bags",
+      "Varied food items"
     ],
     "scene_settings": [
-      "urban street",
-      "indoor home/kitchen setting"
+      "City street",
+      "Indoor apartment/home"
     ]
   },
   "v0007.mp4": {
@@ -9790,30 +10207,29 @@
     "length": 12.03,
     "main_product": "Seamless food delivery service",
     "targeting_type": "first_impression",
-    "verbosity": "medium",
+    "verbosity": "low",
     "target_age_range": "25-50",
-    "target_income_level": "mid-to-high income",
-    "target_geographic_area": "urban/suburban areas",
+    "target_income_level": "medium to high income",
+    "target_geographic_area": "urban and suburban areas",
     "target_interests": [
-      "food delivery",
-      "convenience",
-      "dining out"
+      "Food",
+      "Convenience",
+      "Dining out"
     ],
     "hook_rating": 4,
     "purchase_urgency": "medium",
     "message_types": [
       "demonstration",
-      "problem_solution",
       "emotional_appeal"
     ],
     "product_visibility_score": "high",
     "visual_density": "medium",
     "color_palette": [
-      "#E87612",
-      "#F0EBE7",
-      "#503223",
-      "#9C27B0",
-      "#FFD700"
+      "#E8761A",
+      "#BF5936",
+      "#E9E1E3",
+      "#F3DC5F",
+      "#9F01A2"
     ],
     "age_demographic": "adult",
     "gender_demographic": "female",
@@ -9827,54 +10243,58 @@
     "family_index": 0.0,
     "adventure_index": 0.0,
     "nostalgia_index": 0.0,
-    "health_index": 0.2,
-    "luxury_index": 0.1,
+    "health_index": 0.1,
+    "luxury_index": 0.0,
     "scene_cuts": [
       0.0,
-      2.4,
-      4.8,
-      8.5,
-      10.7
+      0.02,
+      0.03,
+      0.05,
+      0.06,
+      0.08,
+      0.09,
+      0.1
     ],
     "visual_motifs": [
-      "close-ups of food",
-      "hands with nail polish and rings"
+      "Appetizing food close-ups",
+      "Hands interacting with food",
+      "Disposable food packaging"
     ],
     "scene_settings": [
-      "indoor restaurant/cafe setting",
-      "home dining table"
+      "Indoor casual dining setting",
+      "Tabletop"
     ]
   },
   "v0013.mp4": {
     "resolution": "720x480",
     "aspect_ratio": "3:2",
     "length": 14.9,
-    "main_product": "Domino's Pizza 9.99 Best Deal Ever",
+    "main_product": "Domino's Pizza 'Best Deal Ever' promotion",
     "targeting_type": "first_impression",
     "verbosity": "high",
-    "target_age_range": "18-35",
-    "target_income_level": "low-to-mid income",
-    "target_geographic_area": "national/widespread regional",
+    "target_age_range": "18-50",
+    "target_income_level": "low to medium income",
+    "target_geographic_area": "national",
     "target_interests": [
-      "fast food",
-      "pizza",
-      "deals/value"
+      "Food",
+      "Value shopping",
+      "Convenience"
     ],
-    "hook_rating": 5,
+    "hook_rating": 4,
     "purchase_urgency": "high",
     "message_types": [
       "demonstration",
-      "problem_solution",
-      "emotional_appeal"
+      "emotional_appeal",
+      "problem_solution"
     ],
     "product_visibility_score": "high",
     "visual_density": "high",
     "color_palette": [
-      "#E4002B",
-      "#FFC600",
-      "#620000",
-      "#204C00",
-      "#FFFFFF"
+      "#E20A16",
+      "#F7D04B",
+      "#FFFFFF",
+      "#4A4A4A",
+      "#7FB92E"
     ],
     "age_demographic": "adult",
     "gender_demographic": "N/A",
@@ -9892,60 +10312,62 @@
     "luxury_index": 0.0,
     "scene_cuts": [
       0.0,
-      1.8,
-      3.8,
-      6.7,
-      8.5,
-      9.8,
-      10.5,
-      11.0,
-      11.5,
-      12.1
+      0.01,
+      0.02,
+      0.04,
+      0.06,
+      0.07,
+      0.08,
+      0.09,
+      0.1,
+      0.11,
+      0.12,
+      0.13
     ],
     "visual_motifs": [
-      "pizza slices with cheese pull",
-      "abundant toppings",
-      "split screen effects"
+      "Melty cheese pulls",
+      "Various pizza toppings",
+      "People eating pizza"
     ],
     "scene_settings": [
-      "indoor kitchen/dining area",
-      "indoor studio",
-      "inside a car"
+      "Kitchen",
+      "Car interior",
+      "Indoor home setting",
+      "Studio setting"
     ]
   },
   "v0017.mp4": {
     "resolution": "720x900",
     "aspect_ratio": "4:5",
     "length": 15.47,
-    "main_product": "Shein women's long cardigans/hooded jackets",
+    "main_product": "Shein long cardigans/hooded coats",
     "targeting_type": "first_impression",
     "verbosity": "low",
     "target_age_range": "18-35",
-    "target_income_level": "low-to-mid income",
-    "target_geographic_area": "UK/Europe (and global)",
+    "target_income_level": "low to medium income",
+    "target_geographic_area": "global/UK",
     "target_interests": [
-      "fashion",
-      "online shopping",
-      "affordable clothing"
+      "Fashion",
+      "Online shopping",
+      "Budget shopping"
     ],
-    "hook_rating": 3,
-    "purchase_urgency": "high",
+    "hook_rating": 2,
+    "purchase_urgency": "medium",
     "message_types": [
-      "demonstration",
-      "emotional_appeal"
+      "demonstration"
     ],
     "product_visibility_score": "high",
     "visual_density": "medium",
     "color_palette": [
-      "#D1C4B4",
-      "#2E3333",
-      "#E2B7C8",
-      "#5F6D6C",
+      "#F5EFE8",
+      "#B9A596",
+      "#000000",
+      "#D191A7",
       "#FFFFFF"
     ],
     "age_demographic": "adult",
     "gender_demographic": "female",
-    "activity_level": "dynamic",
+    "activity_level": "sedentary",
     "music_intensity": "medium",
     "fear_index": 0.0,
     "comfort_index": 0.6,
@@ -9959,51 +10381,52 @@
     "luxury_index": 0.0,
     "scene_cuts": [
       0.0,
-      1.8,
-      3.4,
-      5.1,
-      7.9,
-      9.6,
-      12.0
+      0.01,
+      0.03,
+      0.05,
+      0.07,
+      0.09,
+      0.11
     ],
     "visual_motifs": [
-      "split screen with two model poses",
-      "quick color changes of garments"
+      "Repeated garment design",
+      "Color variations of clothing",
+      "Fashion poses/models"
     ],
     "scene_settings": [
-      "indoor studio/minimalist room"
+      "Indoor home setting",
+      "Studio setting"
     ]
   },
   "v0003.mp4": {
     "resolution": "1920x1080",
     "aspect_ratio": "16:9",
     "length": 15.0,
-    "main_product": "Formula 1 tickets",
+    "main_product": "Formula 1 event tickets",
     "targeting_type": "first_impression",
     "verbosity": "high",
     "target_age_range": "25-50",
-    "target_income_level": "middle to high income",
-    "target_geographic_area": "Global",
+    "target_income_level": "medium to high",
+    "target_geographic_area": "Global (F1 race locations)",
     "target_interests": [
-      "Motorsports",
-      "Travel",
-      "Live events"
+      "motorsports",
+      "Formula 1",
+      "live events"
     ],
     "hook_rating": 4,
     "purchase_urgency": "high",
     "message_types": [
       "emotional_appeal",
-      "problem_solution",
       "demonstration"
     ],
-    "product_visibility_score": "medium",
+    "product_visibility_score": "high",
     "visual_density": "high",
     "color_palette": [
-      "#000000",
+      "#454545",
       "#FFFFFF",
-      "#DC3545",
-      "#0A69D6",
-      "#6C757D"
+      "#DC0000",
+      "#005B82",
+      "#00FF00"
     ],
     "age_demographic": "N/A",
     "gender_demographic": "N/A",
@@ -10012,7 +10435,7 @@
     "fear_index": 0.0,
     "comfort_index": 0.0,
     "humor_index": 0.0,
-    "success_index": 0.0,
+    "success_index": 0.7,
     "love_index": 0.0,
     "family_index": 0.0,
     "adventure_index": 0.8,
@@ -10020,31 +10443,32 @@
     "health_index": 0.0,
     "luxury_index": 0.6,
     "scene_cuts": [
-      0.0
+      0.0,
+      14.9
     ],
     "visual_motifs": [
-      "F1 racing cars",
-      "speed lines/blur",
-      "track curbs"
+      "F1 race cars",
+      "racing track",
+      "speed lines/motion blur"
     ],
     "scene_settings": [
-      "Formula 1 racetrack"
+      "outdoor F1 racetrack"
     ]
   },
   "v0002.mp4": {
     "resolution": "720x720",
     "aspect_ratio": "1:1",
     "length": 15.02,
-    "main_product": "Alcon Precision1 contact lenses and prescription glasses",
+    "main_product": "Precision1 contact lenses and prescription glasses",
     "targeting_type": "first_impression",
-    "verbosity": "medium",
+    "verbosity": "high",
     "target_age_range": "18-35",
-    "target_income_level": "middle income",
-    "target_geographic_area": "General/National",
+    "target_income_level": "medium",
+    "target_geographic_area": "Local (Target stores), broad US",
     "target_interests": [
-      "Fashion",
-      "Active lifestyle",
-      "Socializing"
+      "fashion",
+      "social events",
+      "active lifestyle"
     ],
     "hook_rating": 3,
     "purchase_urgency": "high",
@@ -10054,84 +10478,82 @@
       "emotional_appeal"
     ],
     "product_visibility_score": "high",
-    "visual_density": "medium",
+    "visual_density": "medium to high",
     "color_palette": [
-      "#9933CC",
-      "#F3E9FF",
-      "#0099CC",
-      "#4ECDC4",
-      "#FFFFFF"
+      "#D1C4E9",
+      "#8E24AA",
+      "#2196F3",
+      "#00BCD4",
+      "#FFCA28"
     ],
     "age_demographic": "adult",
     "gender_demographic": "female",
     "activity_level": "dynamic",
     "music_intensity": "medium",
     "fear_index": 0.0,
-    "comfort_index": 0.3,
+    "comfort_index": 0.4,
     "humor_index": 0.0,
-    "success_index": 0.1,
-    "love_index": 0.1,
-    "family_index": 0.0,
-    "adventure_index": 0.1,
+    "success_index": 0.3,
+    "love_index": 0.0,
+    "family_index": 0.2,
+    "adventure_index": 0.0,
     "nostalgia_index": 0.0,
-    "health_index": 0.4,
+    "health_index": 0.5,
     "luxury_index": 0.0,
     "scene_cuts": [
       0.0,
       1.8,
-      3.5,
-      5.5,
+      3.4,
+      5.4,
       7.8,
       11.7
     ],
     "visual_motifs": [
-      "Polaroid photos",
+      "polaroid photos",
       "purple hair",
-      "smiling faces"
+      "contact lens/glasses"
     ],
     "scene_settings": [
-      "flat lay studio",
-      "bar/karaoke lounge",
+      "indoor karaoke bar",
       "living room",
-      "rooftop/outdoor urban setting",
-      "race course/outdoor event",
-      "product display studio"
+      "outdoor rooftop",
+      "indoor studio"
     ]
   },
   "v0016.mp4": {
     "resolution": "720x900",
     "aspect_ratio": "4:5",
     "length": 15.23,
-    "main_product": "Skincare products from various trending brands on Shein",
+    "main_product": "CeraVe skincare products (part of Shein's 1000+ Brand Markdowns promotion)",
     "targeting_type": "first_impression",
-    "verbosity": "low",
+    "verbosity": "medium",
     "target_age_range": "18-35",
-    "target_income_level": "low to middle income",
+    "target_income_level": "low to medium",
     "target_geographic_area": "Global",
     "target_interests": [
-      "Skincare",
-      "Beauty",
-      "Online shopping"
+      "skincare",
+      "beauty products",
+      "online shopping"
     ],
     "hook_rating": 3,
     "purchase_urgency": "high",
     "message_types": [
       "demonstration",
-      "emotional_appeal"
+      "problem_solution"
     ],
     "product_visibility_score": "high",
-    "visual_density": "high",
+    "visual_density": "medium",
     "color_palette": [
-      "#0D1B2A",
+      "#0A1D54",
       "#FFD700",
       "#FFFFFF",
-      "#2196F3",
-      "#4CAF50"
+      "#00C4CC",
+      "#4FC3F7"
     ],
     "age_demographic": "N/A",
     "gender_demographic": "N/A",
-    "activity_level": "N/A",
-    "music_intensity": "medium",
+    "activity_level": "dynamic",
+    "music_intensity": "medium to high",
     "fear_index": 0.0,
     "comfort_index": 0.0,
     "humor_index": 0.0,
@@ -10140,26 +10562,25 @@
     "family_index": 0.0,
     "adventure_index": 0.0,
     "nostalgia_index": 0.0,
-    "health_index": 0.4,
-    "luxury_index": 0.1,
+    "health_index": 0.7,
+    "luxury_index": 0.2,
     "scene_cuts": [
       0.0,
-      1.8,
-      3.4,
+      1.0,
+      3.0,
       5.0,
-      6.6,
-      8.2,
-      9.8,
-      11.5
+      7.0,
+      9.0,
+      10.9,
+      12.8
     ],
     "visual_motifs": [
-      "sparkling stars",
-      "speech bubbles",
-      "product rotation"
+      "stars/sparkles/glitter",
+      "product speech bubbles",
+      "CeraVe packaging colors"
     ],
     "scene_settings": [
-      "digital animated background",
-      "product display studio"
+      "digital animation/studio"
     ]
   },
   "v0014.mp4": {
@@ -10168,17 +10589,17 @@
     "length": 15.4,
     "main_product": "Ben & Jerry's Cookie Vermont-ster ice cream",
     "targeting_type": "first_impression",
-    "verbosity": "medium",
-    "target_age_range": "25-35",
-    "target_income_level": "middle income",
-    "target_geographic_area": "General consumer market",
+    "verbosity": "high",
+    "target_age_range": "18-35",
+    "target_income_level": "middle",
+    "target_geographic_area": "N/A",
     "target_interests": [
       "Desserts",
-      "Comfort food",
-      "Pop culture"
+      "Foodies",
+      "Comfort Food"
     ],
     "hook_rating": 3,
-    "purchase_urgency": "low",
+    "purchase_urgency": "medium",
     "message_types": [
       "humor",
       "demonstration"
@@ -10186,58 +10607,70 @@
     "product_visibility_score": "high",
     "visual_density": "medium",
     "color_palette": [
-      "#BEEF7A",
+      "#9FE2BF",
+      "#D3AF9E",
       "#FFFFFF",
-      "#6F8B67",
-      "#1D4E93",
-      "#A6553B"
+      "#4A3C32",
+      "#6D6D6D"
     ],
-    "age_demographic": "adult",
-    "gender_demographic": "female",
-    "activity_level": "sedentary",
+    "age_demographic": "N/A",
+    "gender_demographic": "N/A",
+    "activity_level": "N/A",
     "music_intensity": "low",
     "fear_index": 0.0,
-    "comfort_index": 0.8,
-    "humor_index": 0.7,
+    "comfort_index": 0.7,
+    "humor_index": 0.8,
     "success_index": 0.0,
     "love_index": 0.0,
     "family_index": 0.0,
     "adventure_index": 0.0,
-    "nostalgia_index": 0.5,
+    "nostalgia_index": 0.0,
     "health_index": 0.0,
     "luxury_index": 0.0,
     "scene_cuts": [
       0.0,
-      0.2,
-      2.0,
-      7.7,
-      10.7
+      0.01,
+      0.02,
+      0.03,
+      0.04,
+      0.05,
+      0.06,
+      0.07,
+      0.08,
+      0.09,
+      0.1,
+      0.11,
+      0.12,
+      0.13,
+      0.14,
+      0.15
     ],
     "visual_motifs": [
-      "ice cream scoop",
-      "colorful kitchenware"
+      "Scooping action",
+      "Chocolate flakes",
+      "Layered ice cream texture"
     ],
     "scene_settings": [
-      "modern kitchen counter"
+      "Kitchen counter"
     ]
   },
   "v0015.mp4": {
     "resolution": "1920x1080",
     "aspect_ratio": "16:9",
     "length": 15.01,
-    "main_product": "Olly Women's Multi vitamins and other Olly wellness supplements",
+    "main_product": "Olly gummy vitamins (Women's Multi, Sleep, Probiotic, etc.)",
     "targeting_type": "first_impression",
     "verbosity": "medium",
     "target_age_range": "25-50",
-    "target_income_level": "middle to high income",
-    "target_geographic_area": "General consumer market",
+    "target_income_level": "middle",
+    "target_geographic_area": "N/A",
     "target_interests": [
-      "Health and wellness",
+      "Health & Wellness",
       "Self-care",
-      "Women's health"
+      "Busy lifestyle"
     ],
     "hook_rating": 4,
-    "purchase_urgency": "low",
+    "purchase_urgency": "medium",
     "message_types": [
       "emotional_appeal",
       "problem_solution"
@@ -10245,11 +10678,11 @@
     "product_visibility_score": "high",
     "visual_density": "high",
     "color_palette": [
-      "#EB2764",
-      "#F4C03B",
-      "#FFFFFF",
-      "#6C0A4B",
-      "#925C4D"
+      "#FFC0CB",
+      "#F08080",
+      "#FFD700",
+      "#A020F0",
+      "#40E0D0"
     ],
     "age_demographic": "adult",
     "gender_demographic": "female",
@@ -10258,126 +10691,124 @@
     "fear_index": 0.0,
     "comfort_index": 0.6,
     "humor_index": 0.0,
-    "success_index": 0.3,
+    "success_index": 0.5,
     "love_index": 0.0,
-    "family_index": 0.5,
-    "adventure_index": 0.0,
-    "nostalgia_index": 0.0,
-    "health_index": 0.9,
-    "luxury_index": 0.2,
-    "scene_cuts": [
-      0.0,
-      0.4,
-      1.2,
-      2.0,
-      2.7,
-      4.3,
-      5.0,
-      5.9,
-      6.7,
-      7.1,
-      8.5,
-      9.4,
-      10.8,
-      11.2,
-      11.8,
-      13.9
-    ],
-    "visual_motifs": [
-      "bright color palette",
-      "colorful product bottles",
-      "smiling women"
-    ],
-    "scene_settings": [
-      "modern home interior",
-      "colorful living room",
-      "bright kitchen",
-      "front entryway"
-    ]
-  },
-  "v0001.mp4": {
-    "resolution": "720x720",
-    "aspect_ratio": "1:1",
-    "length": 15.02,
-    "main_product": "Pataday Extra Strength Once Daily Relief eye allergy itch relief drops",
-    "targeting_type": "first_impression",
-    "verbosity": "high",
-    "target_age_range": "35-50",
-    "target_income_level": "middle income",
-    "target_geographic_area": "General consumer market",
-    "target_interests": [
-      "Allergy relief",
-      "Health",
-      "Gardening"
-    ],
-    "hook_rating": 4,
-    "purchase_urgency": "medium",
-    "message_types": [
-      "problem_solution",
-      "demonstration"
-    ],
-    "product_visibility_score": "high",
-    "visual_density": "medium",
-    "color_palette": [
-      "#FFFFFF",
-      "#0A7337",
-      "#DC282C",
-      "#1C69A2",
-      "#F9E5C6"
-    ],
-    "age_demographic": "adult",
-    "gender_demographic": "N/A",
-    "activity_level": "dynamic",
-    "music_intensity": "medium",
-    "fear_index": 0.0,
-    "comfort_index": 0.0,
-    "humor_index": 0.1,
-    "success_index": 0.7,
-    "love_index": 0.0,
-    "family_index": 0.0,
+    "family_index": 0.7,
     "adventure_index": 0.0,
     "nostalgia_index": 0.0,
     "health_index": 0.9,
     "luxury_index": 0.0,
     "scene_cuts": [
       0.0,
-      1.2,
-      2.0,
-      2.7,
-      4.7,
-      5.7,
-      6.7,
-      8.8,
-      10.7,
-      13.0
+      0.01,
+      0.02,
+      0.04,
+      0.05,
+      0.06,
+      0.07,
+      0.08,
+      0.09,
+      0.1,
+      0.11,
+      0.12,
+      0.13
+    ],
+    "visual_motifs": [
+      "Vibrant colors",
+      "Gummy shapes",
+      "Diverse women"
+    ],
+    "scene_settings": [
+      "Modern home living room",
+      "Modern home kitchen",
+      "Home entryway"
+    ]
+  },
+  "v0001.mp4": {
+    "resolution": "720x720",
+    "aspect_ratio": "1:1",
+    "length": 15.02,
+    "main_product": "Pataday Extra Strength Once Daily Relief Eye Allergy Itch Relief",
+    "targeting_type": "first_impression",
+    "verbosity": "high",
+    "target_age_range": "25-50",
+    "target_income_level": "middle",
+    "target_geographic_area": "N/A",
+    "target_interests": [
+      "Allergy Relief",
+      "Outdoor activities",
+      "Pet owners"
+    ],
+    "hook_rating": 4,
+    "purchase_urgency": "high",
+    "message_types": [
+      "problem_solution",
+      "demonstration",
+      "humor"
+    ],
+    "product_visibility_score": "high",
+    "visual_density": "medium",
+    "color_palette": [
+      "#FFFFFF",
+      "#E80000",
+      "#0000FF",
+      "#228B22",
+      "#F5DEB3"
+    ],
+    "age_demographic": "adult",
+    "gender_demographic": "female",
+    "activity_level": "dynamic",
+    "music_intensity": "high",
+    "fear_index": 0.0,
+    "comfort_index": 0.0,
+    "humor_index": 0.3,
+    "success_index": 0.6,
+    "love_index": 0.0,
+    "family_index": 0.0,
+    "adventure_index": 0.0,
+    "nostalgia_index": 0.0,
+    "health_index": 0.8,
+    "luxury_index": 0.0,
+    "scene_cuts": [
+      0.0,
+      0.01,
+      0.02,
+      0.04,
+      0.05,
+      0.06,
+      0.08,
+      0.09,
+      0.11,
+      0.12,
+      0.13
     ],
     "visual_motifs": [
       "\"VS\" graphic",
-      "eye close-ups",
-      "allergen particles (subtle)"
+      "Itchy eye imagery",
+      "Outdoor allergens"
     ],
     "scene_settings": [
-      "suburban house exterior",
-      "home interior",
-      "backyard"
+      "Suburban street with houses",
+      "Indoor living space",
+      "Outdoor close-up"
     ]
   },
   "v0018.mp4": {
     "resolution": "1920x1080",
     "aspect_ratio": "16:9",
     "length": 15.01,
-    "main_product": "Old Spice Swagger Dry Spray and Deodorant",
+    "main_product": "Old Spice Swagger Antiperspirant Dry Spray, Deodorant, and Body Wash",
     "targeting_type": "first_impression",
     "verbosity": "high",
     "target_age_range": "18-35",
-    "target_income_level": "medium income",
-    "target_geographic_area": "urban/suburban areas",
+    "target_income_level": "middle income",
+    "target_geographic_area": "national or international urban/suburban",
     "target_interests": [
-      "sports",
-      "fitness",
-      "personal hygiene"
+      "Sports",
+      "Fitness",
+      "Personal Grooming"
     ],
-    "hook_rating": 3,
+    "hook_rating": 4,
     "purchase_urgency": "medium",
     "message_types": [
       "storytelling",
@@ -10387,11 +10818,11 @@
     "product_visibility_score": "high",
     "visual_density": "medium",
     "color_palette": [
-      "#DA1C22",
-      "#2D588D",
-      "#3B9C3B",
-      "#F7F7F7",
-      "#808080"
+      "#E00000",
+      "#FFFFFF",
+      "#4CAF50",
+      "#204080",
+      "#F0F0D0"
     ],
     "age_demographic": "adult",
     "gender_demographic": "male",
@@ -10399,152 +10830,142 @@
     "music_intensity": "medium",
     "fear_index": 0.0,
     "comfort_index": 0.0,
-    "humor_index": 0.6,
-    "success_index": 0.8,
+    "humor_index": 0.7,
+    "success_index": 0.9,
     "love_index": 0.0,
     "family_index": 0.0,
     "adventure_index": 0.0,
     "nostalgia_index": 0.0,
     "health_index": 0.7,
-    "luxury_index": 0.2,
+    "luxury_index": 0.4,
     "scene_cuts": [
       0.0,
-      0.2,
-      0.5,
-      1.4,
-      2.0,
-      3.8,
-      5.0,
-      6.2,
-      6.9,
-      7.8,
-      8.4,
-      10.9,
-      11.9,
-      12.8
+      0.01,
+      0.02,
+      0.03,
+      0.04,
+      0.05,
+      0.06,
+      0.07,
+      0.08,
+      0.09,
+      0.1,
+      0.11,
+      0.12
     ],
     "visual_motifs": [
-      "soccer ball",
-      "red and white sports attire",
-      "sweat/steam effects"
+      "Soccer ball",
+      "Red team jerseys",
+      "Sweat/effort"
     ],
     "scene_settings": [
-      "soccer field",
-      "locker room/changing area",
-      "large stadium",
-      "outdoor urban street"
+      "Soccer field (urban setting)",
+      "Soccer stadium",
+      "Car interior (night)"
     ]
   },
   "v0019.mp4": {
     "resolution": "720x480",
     "aspect_ratio": "3:2",
     "length": 14.9,
-    "main_product": "Zevo Flying Insect Traps",
+    "main_product": "Zevo Flying Insect Trap",
     "targeting_type": "first_impression",
-    "verbosity": "high",
+    "verbosity": "medium",
     "target_age_range": "25-50",
-    "target_income_level": "medium income",
-    "target_geographic_area": "residential areas",
+    "target_income_level": "middle income",
+    "target_geographic_area": "suburban/residential homes",
     "target_interests": [
-      "home maintenance",
-      "pest control",
-      "clean living"
+      "Home Care",
+      "Gardening",
+      "Pest Control"
     ],
     "hook_rating": 3,
     "purchase_urgency": "medium",
     "message_types": [
       "problem_solution",
-      "demonstration",
-      "emotional_appeal"
+      "demonstration"
     ],
     "product_visibility_score": "high",
     "visual_density": "medium",
     "color_palette": [
-      "#33CCFF",
+      "#20A0FF",
       "#FFFFFF",
-      "#CCCCCC",
-      "#4CAF50",
-      "#8B4513"
+      "#408040",
+      "#000000",
+      "#C0C0C0"
     ],
     "age_demographic": "adult",
     "gender_demographic": "female",
-    "activity_level": "sedentary",
+    "activity_level": "dynamic",
     "music_intensity": "medium",
     "fear_index": 0.2,
-    "comfort_index": 0.5,
-    "humor_index": 0.0,
+    "comfort_index": 0.2,
+    "humor_index": 0.3,
     "success_index": 0.0,
     "love_index": 0.0,
     "family_index": 0.0,
     "adventure_index": 0.0,
     "nostalgia_index": 0.0,
-    "health_index": 0.3,
+    "health_index": 0.1,
     "luxury_index": 0.0,
     "scene_cuts": [
       0.0,
-      0.1,
-      0.4,
-      1.3,
-      2.0,
-      3.2,
-      4.4,
-      5.0,
-      6.0,
-      6.7,
-      8.0,
-      9.0,
-      10.9,
-      12.0
+      0.01,
+      0.02,
+      0.03,
+      0.05,
+      0.08,
+      0.09,
+      0.11
     ],
     "visual_motifs": [
-      "flying insects",
-      "blue glowing light",
-      "indoor plants"
+      "Flying insects (bugs)",
+      "Blue light (from trap)",
+      "Clean home interiors"
     ],
     "scene_settings": [
-      "modern living room",
-      "kitchen",
-      "bathroom"
+      "Modern living room",
+      "Modern kitchen",
+      "Generic indoor space (darkened)"
     ]
   },
   "v0022.mp4": {
     "resolution": "1080x1920",
     "aspect_ratio": "9:16",
     "length": 20.33,
-    "main_product": "Blackjack 3D Game",
+    "main_product": "Blackjack 3D Game (mobile game)",
     "targeting_type": "first_impression",
     "verbosity": "low",
-    "target_age_range": "25-50",
+    "target_age_range": "18-50",
     "target_income_level": "N/A",
-    "target_geographic_area": "global",
+    "target_geographic_area": "N/A",
     "target_interests": [
-      "mobile gaming",
-      "card games",
-      "casino games"
+      "Mobile Gaming",
+      "Card Games",
+      "Casino Games"
     ],
     "hook_rating": 4,
     "purchase_urgency": "high",
     "message_types": [
-      "demonstration",
-      "problem_solution"
+      "demonstration"
     ],
     "product_visibility_score": "high",
-    "visual_density": "medium",
+    "visual_density": "high",
     "color_palette": [
-      "#006699",
-      "#FFFFFF",
-      "#FFD700",
-      "#800080",
-      "#00FF00"
+      "#000080",
+      "#000000",
+      "#FF0000",
+      "#00FF00",
+      "#FFD700"
     ],
-    "age_demographic": "adult",
+    "age_demographic": "N/A",
     "gender_demographic": "N/A",
-    "activity_level": "sedentary",
-    "music_intensity": "low",
+    "activity_level": "N/A",
+    "music_intensity": "medium",
     "fear_index": 0.0,
     "comfort_index": 0.0,
     "humor_index": 0.0,
-    "success_index": 0.7,
+    "success_index": 0.8,
     "love_index": 0.0,
     "family_index": 0.0,
     "adventure_index": 0.0,
@@ -10553,63 +10974,74 @@
     "luxury_index": 0.6,
     "scene_cuts": [
       0.0,
-      17.9
+      0.005,
+      0.01,
+      0.015,
+      0.03,
+      0.04,
+      0.06,
+      0.07,
+      0.08,
+      0.11,
+      0.13,
+      0.17
     ],
     "visual_motifs": [
-      "playing cards",
-      "casino chips",
-      "blackjack table layout"
+      "Playing cards",
+      "Casino chips",
+      "Blackjack table layout"
     ],
     "scene_settings": [
-      "virtual casino blackjack table"
+      "Blackjack casino table (animated)"
     ]
   },
   "v0023.mp4": {
     "resolution": "720x1280",
     "aspect_ratio": "9:16",
     "length": 7.97,
-    "main_product": "Gym membership or fitness motivation",
+    "main_product": "Gym membership or fitness service",
     "targeting_type": "first_impression",
     "verbosity": "low",
-    "target_age_range": "18-35",
-    "target_income_level": "medium",
+    "target_age_range": "20-64",
+    "target_income_level": "mid-level",
     "target_geographic_area": "N/A",
     "target_interests": [
-      "Fitness",
-      "Health",
-      "Working out"
+      "fitness",
+      "health",
+      "self-improvement"
     ],
     "hook_rating": 3,
-    "purchase_urgency": "low",
+    "purchase_urgency": "medium",
     "message_types": [
-      "emotional_appeal"
+      "emotional_appeal",
+      "problem_solution"
     ],
-    "product_visibility_score": "medium",
+    "product_visibility_score": "high",
     "visual_density": "medium",
     "color_palette": [
-      "#1C1C1C",
+      "#363636",
       "#FFFFFF",
-      "#F44336",
-      "#4CAF50",
-      "#E0E0E0"
+      "#FF0000",
+      "#00FF00",
+      "#FEE000"
     ],
     "age_demographic": "N/A",
     "gender_demographic": "N/A",
-    "activity_level": "sedentary",
+    "activity_level": "N/A",
     "music_intensity": "low",
     "fear_index": 0.0,
     "comfort_index": 0.0,
     "humor_index": 0.0,
-    "success_index": 0.0,
+    "success_index": 0.1,
     "love_index": 0.0,
     "family_index": 0.0,
     "adventure_index": 0.0,
     "nostalgia_index": 0.0,
-    "health_index": 0.5,
+    "health_index": 0.8,
     "luxury_index": 0.0,
     "scene_cuts": [],
     "visual_motifs": [
-      "phone call interface",
+      "phone call interface elements",
       "gym equipment"
     ],
     "scene_settings": [
@@ -10620,16 +11052,16 @@
     "resolution": "720x576",
     "aspect_ratio": "5:4",
     "length": 14.7,
-    "main_product": "Amazon Prime Big Deal Days sales event",
+    "main_product": "Amazon Prime Big Deal Days (sales event)",
     "targeting_type": "first_impression",
     "verbosity": "medium",
-    "target_age_range": "25-50",
-    "target_income_level": "medium",
+    "target_age_range": "20-64",
+    "target_income_level": "mid-to-lower-middle",
     "target_geographic_area": "N/A",
     "target_interests": [
-      "Shopping",
-      "Home improvement",
-      "Deals and discounts"
+      "shopping",
+      "home improvement",
+      "deal hunting"
     ],
     "hook_rating": 4,
     "purchase_urgency": "high",
@@ -10637,22 +11069,22 @@
       "humor",
       "demonstration"
     ],
-    "product_visibility_score": "high",
+    "product_visibility_score": "medium",
     "visual_density": "medium",
     "color_palette": [
-      "#D4B889",
+      "#D4AC64",
       "#FFFFFF",
-      "#0066CC",
-      "#333333",
-      "#9E6C3B"
+      "#808080",
+      "#2F4F4F",
+      "#0000FF"
     ],
     "age_demographic": "adult",
     "gender_demographic": "male",
     "activity_level": "dynamic",
     "music_intensity": "high",
     "fear_index": 0.0,
-    "comfort_index": 0.3,
-    "humor_index": 0.7,
+    "comfort_index": 0.5,
+    "humor_index": 0.8,
     "success_index": 0.0,
     "love_index": 0.0,
     "family_index": 0.0,
@@ -10662,43 +11094,41 @@
     "luxury_index": 0.0,
     "scene_cuts": [
       0.0,
-      1.3,
-      4.2,
-      5.5,
-      6.0,
-      6.6,
-      8.6,
-      10.4,
-      11.6
+      0.02,
+      0.04,
+      0.07,
+      0.08,
+      0.09,
+      0.11,
+      0.12
     ],
     "visual_motifs": [
       "Amazon box",
-      "dust clouds",
-      "dancing with vacuum"
+      "dust/dirt cloud (stylized)",
+      "dancing/exaggerated movement"
     ],
     "scene_settings": [
-      "modern home living room",
-      "modern home kitchen",
-      "home staircase",
-      "blue studio background"
+      "modern living room",
+      "kitchen",
+      "staircase"
     ]
   },
   "v0009.mp4": {
     "resolution": "1280x720",
     "aspect_ratio": "16:9",
     "length": 15.01,
-    "main_product": "Chevrolet Silverado Trail Boss truck",
+    "main_product": "Chevrolet Silverado Trail Boss and Z71 Suspension",
     "targeting_type": "first_impression",
     "verbosity": "low",
-    "target_age_range": "35-50",
-    "target_income_level": "high",
-    "target_geographic_area": "N/A",
+    "target_age_range": "25-50",
+    "target_income_level": "mid-to-high",
+    "target_geographic_area": "broad, rural or outdoor access",
     "target_interests": [
-      "Automotive",
-      "Off-roading",
-      "Family activities"
+      "off-roading",
+      "automotive",
+      "outdoors"
     ],
-    "hook_rating": 3,
+    "hook_rating": 4,
     "purchase_urgency": "low",
     "message_types": [
       "demonstration",
@@ -10707,42 +11137,45 @@
     "product_visibility_score": "high",
     "visual_density": "low",
     "color_palette": [
-      "#7C7A6D",
-      "#1A1A1A",
-      "#BF953F",
-      "#F0F0F0",
-      "#4A4A4A"
+      "#4E4E4E",
+      "#8C7755",
+      "#2B352E",
+      "#F0D800",
+      "#FFFFFF"
     ],
     "age_demographic": "adult",
     "gender_demographic": "male",
     "activity_level": "dynamic",
     "music_intensity": "medium",
     "fear_index": 0.0,
-    "comfort_index": 0.6,
+    "comfort_index": 0.3,
     "humor_index": 0.0,
     "success_index": 0.0,
     "love_index": 0.0,
-    "family_index": 0.7,
-    "adventure_index": 0.5,
+    "family_index": 0.5,
+    "adventure_index": 0.7,
     "nostalgia_index": 0.0,
     "health_index": 0.0,
-    "luxury_index": 0.3,
+    "luxury_index": 0.2,
     "scene_cuts": [
       0.0,
-      0.9,
-      3.8,
-      6.7,
-      8.8,
-      10.1,
-      11.2
+      0.0,
+      0.03,
+      0.06,
+      0.08,
+      0.09,
+      0.1,
+      0.12
     ],
     "visual_motifs": [
+      "Chevrolet logo",
       "dirt roads",
-      "bare trees",
-      "Chevrolet logo"
+      "rugged terrain",
+      "car suspension"
     ],
     "scene_settings": [
-      "forest dirt trail",
+      "forest road",
+      "off-road trail",
       "car interior"
     ]
   },
@@ -10755,14 +11188,14 @@
     "verbosity": "medium",
     "target_age_range": "25-50",
     "target_income_level": "middle to upper-middle income",
-    "target_geographic_area": "National/Global",
+    "target_geographic_area": "National",
     "target_interests": [
-      "Automotive technology",
-      "Sustainable living",
-      "Road trips/Travel"
+      "electric vehicles",
+      "sustainable living",
+      "road trips"
     ],
     "hook_rating": 3,
-    "purchase_urgency": "low",
+    "purchase_urgency": "medium",
     "message_types": [
       "demonstration",
       "problem_solution"
@@ -10770,11 +11203,11 @@
     "product_visibility_score": "high",
     "visual_density": "medium",
     "color_palette": [
-      "#2267B8",
+      "#337AB7",
       "#FFFFFF",
-      "#5F992E",
-      "#F7D42C",
-      "#9BA3A7"
+      "#6B9B37",
+      "#9E9E9E",
+      "#FFC000"
     ],
     "age_demographic": "adult",
     "gender_demographic": "male",
@@ -10782,98 +11215,93 @@
     "music_intensity": "medium",
     "fear_index": 0.0,
     "comfort_index": 0.0,
-    "humor_index": 0.1,
+    "humor_index": 0.0,
     "success_index": 0.0,
     "love_index": 0.0,
     "family_index": 0.0,
     "adventure_index": 0.3,
     "nostalgia_index": 0.0,
     "health_index": 0.0,
-    "luxury_index": 0.3,
+    "luxury_index": 0.2,
     "scene_cuts": [
-      1.7,
-      2.0,
-      4.2,
-      5.7,
-      6.8,
-      9.5,
-      10.9
+      1.8,
+      6.0,
+      6.7
     ],
     "visual_motifs": [
-      "Text overlays for features",
-      "Chevy logo",
-      "Green foliage"
+      "electric charging port",
+      "Chevrolet emblem",
+      "countryside roads"
     ],
     "scene_settings": [
-      "Car charging port",
-      "Ice cream shop exterior",
-      "Rural road"
+      "car charging station",
+      "roadside ice cream stand",
+      "country road"
     ]
   },
   "v0020.mp4": {
     "resolution": "1920x1080",
     "aspect_ratio": "16:9",
     "length": 15.01,
-    "main_product": "Amazon Prime Big Deal Days",
-    "targeting_type": "first_impression",
+    "main_product": "Amazon Prime Big Deal Days Sale Event",
+    "targeting_type": "retargeting",
     "verbosity": "medium",
     "target_age_range": "25-50",
-    "target_income_level": "middle income",
-    "target_geographic_area": "National/Global",
+    "target_income_level": "middle to upper-middle income",
+    "target_geographic_area": "National",
     "target_interests": [
-      "Shopping",
-      "Home cooking/Culinary",
-      "Deals/Discounts"
+      "online shopping",
+      "cooking",
+      "deals and discounts"
     ],
     "hook_rating": 3,
     "purchase_urgency": "high",
     "message_types": [
-      "problem_solution",
+      "demonstration",
       "emotional_appeal",
       "storytelling"
     ],
     "product_visibility_score": "medium",
     "visual_density": "medium",
     "color_palette": [
-      "#FFFFFF",
-      "#0076CE",
       "#8B4513",
-      "#000000",
-      "#4CAF50"
+      "#FFFFFF",
+      "#0000FF",
+      "#008000",
+      "#000000"
     ],
     "age_demographic": "adult",
     "gender_demographic": "female",
     "activity_level": "dynamic",
     "music_intensity": "medium",
     "fear_index": 0.0,
-    "comfort_index": 0.2,
-    "humor_index": 0.0,
-    "success_index": 0.2,
+    "comfort_index": 0.4,
+    "humor_index": 0.1,
+    "success_index": 0.0,
     "love_index": 0.0,
-    "family_index": 0.1,
+    "family_index": 0.0,
     "adventure_index": 0.0,
     "nostalgia_index": 0.0,
     "health_index": 0.3,
-    "luxury_index": 0.0,
+    "luxury_index": 0.1,
     "scene_cuts": [
-      0.2,
-      0.4,
-      0.8,
-      1.0,
-      1.3,
-      1.6,
-      1.9,
-      2.4
+      2.8,
+      4.5,
+      7.0,
+      8.1,
+      9.2,
+      9.9,
+      11.7
     ],
     "visual_motifs": [
       "Amazon package",
-      "Chopped vegetables",
-      "Clean kitchen aesthetic"
+      "kitchen knife set",
+      "colorful vegetables"
     ],
     "scene_settings": [
-      "Modern kitchen",
-      "Dining table",
-      "Blue graphic screen"
+      "modern kitchen",
+      "dining table",
+      "digital graphics"
     ]
   }
 }
